@@ -1,4 +1,4 @@
 tls:
   certificates:
-    - certFile: C:\etc\traefik\certs\_wildcard.blueprint.localhost.pem
-      keyFile: C:\etc\traefik\certs\_wildcard.blueprint.localhost-key.pem
+    - certFile: C:\etc\traefik\certs\_wildcard.blueprint.de.pem
+      keyFile: C:\etc\traefik\certs\_wildcard.blueprint.de-key.pem

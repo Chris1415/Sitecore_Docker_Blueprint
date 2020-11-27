@@ -76,7 +76,7 @@ try {
     }
     Write-Host "Generating Traefik TLS certificate..." -ForegroundColor Green
     & $mkcert -install
-    & $mkcert "*.blueprint.localhost"
+    & $mkcert "*.blueprint.de"
 }
 catch {
     Write-Error "An error occurred while attempting to generate TLS certificate: $_" -ForegroundColor Red
@@ -92,10 +92,10 @@ finally {
 
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 
-Add-HostsEntry "cm.blueprint.localhost"
-Add-HostsEntry "cd.blueprint.localhost"
-Add-HostsEntry "id.blueprint.localhost"
-Add-HostsEntry "www.blueprint.localhost"
+Add-HostsEntry "cm.blueprint.de"
+Add-HostsEntry "cd.blueprint.de"
+Add-HostsEntry "id.blueprint.de"
+Add-HostsEntry "www.blueprint.de"
 
 
 ###############################
@@ -109,13 +109,13 @@ if ($InitEnv) {
     Set-DockerComposeEnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
 
     # CM_HOST
-    Set-DockerComposeEnvFileVariable "CM_HOST" -Value "cm.blueprint.localhost"
+    Set-DockerComposeEnvFileVariable "CM_HOST" -Value "cm.blueprint.de"
 
     # ID_HOST
-    Set-DockerComposeEnvFileVariable "ID_HOST" -Value "id.blueprint.localhost"
+    Set-DockerComposeEnvFileVariable "ID_HOST" -Value "id.blueprint.de"
 
     # RENDERING_HOST
-    Set-DockerComposeEnvFileVariable "RENDERING_HOST" -Value "www.blueprint.localhost"
+    Set-DockerComposeEnvFileVariable "RENDERING_HOST" -Value "www.blueprint.de"
 
     # REPORTING_API_KEY = random 64-128 chars
     Set-DockerComposeEnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial)
