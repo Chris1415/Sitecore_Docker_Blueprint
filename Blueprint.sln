@@ -1,0 +1,230 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Environment", "Environment", "{94ABACE4-44AE-4262-B66A-77CFC1E70E83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{99B21DAA-D0A5-4E63-AC46-14A010115203}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{519A0629-F605-42A9-BBA5-FB35AAF0F316}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{683613C1-D23A-497B-B01E-43F01AD8BD07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItems", ".SolutionItems", "{FAF2C960-E850-4148-8CCE-C55E54BE202A}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		init.ps1 = init.ps1
+		nuget.config = nuget.config
+		sitecore.json = sitecore.json
+		up.ps1 = up.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{D2C7737A-8A42-4F45-93D3-30918503EDF6}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.env = .env
+		docker\azure-pipelines.yml = docker\azure-pipelines.yml
+		docker\clean.ps1 = docker\clean.ps1
+		docker-compose.override.yml = docker-compose.override.yml
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cm", "cm", "{EE32F1AC-785E-45B7-A24C-697181CC79D3}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cm\Dockerfile = docker\build\cm\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{E5DD1C47-A879-4084-AE47-A0802E57F5DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cd", "cd", "{2BCC3D98-800F-4A85-8D4F-BFCDBD11B42F}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cd\Dockerfile = docker\build\cd\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnetsdk", "dotnetsdk", "{1E9EFCCD-C171-4965-8EC5-EC3CEFD489EA}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\dotnetsdk\Dockerfile = docker\build\dotnetsdk\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "id", "id", "{512C2E7F-F2EC-47C9-924A-B0BE17807CA9}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\id\Dockerfile = docker\build\id\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mssql", "mssql", "{FF9412C5-90AA-411C-9CC3-04C0089238C5}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\mssql\Dockerfile = docker\build\mssql\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rendering", "rendering", "{024A1FC6-706C-436E-9285-DB2FFD8F2786}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\rendering\Dockerfile = docker\build\rendering\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{9C40F4CE-361D-4906-978A-88AB7481ECA3}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\solution\Dockerfile = docker\build\solution\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cortexprocessing", "cortexprocessing", "{5A34AC07-ACBF-4F55-8B47-50AA7BD6ECF2}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cortexprocessing\Dockerfile = docker\build\cortexprocessing\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cortexprocessingworker", "cortexprocessingworker", "{8CF517F9-B34B-476E-92E3-5F82A83FB314}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cortexprocessingworker\Dockerfile = docker\build\cortexprocessingworker\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cortexreporting", "cortexreporting", "{EA10365D-33A1-4C75-AA80-4DD92931E8B6}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cortexreporting\Dockerfile = docker\build\cortexreporting\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "prc", "prc", "{F81AFA47-F2B1-422F-8EE4-5DC9537609CE}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\prc\Dockerfile = docker\build\prc\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "redis", "redis", "{5801215F-7E2B-4513-B451-89C258710F7C}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\redis\Dockerfile = docker\build\redis\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rep", "rep", "{27EAD312-A31D-481E-8E9B-99B78D8DB900}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\rep\Dockerfile = docker\build\rep\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solr", "solr", "{86946BBE-24A4-4F19-A61A-C5A0A21A8397}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\solr\Dockerfile = docker\build\solr\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xconnect", "xconnect", "{0041D83B-6B78-47E9-8ED4-93D90E747681}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\xconnect\Dockerfile = docker\build\xconnect\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xdbautomation", "xdbautomation", "{02E4BE79-3010-408F-8F50-6B9DC7A25F69}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\xdbautomation\Dockerfile = docker\build\xdbautomation\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xdbautomationrpt", "xdbautomationrpt", "{113742AB-887E-4172-9EE3-5E00E6EB71BF}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\xdbautomationrpt\Dockerfile = docker\build\xdbautomationrpt\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xdbautomationworker", "xdbautomationworker", "{F7B31A4F-1760-4CB6-A267-7216472E70ED}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\xdbautomationworker\Dockerfile = docker\build\xdbautomationworker\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xdbcollection", "xdbcollection", "{11E91436-EBA9-40D4-A1FF-7C1E5260C8C7}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\xdbcollection\Dockerfile = docker\build\xdbcollection\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xdbrefdata", "xdbrefdata", "{BA2A836A-D183-4D8B-AA27-67EAB575E54B}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\xdbrefdata\Dockerfile = docker\build\xdbrefdata\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xdbsearch", "xdbsearch", "{662ADBD5-7241-4DE7-832E-489EB47CC486}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\xdbsearch\Dockerfile = docker\build\xdbsearch\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xdbsearchworker", "xdbsearchworker", "{D4110FDA-82EB-4006-AD20-32D84EF28253}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\xdbsearchworker\Dockerfile = docker\build\xdbsearchworker\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sitecore", "sitecore", "{E2EAAD6C-1416-4415-A21A-616943AE110A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "identity", "identity", "{D486BF34-3B51-4C15-83A4-DF28709B6A1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blueprint", "Blueprint", "{32DF7928-71EA-4AF4-84C2-4ADA0AE886A0}"
+	ProjectSection(SolutionItems) = preProject
+		src\Project\Blueprint\Blueprint.module.json = src\Project\Blueprint\Blueprint.module.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Environment.Identity", "src\Environment\identity\Blueprint.Environment.Identity.csproj", "{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Environment.Sitecore", "src\Environment\sitecore\Blueprint.Environment.Sitecore.csproj", "{2424E8B4-0111-4306-9603-0D2702EA60C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Project.BlueprintSite.Sitecore", "src\Project\Blueprint\sitecore\Blueprint.Project.BlueprintSite.Sitecore.csproj", "{AD9A7A76-AAE5-4336-9E8F-8327498845D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blueprint.Project.BlueprintSite.Rendering", "src\Project\Blueprint\rendering\Blueprint.Project.BlueprintSite.Rendering.csproj", "{8D8430CB-619F-4391-B86B-8D3383C17EED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Multisite", "Multisite", "{F772BFFF-2119-4564-95E2-2365E5A36D23}"
+	ProjectSection(SolutionItems) = preProject
+		src\Foundation\Multisite\Multisite.module.json = src\Foundation\Multisite\Multisite.module.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2424E8B4-0111-4306-9603-0D2702EA60C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D8430CB-619F-4391-B86B-8D3383C17EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D8430CB-619F-4391-B86B-8D3383C17EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D8430CB-619F-4391-B86B-8D3383C17EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D8430CB-619F-4391-B86B-8D3383C17EED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D2C7737A-8A42-4F45-93D3-30918503EDF6} = {FAF2C960-E850-4148-8CCE-C55E54BE202A}
+		{EE32F1AC-785E-45B7-A24C-697181CC79D3} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{E5DD1C47-A879-4084-AE47-A0802E57F5DB} = {D2C7737A-8A42-4F45-93D3-30918503EDF6}
+		{2BCC3D98-800F-4A85-8D4F-BFCDBD11B42F} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{1E9EFCCD-C171-4965-8EC5-EC3CEFD489EA} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{512C2E7F-F2EC-47C9-924A-B0BE17807CA9} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{FF9412C5-90AA-411C-9CC3-04C0089238C5} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{024A1FC6-706C-436E-9285-DB2FFD8F2786} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{9C40F4CE-361D-4906-978A-88AB7481ECA3} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{5A34AC07-ACBF-4F55-8B47-50AA7BD6ECF2} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{8CF517F9-B34B-476E-92E3-5F82A83FB314} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{EA10365D-33A1-4C75-AA80-4DD92931E8B6} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{F81AFA47-F2B1-422F-8EE4-5DC9537609CE} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{5801215F-7E2B-4513-B451-89C258710F7C} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{27EAD312-A31D-481E-8E9B-99B78D8DB900} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{86946BBE-24A4-4F19-A61A-C5A0A21A8397} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{0041D83B-6B78-47E9-8ED4-93D90E747681} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{02E4BE79-3010-408F-8F50-6B9DC7A25F69} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{113742AB-887E-4172-9EE3-5E00E6EB71BF} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{F7B31A4F-1760-4CB6-A267-7216472E70ED} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{11E91436-EBA9-40D4-A1FF-7C1E5260C8C7} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{BA2A836A-D183-4D8B-AA27-67EAB575E54B} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{662ADBD5-7241-4DE7-832E-489EB47CC486} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{D4110FDA-82EB-4006-AD20-32D84EF28253} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{E2EAAD6C-1416-4415-A21A-616943AE110A} = {94ABACE4-44AE-4262-B66A-77CFC1E70E83}
+		{D486BF34-3B51-4C15-83A4-DF28709B6A1C} = {94ABACE4-44AE-4262-B66A-77CFC1E70E83}
+		{32DF7928-71EA-4AF4-84C2-4ADA0AE886A0} = {683613C1-D23A-497B-B01E-43F01AD8BD07}
+		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA} = {D486BF34-3B51-4C15-83A4-DF28709B6A1C}
+		{2424E8B4-0111-4306-9603-0D2702EA60C5} = {E2EAAD6C-1416-4415-A21A-616943AE110A}
+		{AD9A7A76-AAE5-4336-9E8F-8327498845D1} = {32DF7928-71EA-4AF4-84C2-4ADA0AE886A0}
+		{8D8430CB-619F-4391-B86B-8D3383C17EED} = {32DF7928-71EA-4AF4-84C2-4ADA0AE886A0}
+		{F772BFFF-2119-4564-95E2-2365E5A36D23} = {99B21DAA-D0A5-4E63-AC46-14A010115203}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1100B2C6-7E13-4751-9A8A-4D4C869F31CC}
+	EndGlobalSection
+EndGlobal

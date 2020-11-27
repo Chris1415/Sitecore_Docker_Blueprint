@@ -1,0 +1,32 @@
+{
+  "namespace": "Project.Blueprint",
+  "items": {
+    "includes": [
+	   {
+        "name": "layouts",
+        "path": "/sitecore/layout/Layouts/Project/Blueprint"
+      },
+      {
+        "name": "forms",
+        "path": "/sitecore/Forms/Blueprint"
+      },
+      {
+        "name": "dictionary",
+        "path": "/sitecore/system/Dictionary/Blueprint"
+      },
+      {
+        "name": "templates",
+        "path": "/sitecore/templates/Project/Blueprint"
+      },
+      {
+        "name": "content",
+        "path": "/sitecore/content/Blueprint"
+      },
+      {
+        "name": "apikey",
+        "path": "/sitecore/system/Settings/Services/API Keys/Blueprint"
+      }
+    ]
+  }
+}
+
