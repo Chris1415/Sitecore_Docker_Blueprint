@@ -80,6 +80,8 @@ services:
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-mssql:${SITECORE_VERSION}
         HEADLESS_SERVICES_IMAGE: ${HEADLESS_SERVICES_IMAGE}
+        SPE_IMAGE: ${SPE_IMAGE}
+        SXA_IMAGE: ${SXA_IMAGE}
     volumes:
       - type: bind
         source: .\docker\data\sql
@@ -93,6 +95,7 @@ services:
       context: ./docker/build/solr
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-solr:${SITECORE_VERSION}
+        SXA_IMAGE: ${SXA_IMAGE}
     volumes:
       - type: bind
         source: .\docker\data\solr
@@ -124,6 +127,8 @@ services:
         TOOLS_IMAGE: ${TOOLS_IMAGE}
         MANAGEMENT_SERVICES_IMAGE: ${MANAGEMENT_SERVICES_IMAGE}
         HEADLESS_SERVICES_IMAGE: ${HEADLESS_SERVICES_IMAGE}
+        SPE_IMAGE: ${SPE_IMAGE}
+        SXA_IMAGE: ${SXA_IMAGE}
     depends_on:
       - solution
     volumes:
