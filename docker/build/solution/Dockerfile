@@ -30,6 +30,9 @@ RUN nuget restore -Verbosity quiet
 # Copy remaining source code
 COPY src/ ./src/
 
+# Copy transforms, retaining directory structure
+RUN Invoke-Expression 'robocopy C:\build\src /build/transforms /s /ndl /njh /njs *.xdt'
+
 # Build the Sitecore main platform artifacts
 RUN msbuild .\src\Environment\sitecore\Blueprint.Environment.Sitecore.csproj /p:Configuration=Release /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
 RUN msbuild .\src\Environment\identity\Blueprint.Environment.Identity.csproj /p:Configuration=Release /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
@@ -44,3 +47,4 @@ WORKDIR /artifacts
 COPY --from=builder /build/docker/deploy/sitecore ./sitecore/
 COPY --from=builder /build/docker/deploy/identity/Config ./identity/Config
 COPY --from=builder /build/rendering ./rendering/
+COPY --from=builder /build/transforms ./transforms/
