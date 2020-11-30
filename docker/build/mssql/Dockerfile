@@ -17,7 +17,7 @@ COPY --from=headless_services C:\module\db C:\jss_data
 RUN C:\DeployDatabases.ps1 -ResourcesDirectory C:\jss_data; `
     Remove-Item -Path C:\jss_data -Recurse -Force;
 
-    # Add SPE module
+# Add SPE module
 COPY --from=spe C:\module\db \spe_data
 RUN C:\DeployDatabases.ps1 -ResourcesDirectory C:\spe_data; `
     Remove-Item -Path C:\spe_data -Recurse -Force;

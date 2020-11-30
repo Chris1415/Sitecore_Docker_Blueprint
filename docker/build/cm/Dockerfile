@@ -5,7 +5,11 @@ ARG SOLUTION_IMAGE
 ARG TOOLS_IMAGE
 ARG MANAGEMENT_SERVICES_IMAGE
 ARG HEADLESS_SERVICES_IMAGE
+ARG SXA_IMAGE
+ARG SPE_IMAGE
 
+FROM ${SPE_IMAGE} as spe
+FROM ${SXA_IMAGE} as sxa
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${TOOLS_IMAGE} as tools
 FROM ${MANAGEMENT_SERVICES_IMAGE} AS management_services
@@ -25,7 +29,7 @@ COPY --from=management_services C:\module\cm\content .\
 # SPE
 COPY --from=spe C:\module\cm\content .\
 
-#SxA
+# SxA
 COPY --from=sxa C:\module\cm\content .\
 COPY --from=sxa C:\module\tools C:\module\tools
 RUN C:\module\tools\Initialize-Content.ps1 -TargetPath .\; `
