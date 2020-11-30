@@ -169,6 +169,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "transforms", "transforms", 
 		docker\build\cm\transforms\Web.config.xdt = docker\build\cm\transforms\Web.config.xdt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "transforms", "transforms", "{E1841E58-A49D-4085-A2DB-B148BB282987}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cd\transforms\Web.config.xdt = docker\build\cd\transforms\Web.config.xdt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -229,6 +234,7 @@ Global
 		{8D8430CB-619F-4391-B86B-8D3383C17EED} = {32DF7928-71EA-4AF4-84C2-4ADA0AE886A0}
 		{F772BFFF-2119-4564-95E2-2365E5A36D23} = {99B21DAA-D0A5-4E63-AC46-14A010115203}
 		{93A97D97-6FD9-4978-B8D7-49EAF9EEFED5} = {EE32F1AC-785E-45B7-A24C-697181CC79D3}
+		{E1841E58-A49D-4085-A2DB-B148BB282987} = {2BCC3D98-800F-4A85-8D4F-BFCDBD11B42F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1100B2C6-7E13-4751-9A8A-4D4C869F31CC}
