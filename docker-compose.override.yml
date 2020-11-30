@@ -29,7 +29,7 @@ services:
       args:
         BUILD_CONFIGURATION: ${BUILD_CONFIGURATION}
         BUILD_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-dotnetsdk:${VERSION:-latest}
-      depends_on:
+    depends_on:
       - dotnetsdk
     scale: 0
 
@@ -76,7 +76,7 @@ services:
     build:
       context: ./docker/build/redis
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-redis:${SITECORE_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-redis:${SITECORE_VERSION}
 
   # Mount our SQL data folder and use our custom image with the Headless Services (JSS)
   # module data added. See Dockerfile for details.
@@ -113,7 +113,7 @@ services:
       context: ./docker/build/id
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-id:${SITECORE_VERSION}
-            volumes:
+    volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
@@ -160,8 +160,8 @@ services:
     build:
       context: ./docker/build/cd
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-cd:${SITECORE_VERSION}
-        TOOLING_IMAGE: ${SITECORE_TOOLS_REGISTRY}sitecore-docker-tools-assets:${TOOLS_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-cd:${SITECORE_VERSION}
+        TOOLS_IMAGE: ${TOOLS_IMAGE}
         SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
     depends_on:
       - solution
@@ -179,7 +179,7 @@ services:
     build:
       context: ./docker/build/prc
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-prc:${SITECORE_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-prc:${SITECORE_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
     depends_on:
       - solution
@@ -189,7 +189,7 @@ services:
     build:
       context: ./docker/build/rep
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-rep:${SITECORE_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-rep:${SITECORE_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
     depends_on:
       - solution
@@ -199,7 +199,7 @@ services:
     build:
       context: ./docker/build/xdbcollection
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-xdbcollection:${SITECORE_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-xdbcollection:${SITECORE_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
     depends_on:
       - solution
@@ -209,7 +209,7 @@ services:
     build:
       context: ./docker/build/xdbsearch
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-xdbsearch:${SITECORE_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-xdbsearch:${SITECORE_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
     depends_on:
       - solution
@@ -219,7 +219,7 @@ services:
     build:
       context: ./docker/build/xdbautomation
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-xdbautomation:${SITECORE_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-xdbautomation:${SITECORE_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
     depends_on:
       - solution
@@ -229,28 +229,28 @@ services:
     build:
       context: ./docker/build/xdbautomationrpt
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-xdbautomationrpt:${SITECORE_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-xdbautomationrpt:${SITECORE_VERSION}
 
   cortexprocessing:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp1-cortexprocessing:${VERSION:-latest}
     build:
       context: ./docker/build/cortexprocessing
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-cortexprocessing:${SITECORE_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-cortexprocessing:${SITECORE_VERSION}
 
   cortexreporting:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp1-cortexreporting:${VERSION:-latest}
     build:
       context: ./docker/build/cortexreporting
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-cortexreporting:${SITECORE_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-cortexreporting:${SITECORE_VERSION}
 
   xdbrefdata:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp1-xdbrefdata:${VERSION:-latest}
     build:
       context: ./docker/build/xdbrefdata
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-xdbrefdata:${SITECORE_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-xdbrefdata:${SITECORE_VERSION}
 
   # Use our retagged XConnect Search Indexer image.
   # Configure for a mounted license folder instead of using SITECORE_LICENSE.
@@ -273,7 +273,7 @@ services:
       context: ./docker/build/xdbautomationworker
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp1-xdbautomationworker:${SITECORE_VERSION}
-        volumes:
+    volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment: 
       SITECORE_LICENSE_LOCATION: c:\license\
