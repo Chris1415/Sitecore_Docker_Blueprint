@@ -9,9 +9,7 @@ SharedFields:
   Value: Office/32x32/home.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
-  Value: |
-    {1930BBEB-7805-471A-A3BE-4858AC7CF696}
-    {AD1CB5AB-CB35-4107-BD11-793053B31A38}
+  Value: "{1930BBEB-7805-471A-A3BE-4858AC7CF696}"
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
   Value: "{C51665EC-6662-4BEF-8A04-BE941861BEF7}"
@@ -25,11 +23,11 @@ Languages:
       Value: 20200513T045547Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0aae4b82-19ca-48fd-a253-4487ed518179"
+      Value: "25b36aea-3078-40a3-8db2-221acac1c01d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200604T042414Z
+      Value: 20201226T140547Z

@@ -21,10 +21,6 @@
       {
         "name": "content",
         "path": "/sitecore/content/Blueprint"
-      },
-      {
-        "name": "apikey",
-        "path": "/sitecore/system/Settings/Services/API Keys/Blueprint"
       }
     ]
   }

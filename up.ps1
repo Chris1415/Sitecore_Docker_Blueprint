@@ -56,9 +56,4 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "Opening site..." -ForegroundColor Green
 
 Start-Process https://cm.blueprint.de/sitecore/
-Start-Process https://www.blueprint.de/
-
-Write-Host ""
-Write-Host "Use the following command to monitor your Rendering Host:" -ForegroundColor Green
-Write-Host "docker-compose logs -f rendering"
-Write-Host ""
+Start-Process https://cm.blueprint.de/

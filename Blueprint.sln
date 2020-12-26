@@ -157,8 +157,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Environment.Sitec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Project.BlueprintSite.Sitecore", "src\Project\Blueprint\sitecore\Blueprint.Project.BlueprintSite.Sitecore.csproj", "{AD9A7A76-AAE5-4336-9E8F-8327498845D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blueprint.Project.BlueprintSite.Rendering", "src\Project\Blueprint\rendering\Blueprint.Project.BlueprintSite.Rendering.csproj", "{8D8430CB-619F-4391-B86B-8D3383C17EED}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Multisite", "Multisite", "{F772BFFF-2119-4564-95E2-2365E5A36D23}"
 	ProjectSection(SolutionItems) = preProject
 		src\Foundation\Multisite\Multisite.module.json = src\Foundation\Multisite\Multisite.module.json
@@ -192,10 +190,6 @@ Global
 		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD9A7A76-AAE5-4336-9E8F-8327498845D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8D8430CB-619F-4391-B86B-8D3383C17EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D8430CB-619F-4391-B86B-8D3383C17EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8D8430CB-619F-4391-B86B-8D3383C17EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8D8430CB-619F-4391-B86B-8D3383C17EED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -231,7 +225,6 @@ Global
 		{F8DD20AE-80CA-4958-9467-E24AA81AB2BA} = {D486BF34-3B51-4C15-83A4-DF28709B6A1C}
 		{2424E8B4-0111-4306-9603-0D2702EA60C5} = {E2EAAD6C-1416-4415-A21A-616943AE110A}
 		{AD9A7A76-AAE5-4336-9E8F-8327498845D1} = {32DF7928-71EA-4AF4-84C2-4ADA0AE886A0}
-		{8D8430CB-619F-4391-B86B-8D3383C17EED} = {32DF7928-71EA-4AF4-84C2-4ADA0AE886A0}
 		{F772BFFF-2119-4564-95E2-2365E5A36D23} = {99B21DAA-D0A5-4E63-AC46-14A010115203}
 		{93A97D97-6FD9-4978-B8D7-49EAF9EEFED5} = {EE32F1AC-785E-45B7-A24C-697181CC79D3}
 		{E1841E58-A49D-4085-A2DB-B148BB282987} = {2BCC3D98-800F-4A85-8D4F-BFCDBD11B42F}
