@@ -1,0 +1,33 @@
+{
+  "Name": "Blueprint.Feature.Demo.XConnect.Model.DemoModel",
+  "Version": "1.0",
+  "References": [
+    {
+      "Name": "XConnect",
+      "Version": "1.0"
+    },
+    {
+      "Name": "Sitecore.XConnect.Collection.Model",
+      "Version": "10.0"
+    }
+  ],
+  "Types": {
+    "Blueprint.Feature.Demo.XConnect.Model.DemoFacet": {
+      "Type": "Facet",
+      "BaseType": "Sitecore.XConnect.Facet",
+      "ClrType": "Blueprint.Feature.Demo.XConnect.Model.DemoFacet, Blueprint.Feature.Demo.XConnect, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Properties": {
+        "FavoriteAnimal": {
+          "Type": "String"
+        }
+      }
+    }
+  },
+  "Facets": [
+    {
+      "Target": "Contact",
+      "Name": "DemoFacet",
+      "Type": "Blueprint.Feature.Demo.XConnect.Model.DemoFacet"
+    }
+  ]
+}

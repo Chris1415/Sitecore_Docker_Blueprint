@@ -34,8 +34,9 @@ COPY src/ ./src/
 RUN Invoke-Expression 'robocopy C:\build\src /build/transforms /s /ndl /njh /njs *.xdt'
 
 # Build the Sitecore main platform artifacts
-RUN msbuild .\src\Environment\sitecore\Blueprint.Environment.Sitecore.csproj /p:Configuration=Release /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
-RUN msbuild .\src\Environment\identity\Blueprint.Environment.Identity.csproj /p:Configuration=Release /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
+RUN msbuild .\src\Environment\sitecore\Blueprint.Environment.Sitecore.csproj /p:Configuration=$env:BUILD_CONFIGURATION /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
+RUN msbuild .\src\Environment\identity\Blueprint.Environment.Identity.csproj /p:Configuration=$env:BUILD_CONFIGURATION /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
+RUN msbuild .\src\Environment\xconnect\Blueprint.Environment.XConnect.csproj /p:Configuration=$env:BUILD_CONFIGURATION /restore /m /p:DeployOnBuild=True /p:PublishProfile=Local
 
 # Build the rendering host
 WORKDIR .\src\Project\Blueprint\rendering\
@@ -46,5 +47,6 @@ FROM mcr.microsoft.com/windows/nanoserver:1809
 WORKDIR /artifacts
 COPY --from=builder /build/docker/deploy/sitecore ./sitecore/
 COPY --from=builder /build/docker/deploy/identity/Config ./identity/Config
+COPY --from=builder /build/docker/deploy/xconnect ./xconnect/
 COPY --from=builder /build/rendering ./rendering/
 COPY --from=builder /build/transforms ./transforms/

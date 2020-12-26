@@ -139,16 +139,19 @@ services:
   # Use our retagged XConnect image.
   # Configure for a mounted license folder instead of using SITECORE_LICENSE.
   # Note: XConnect roles expect a folder with license.xml, not the file itself.
-  xconnect:
+xconnect:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-xconnect:${VERSION:-latest}
     build:
       context: ./docker/build/xconnect
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-xconnect:${SITECORE_VERSION}
+        TOOLING_IMAGE: ${SITECORE_TOOLS_REGISTRY}sitecore-docker-tools-assets:${TOOLS_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
+    depends_on:
+      - solution
     volumes:
-      - ${HOST_LICENSE_FOLDER}:c:\license
-    environment: 
-      SITECORE_LICENSE_LOCATION: c:\license\
+      - ${LOCAL_DEPLOY_PATH}\xconnect:C:\deploy
+    entrypoint: powershell -Command "& C:\tools\entrypoints\iis\Development.ps1"
 
   # Use our retagged XConnect Search Indexer image.
   # Configure for a mounted license folder instead of using SITECORE_LICENSE.
