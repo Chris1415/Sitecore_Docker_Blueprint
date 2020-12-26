@@ -97,7 +97,7 @@ services:
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-solr:${SITECORE_VERSION}
         SXA_IMAGE: ${SXA_IMAGE}
-      mem_limit: 1GB
+    mem_limit: 1GB
     volumes:
       - type: bind
         source: .\docker\data\solr
