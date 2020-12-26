@@ -9,8 +9,10 @@ services:
       - "--providers.docker.endpoint=npipe:////./pipe/docker_engine"
       - "--providers.docker.exposedByDefault=false"
       - "--providers.file.directory=C:/etc/traefik/config/dynamic"
+      - "--entryPoints.web.address=:80"
       - "--entryPoints.websecure.address=:443"
     ports:
+      - "8080:80"
       - "443:443"
       - "8079:8080"
     healthcheck:

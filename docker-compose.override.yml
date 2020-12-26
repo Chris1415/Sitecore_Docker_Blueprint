@@ -82,6 +82,7 @@ services:
         HEADLESS_SERVICES_IMAGE: ${HEADLESS_SERVICES_IMAGE}
         SPE_IMAGE: ${SPE_IMAGE}
         SXA_IMAGE: ${SXA_IMAGE}
+    mem_limit: 2GB
     volumes:
       - type: bind
         source: .\docker\data\sql
@@ -96,6 +97,7 @@ services:
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-solr:${SITECORE_VERSION}
         SXA_IMAGE: ${SXA_IMAGE}
+      mem_limit: 1GB
     volumes:
       - type: bind
         source: .\docker\data\solr
