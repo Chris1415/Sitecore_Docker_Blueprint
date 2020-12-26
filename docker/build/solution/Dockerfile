@@ -37,14 +37,9 @@ RUN Invoke-Expression 'robocopy C:\build\src /build/transforms /s /ndl /njh /njs
 RUN msbuild .\src\Environment\sitecore\Blueprint.Environment.Sitecore.csproj /p:Configuration=Release /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
 RUN msbuild .\src\Environment\identity\Blueprint.Environment.Identity.csproj /p:Configuration=Release /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
 
-# Build the rendering host
-WORKDIR .\src\Project\Blueprint\rendering\
-RUN dotnet publish -c $env:BUILD_CONFIGURATION -o /build/rendering --no-restore
-
 # Save the artifacts for copying into other images (see 'cm' and 'rendering' Dockerfiles).
 FROM mcr.microsoft.com/windows/nanoserver:1809
 WORKDIR /artifacts
 COPY --from=builder /build/docker/deploy/sitecore ./sitecore/
 COPY --from=builder /build/docker/deploy/identity/Config ./identity/Config
-COPY --from=builder /build/rendering ./rendering/
 COPY --from=builder /build/transforms ./transforms/

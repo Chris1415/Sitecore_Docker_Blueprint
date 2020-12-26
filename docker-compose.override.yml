@@ -33,43 +33,10 @@ services:
       - dotnetsdk
     scale: 0
 
-  # This is our custom image for an ASP.NET Core Rendering Host.
-  # If target is 'debug', it will use the SDK image as parent and run 'dotnet watch.'
-  # Otherwise, it's a standard ASP.NET Core container. See Dockerfile for details.
-  rendering:
-    container_name: rendering
-    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-rendering:${VERSION:-latest}
-    build:
-      context: ./docker/build/rendering
-      target: ${BUILD_CONFIGURATION}
-      args:
-        DEBUG_PARENT_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-dotnetsdk:${VERSION:-latest}
-        SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
-    volumes:
-      - .\:C:\solution
-    environment:
-      ASPNETCORE_ENVIRONMENT: "Development"
-      ASPNETCORE_URLS: "http://*:80"
-      # These values add to/override ASP.NET Core configuration values.
-      # See rendering host Startup for details.
-      Sitecore__InstanceUri: "http://cm"
-      Sitecore__RenderingHostUri: "https://${RENDERING_HOST}"
-      Sitecore__EnableExperienceEditor: "true"
-    depends_on:
-      - solution
-      - cm
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.rendering-secure.entrypoints=websecure"
-      - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST}`)"
-      - "traefik.http.routers.rendering-secure.tls=true"
-
   # Mount the Traefik configuration and certs.
   traefik:
     volumes:
       - ./docker/traefik:C:/etc/traefik
-    depends_on:
-      - rendering
 
   # Mount our SQL data folder and use our custom image with the Headless Services (JSS)
   # module data added. See Dockerfile for details.
