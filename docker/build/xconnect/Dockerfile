@@ -1,11 +1,11 @@
 # escape=`
 
 ARG PARENT_IMAGE
-ARG TOOLING_IMAGE
+ARG TOOLS_IMAGE
 ARG SOLUTION_IMAGE
 
 FROM ${SOLUTION_IMAGE} as solution
-FROM ${TOOLING_IMAGE} as tooling
+FROM ${TOOLS_IMAGE} as tooling
 FROM ${PARENT_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]

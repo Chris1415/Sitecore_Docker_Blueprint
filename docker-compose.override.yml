@@ -139,55 +139,61 @@ services:
   # Use our retagged XConnect image.
   # Configure for a mounted license folder instead of using SITECORE_LICENSE.
   # Note: XConnect roles expect a folder with license.xml, not the file itself.
-xconnect:
+  xconnect:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-xconnect:${VERSION:-latest}
     build:
       context: ./docker/build/xconnect
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-xconnect:${SITECORE_VERSION}
-        TOOLING_IMAGE: ${SITECORE_TOOLS_REGISTRY}sitecore-docker-tools-assets:${TOOLS_VERSION}
+        TOOLS_IMAGE: ${TOOLS_IMAGE}
         SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
     depends_on:
       - solution
     volumes:
       - ${LOCAL_DEPLOY_PATH}\xconnect:C:\deploy
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license
     entrypoint: powershell -Command "& C:\tools\entrypoints\iis\Development.ps1"
 
-  # Use our retagged XConnect Search Indexer image.
-  # Configure for a mounted license folder instead of using SITECORE_LICENSE.
   xdbsearchworker:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-xdbsearchworker:${VERSION:-latest}
     build:
       context: ./docker/build/xdbsearchworker
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-xdbsearchworker:${SITECORE_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
-    environment: 
-      SITECORE_LICENSE_LOCATION: c:\license\
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license
+    depends_on:
+      - solution
 
-  # Use our retagged Marketing Automation Engine image. 
-  # Configure for a mounted license folder instead of using SITECORE_LICENSE.
   xdbautomationworker:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-xdbautomationworker:${VERSION:-latest}
     build:
       context: ./docker/build/xdbautomationworker
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-xdbautomationworker:${SITECORE_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
     volumes:
-      - ${HOST_LICENSE_FOLDER}:c:\license
-    environment: 
-      SITECORE_LICENSE_LOCATION: c:\license\
+       - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license
+    depends_on:
+      - solution
 
-  # Use our retagged Cortex Processing Engine image.
-  # Configure for a mounted license folder instead of using SITECORE_LICENSE.
   cortexprocessingworker:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-cortexprocessingworker:${VERSION:-latest}
     build:
       context: ./docker/build/cortexprocessingworker
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-cortexprocessingworker:${SITECORE_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
-    environment: 
-      SITECORE_LICENSE_LOCATION: c:\license\
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license
+    depends_on:
+      - solution

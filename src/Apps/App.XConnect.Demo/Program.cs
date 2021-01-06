@@ -11,7 +11,49 @@ namespace App.XConnect.Demo
     {
         static void Main(string[] args)
         {
-            AddContact();
+            Console.Write("(R)ead or (W)rite?");
+            var key = Console.ReadKey();
+            if (key.KeyChar.Equals('w'))
+            {
+                AddContact();
+            }
+            else if (key.KeyChar.Equals('r'))
+            {
+                ReadContact();
+            }
+
+        }
+
+        private static void ReadContact()
+        {
+            using (var client = GetClient())
+            {
+                var contact = new IdentifiedContactReference("domain", "docker.examples");
+
+                var retrievedContact = client.Get(contact, new ContactExpandOptions(new[] { DemoFacet.DefaultFacetKey, PersonalInformation.DefaultFacetKey, EmailAddressList.DefaultFacetKey }));
+
+                Console.WriteLine();
+                Console.WriteLine("Contact: docker.examples");
+                Console.WriteLine("Facets: ");
+                foreach (var facet in retrievedContact.Facets)
+                {
+                    if (facet.Value is DemoFacet)
+                    {
+                        var demoFacet = facet.Value as DemoFacet;
+                        Console.WriteLine("\t" + facet.Key + " | " + demoFacet.FavoriteAnimal);
+                    }
+                    else if (facet.Value is PersonalInformation)
+                    {
+                        var personalInformation = facet.Value as PersonalInformation;
+                        Console.WriteLine("\t" + facet.Key + " | " + personalInformation.FirstName + " " + personalInformation.LastName);
+                    }
+                    else if (facet.Value is EmailAddressList)
+                    {
+                        var email = facet.Value as EmailAddressList;
+                        Console.WriteLine("\t" + facet.Key + " | " + email.PreferredEmail.SmtpAddress);
+                    }
+                }
+            }
         }
 
         private static void AddContact()

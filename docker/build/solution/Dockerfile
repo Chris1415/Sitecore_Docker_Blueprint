@@ -36,7 +36,8 @@ RUN Invoke-Expression 'robocopy C:\build\src /build/transforms /s /ndl /njh /njs
 # Build the Sitecore main platform artifacts
 RUN msbuild .\src\Environment\sitecore\Blueprint.Environment.Sitecore.csproj /p:Configuration=$env:BUILD_CONFIGURATION /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
 RUN msbuild .\src\Environment\identity\Blueprint.Environment.Identity.csproj /p:Configuration=$env:BUILD_CONFIGURATION /restore /m /p:DeployOnBuild=true /p:PublishProfile=Local
-RUN msbuild .\src\Environment\xconnect\Blueprint.Environment.XConnect.csproj /p:Configuration=$env:BUILD_CONFIGURATION /restore /m /p:DeployOnBuild=True /p:PublishProfile=Local
+# TODO Replace direct publish params with publish profile (Currently there is an issue with using the file)
+RUN msbuild .\src\Environment\xconnect\Blueprint.Environment.XConnect.csproj /p:Configuration=$env:BUILD_CONFIGURATION /restore /m /p:DeployOnBuild=true /p:DeployOnBuild=True /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:PublishUrl=..\..\..\docker\deploy\xconnect
 
 # Build the rendering host
 WORKDIR .\src\Project\Blueprint\rendering\
