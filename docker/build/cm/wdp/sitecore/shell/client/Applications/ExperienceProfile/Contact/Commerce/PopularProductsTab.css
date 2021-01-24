@@ -1,0 +1,24 @@
+﻿div[data-sc-id=PopularProductsTabMessageBar] {
+    margin-top: 20px;
+}
+
+div[data-sc-id=PopularProductsByViewList] td.ventilate {
+    cursor: pointer;
+}
+
+div.sc-advancedExpander[data-sc-id=PopularProductsByViewAccordion] .sc-advancedExpander-body,
+div.sc-advancedExpander[data-sc-id=PopularProductsByAdditionsAccordion] .sc-advancedExpander-body
+{
+  border: none;
+}
+
+.sc-border[data-sc-id=MorePopularProductsByViewBorder] {
+  padding-bottom: 0 !important;
+}
+
+div[data-sc-id=PopularProductsByViewAccordion],
+div[data-sc-id=PopularProductsByAdditionsAccordion],
+div[data-sc-id=PopularProductsByPurchaseAccordion]
+ {
+  margin-top: 30px;
+}

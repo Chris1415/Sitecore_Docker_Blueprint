@@ -172,6 +172,113 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "transforms", "transforms", 
 		docker\build\cd\transforms\Web.config.xdt = docker\build\cd\transforms\Web.config.xdt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Standalone", "Standalone", "{C9B8CE28-0E78-445C-9ACE-A82B0F0911D7}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\mssql\standalone\Dockerfile = docker\build\mssql\standalone\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Init", "Init", "{66CC24D7-8395-4D32-A621-414959F9C1B1}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\mssql\init\Dockerfile = docker\build\mssql\init\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B7617139-19C7-4796-8539-163C716090ED}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\mssql\common\tools\DeployRoles.ps1 = docker\build\mssql\common\tools\DeployRoles.ps1
+		docker\build\mssql\common\tools\StartCommerceInit.ps1 = docker\build\mssql\common\tools\StartCommerceInit.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{44262909-76F6-4A23-861D-B79130D0B264}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\mssql\common\tools\DeployRoles.ps1 = docker\build\mssql\common\tools\DeployRoles.ps1
+		docker\build\mssql\common\tools\StartCommerceInit.ps1 = docker\build\mssql\common\tools\StartCommerceInit.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bizfx", "bizfx", "{1D75B758-DC2D-446C-969A-8333B9030571}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\bizfx\Dockerfile = docker\build\bizfx\Dockerfile
+		docker\build\bizfx\Init.ps1 = docker\build\bizfx\Init.ps1
+		docker\build\bizfx\InstallPrerequisites.ps1 = docker\build\bizfx\InstallPrerequisites.ps1
+		docker\build\bizfx\LogMonitorConfig.json = docker\build\bizfx\LogMonitorConfig.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "engine", "engine", "{8F69369A-1455-4AB0-BF47-CF27416066F1}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\engine\Dockerfile = docker\build\engine\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Healthchecks", "Healthchecks", "{F5FB58CC-F3EE-4BF0-97BA-4876B3E739CF}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\engine\Healthchecks\Healthcheck.ps1 = docker\build\engine\Healthchecks\Healthcheck.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LogMonitor", "LogMonitor", "{7D530CB6-B77C-40EA-BA1C-8E15229D96D2}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\engine\LogMonitor\LogMonitorConfig.json = docker\build\engine\LogMonitor\LogMonitorConfig.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solr-init", "solr-init", "{38476045-A717-4590-AB98-4CD9D76F50CF}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\solr-init\Dockerfile = docker\build\solr-init\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{A7920078-090B-439F-99EA-0071E8560ED7}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\solr-init\tools\scripts\New-SolrCore-Commerce.ps1 = docker\build\solr-init\tools\scripts\New-SolrCore-Commerce.ps1
+		docker\build\solr-init\tools\scripts\Start-Commerce.ps1 = docker\build\solr-init\tools\scripts\Start-Commerce.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xc1", "xc1", "{B5C194F8-32FE-45A5-9EB4-4F138F21208E}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\solr-init\xc1\cores-commerce.json = docker\build\solr-init\xc1\cores-commerce.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{63C1BD01-5954-4B66-964E-3A8AEF247079}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\solr-init\tools\scripts\New-SolrCore-Commerce.ps1 = docker\build\solr-init\tools\scripts\New-SolrCore-Commerce.ps1
+		docker\build\solr-init\tools\scripts\Start-Commerce.ps1 = docker\build\solr-init\tools\scripts\Start-Commerce.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{F15C7BE0-E6F6-44C7-8399-A8973BA9AEFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{1E9982B1-B4A6-4BB9-B9D8-037AED016284}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\solr\tools\scripts\Add-Commerce-SolrCores.ps1 = docker\build\solr\tools\scripts\Add-Commerce-SolrCores.ps1
+		docker\build\solr\tools\scripts\Start-Commerce.ps1 = docker\build\solr\tools\scripts\Start-Commerce.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{2CFD6983-E77E-4F07-B42F-05C33B88AB6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Website", "Website", "{E3241181-D00C-449D-9B8E-EC965D136B6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App_Config", "App_Config", "{CCC48564-916A-4F1B-870F-00C38E532861}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Include", "Include", "{9230F496-DE60-4FFA-9BEE-71172D1E6FFD}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cm\Content\Website\App_Config\Include\Domains.Shared.config = docker\build\cm\Content\Website\App_Config\Include\Domains.Shared.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Y.Commerce.Engine", "Y.Commerce.Engine", "{691717C1-4B39-4ABB-842F-C91987DAEA92}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cm\Content\Website\App_Config\Include\Y.Commerce.Engine\Y.Sitecore.Commerce.config = docker\build\cm\Content\Website\App_Config\Include\Y.Commerce.Engine\Y.Sitecore.Commerce.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Permissions", "Permissions", "{86A31186-67B6-4C70-809F-F4C35F0E50D4}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cm\Permissions\AdditionalWriteAllowedFolders.txt = docker\build\cm\Permissions\AdditionalWriteAllowedFolders.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xdts", "xdts", "{75C621D2-A8D7-41E3-B263-61855E2AB6A0}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cm\xdts\Web.config.xdt = docker\build\cm\xdts\Web.config.xdt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{1E7BC58E-5E2C-4DF6-9D8E-65AFB551EE4A}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\cm\tools\GrantWritePermission.ps1 = docker\build\cm\tools\GrantWritePermission.ps1
+		docker\build\cm\tools\Invoke-XdtTransformations.ps1 = docker\build\cm\tools\Invoke-XdtTransformations.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -228,6 +335,28 @@ Global
 		{F772BFFF-2119-4564-95E2-2365E5A36D23} = {99B21DAA-D0A5-4E63-AC46-14A010115203}
 		{93A97D97-6FD9-4978-B8D7-49EAF9EEFED5} = {EE32F1AC-785E-45B7-A24C-697181CC79D3}
 		{E1841E58-A49D-4085-A2DB-B148BB282987} = {2BCC3D98-800F-4A85-8D4F-BFCDBD11B42F}
+		{C9B8CE28-0E78-445C-9ACE-A82B0F0911D7} = {FF9412C5-90AA-411C-9CC3-04C0089238C5}
+		{66CC24D7-8395-4D32-A621-414959F9C1B1} = {FF9412C5-90AA-411C-9CC3-04C0089238C5}
+		{B7617139-19C7-4796-8539-163C716090ED} = {FF9412C5-90AA-411C-9CC3-04C0089238C5}
+		{44262909-76F6-4A23-861D-B79130D0B264} = {B7617139-19C7-4796-8539-163C716090ED}
+		{1D75B758-DC2D-446C-969A-8333B9030571} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{8F69369A-1455-4AB0-BF47-CF27416066F1} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{F5FB58CC-F3EE-4BF0-97BA-4876B3E739CF} = {8F69369A-1455-4AB0-BF47-CF27416066F1}
+		{7D530CB6-B77C-40EA-BA1C-8E15229D96D2} = {8F69369A-1455-4AB0-BF47-CF27416066F1}
+		{38476045-A717-4590-AB98-4CD9D76F50CF} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
+		{A7920078-090B-439F-99EA-0071E8560ED7} = {38476045-A717-4590-AB98-4CD9D76F50CF}
+		{B5C194F8-32FE-45A5-9EB4-4F138F21208E} = {38476045-A717-4590-AB98-4CD9D76F50CF}
+		{63C1BD01-5954-4B66-964E-3A8AEF247079} = {A7920078-090B-439F-99EA-0071E8560ED7}
+		{F15C7BE0-E6F6-44C7-8399-A8973BA9AEFD} = {86946BBE-24A4-4F19-A61A-C5A0A21A8397}
+		{1E9982B1-B4A6-4BB9-B9D8-037AED016284} = {F15C7BE0-E6F6-44C7-8399-A8973BA9AEFD}
+		{2CFD6983-E77E-4F07-B42F-05C33B88AB6C} = {EE32F1AC-785E-45B7-A24C-697181CC79D3}
+		{E3241181-D00C-449D-9B8E-EC965D136B6D} = {2CFD6983-E77E-4F07-B42F-05C33B88AB6C}
+		{CCC48564-916A-4F1B-870F-00C38E532861} = {E3241181-D00C-449D-9B8E-EC965D136B6D}
+		{9230F496-DE60-4FFA-9BEE-71172D1E6FFD} = {CCC48564-916A-4F1B-870F-00C38E532861}
+		{691717C1-4B39-4ABB-842F-C91987DAEA92} = {9230F496-DE60-4FFA-9BEE-71172D1E6FFD}
+		{86A31186-67B6-4C70-809F-F4C35F0E50D4} = {EE32F1AC-785E-45B7-A24C-697181CC79D3}
+		{75C621D2-A8D7-41E3-B263-61855E2AB6A0} = {EE32F1AC-785E-45B7-A24C-697181CC79D3}
+		{1E7BC58E-5E2C-4DF6-9D8E-65AFB551EE4A} = {EE32F1AC-785E-45B7-A24C-697181CC79D3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1100B2C6-7E13-4751-9A8A-4D4C869F31CC}

@@ -1,0 +1,723 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plugin.Sample.AdventureWorks</name>
+    </assembly>
+    <members>
+        <member name="T:Plugin.Sample.AdventureWorks.AwConstants">
+            <summary>
+            The adventure works  constants.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.AdventureWorks.AwConstants.BootstrapAwMinionsBlock">
+            <summary>
+            The bootstrap aw  minions block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.AdventureWorks.AwConstants.InitializeCatalogBlock">
+            <summary>
+            The initialize catalog block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.AdventureWorks.AwConstants.InitializeEnvironmentGiftCardsBlock">
+            <summary>
+            The InitializeEnvironmentGiftCardsBlock name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.AdventureWorks.AwConstants.InitializeSellableItemsBlock">
+            <summary>
+            The initialize sellable items block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.AdventureWorks.AwConstants.InitializeEnvironmentPricingBlock">
+            <summary>
+            The bootstrap aw  pricing block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.AdventureWorks.AwConstants.InitializeEnvironmentPromotionsBlock">
+            <summary>
+            The bootstrap aw  promotions block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.AdventureWorks.AwConstants.InitializeEnvironmentShopsBlock">
+            <summary>
+            The bootstrap aw  shops block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.AdventureWorks.AwConstants.InitializeEnvironmentRegionsBlock">
+            <summary>
+            The bootstrap aw  regions block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.AdventureWorks.AwConstants.BootstrapAdventureWorksBlock">
+            <summary>
+            The bootstrap adventure works  block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.AdventureWorks.AwConstants.InitializeEnvironmentPolicySetsBlock">
+            <summary>
+            The bootstrap aw  policy sets block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.AdventureWorks.AwConstants.RegisteredPluginBlock">
+            <summary>
+            The registered plugin block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.AdventureWorks.AwConstants.BootstrapManagedListsBlock">
+            <summary>
+            The Bootstrap ManagedLists Block Name.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.AdventureWorks.ConfigureSitecore">
+            <summary>
+            Defines the configure sitecore class for the AdventureWorks plugin.
+            </summary>
+            <seealso cref="T:Sitecore.Framework.Configuration.IConfigureSitecore" />
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.ConfigureSitecore.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            The configure services.
+            </summary>
+            <param name="services">
+            The services.
+            </param>
+        </member>
+        <member name="T:Plugin.Sample.AdventureWorks.InitializeCatalogBlock">
+            <summary>
+            Ensure Habitat catalog has been loaded.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.String, System.String,
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeCatalogBlock.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Sitecore.Commerce.Plugin.Catalog.IImportCatalogsPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.AdventureWorks.InitializeCatalogBlock"/> class.
+            </summary>
+            <param name="hostingEnvironment">The hosting environment.</param>
+            <param name="importCatalogsPipeline">The import catalogs pipeline.</param>
+        </member>
+        <member name="P:Plugin.Sample.AdventureWorks.InitializeCatalogBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeCatalogBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Executes the block.
+            </summary>
+            <param name="arg">The argument.</param>
+            <param name="context">The context.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeCatalogBlock.ImportCatalogAsync(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Import catalog from file.
+            </summary>
+            <param name="context">The context to execute <see cref="T:Sitecore.Commerce.Plugin.Catalog.IImportCatalogsPipeline"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Plugin.Sample.AdventureWorks.InitializeEnvironmentGiftCardsBlock">
+            <summary>
+            Defines a block which adds a set of Test GiftCards during the environment initialization.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.String, System.String,
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentGiftCardsBlock.#ctor(Sitecore.Commerce.Core.IPersistEntityPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.AdventureWorks.InitializeEnvironmentGiftCardsBlock"/> class.
+            </summary>
+            <param name="persistEntityPipeline">The persist entity pipeline.</param>
+        </member>
+        <member name="P:Plugin.Sample.AdventureWorks.InitializeEnvironmentGiftCardsBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentGiftCardsBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            The run.
+            </summary>
+            <param name="arg">
+            The argument.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="T:Plugin.Sample.AdventureWorks.InitializeEnvironmentPricingBlock">
+            <summary>
+            Defines a block which bootstraps pricing the AdventureWorks sample environment.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.String, System.String,
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPricingBlock.#ctor(Sitecore.Commerce.Plugin.Pricing.IAddPriceBookPipeline,Sitecore.Commerce.Plugin.Pricing.IAddPriceCardPipeline,Sitecore.Commerce.Plugin.Pricing.IAddPriceSnapshotPipeline,Sitecore.Commerce.Plugin.Pricing.IAddPriceTierPipeline,Sitecore.Commerce.Plugin.Pricing.IAddPriceSnapshotTagPipeline,Sitecore.Commerce.Core.IPersistEntityPipeline,Sitecore.Commerce.Plugin.Pricing.IAssociateCatalogToBookPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.AdventureWorks.InitializeEnvironmentPricingBlock"/> class.
+            </summary>
+            <param name="addPriceBookPipeline">The add price book pipeline.</param>
+            <param name="addPriceCardPipeline">The add price card pipeline.</param>
+            <param name="addPriceSnapshotPipeline">The add price snapshot pipeline.</param>
+            <param name="addPriceTierPipeline">The add price tier pipeline.</param>
+            <param name="addPriceSnapshotTagPipeline">The add price snapshot tag pipeline.</param>
+            <param name="persistEntityPipeline">The persist entity pipeline.</param>
+            <param name="associateCatalogToBookPipeline">The add public coupon pipeline.</param>
+        </member>
+        <member name="P:Plugin.Sample.AdventureWorks.InitializeEnvironmentPricingBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPricingBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            The run.
+            </summary>
+            <param name="arg">
+            The argument.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+            <returns>
+            The <see cref="T:System.String"/>.
+            </returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPricingBlock.CreateProductsCard(Sitecore.Commerce.Plugin.Pricing.PriceBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the products card.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPricingBlock.CreateVariantsCard(Sitecore.Commerce.Plugin.Pricing.PriceBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the variants card.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPricingBlock.CreateTagsCard(Sitecore.Commerce.Plugin.Pricing.PriceBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the tags card.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock">
+            <summary>
+            Defines a block which bootstraps promotions for the AdventureWorks sample environment.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.String, System.String,
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.#ctor(Sitecore.Commerce.Core.IPersistEntityPipeline,Sitecore.Commerce.Plugin.Promotions.IAddPromotionBookPipeline,Sitecore.Commerce.Plugin.Promotions.IAddPromotionPipeline,Sitecore.Commerce.Plugin.Promotions.IAddQualificationPipeline,Sitecore.Commerce.Plugin.Promotions.IAddBenefitPipeline,Sitecore.Commerce.Plugin.Coupons.IAddPrivateCouponPipeline,Sitecore.Commerce.Plugin.Promotions.IAddPromotionItemPipeline,Sitecore.Commerce.Plugin.Coupons.IAddPublicCouponPipeline,Sitecore.Commerce.Plugin.Promotions.IAssociateCatalogToBookPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock"/> class.
+            </summary>
+            <param name="persistEntityPipeline">The persist entity pipeline.</param>
+            <param name="addBookPipeline">The add book pipeline.</param>
+            <param name="addPromotionPipeline">The add promotion pipeline.</param>
+            <param name="addQualificationPipeline">The add qualification pipeline.</param>
+            <param name="addBenefitPipeline">The add benefit pipeline.</param>
+            <param name="addPrivateCouponPipeline">The add private coupon pipeline.</param>
+            <param name="addPromotionItemPipeline">The add promotion item pipeline.</param>
+            <param name="addPublicCouponPipeline">The add public coupon pipeline.</param>
+            <param name="associateCatalogToBookPipeline">The associate catalog to book pipeline.</param>
+        </member>
+        <member name="P:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            The run.
+            </summary>
+            <param name="arg">
+            The argument.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateCartFreeShippingPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates cart free shipping promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateCartExclusive5PctOffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates cart exclusive 5 percent off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateCartExclusive5OffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the cart exclusive5 off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateCartExclusiveGalaxyPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates cart exclusive galaxy promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateCart15PctOffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates cart 15 percent off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateSamplePrivateCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates a sample promotion making use of private coupons
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateCart10PctOffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext,System.DateTimeOffset)">
+            <summary>
+            Creates the cart10 PCT off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <param name="date">The date.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateCart20PctOffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext,System.DateTimeOffset)">
+            <summary>
+            Creates the cart20 PCT off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <param name="date">The date.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateCart10OffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext,System.DateTimeOffset)">
+            <summary>
+            Creates the cart10 off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <param name="date">The date.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateCart20OffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext,System.DateTimeOffset)">
+            <summary>
+            Creates the cart20 off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <param name="date">The date.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateDisabledPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the disabled promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateLineSaharaPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates line sahara promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateLinePantsPricePromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the line pants price promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateLineSahara5OffPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the line sahara5 off promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateLineExclusiveAlpinePromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the line alpine parka exclusive promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateLineExclusive20PctOffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates line exclusive 20 percent off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateLineExclusive20OffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the line exclusive $20 off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateLine5PctOffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates line 5 percent off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateLine20PctOffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates line 20 percent off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateLine5OffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates line 5 amount off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentPromotionsBlock.CreateLine20OffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates line 20 amount off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="T:Plugin.Sample.AdventureWorks.InitializeEnvironmentRegionsBlock">
+            <summary>
+            Defines a block which bootstraps an environments Regions.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentRegionsBlock.#ctor(Sitecore.Commerce.Core.IAddEntitiesPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.AdventureWorks.InitializeEnvironmentRegionsBlock"/> class.
+            </summary>
+            <param name="addEntitiesPipeline">
+            The add entities pipeline.
+            </param>
+        </member>
+        <member name="P:Plugin.Sample.AdventureWorks.InitializeEnvironmentRegionsBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentRegionsBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            The run.
+            </summary>
+            <param name="arg">
+            The argument.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="T:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock">
+            <summary>
+            Defines a block which bootstraps sellable items the AdventureWorks sample environment.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.String, System.String,
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.#ctor(Sitecore.Commerce.Core.IFindEntityPipeline,Sitecore.Commerce.Core.IPersistEntityPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock"/> class.
+            </summary>
+            <param name="findEntityPipeline">The find entity pipeline.</param>
+            <param name="persistEntityPipeline">The persist entity pipeline.</param>
+        </member>
+        <member name="P:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            The run.
+            </summary>
+            <param name="arg">
+            The argument.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsGiftCards(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs gift cards.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsSleepingBags(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs sleeping bags.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsBoots(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs boots.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsTents(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs tents.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsParkas(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs parkas.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsPants(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs pants.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsHarnesses(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs harnesses.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsCrampos(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs crampos.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsCarabines(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs carabines.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsRockshoes(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs rockshoes.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsBackpacks(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs backpacks.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsShirts(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs shirts.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentSellableItemsBlock.BootstrapCsSupplies(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cs supplies.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:Plugin.Sample.AdventureWorks.InitializeEnvironmentShopsBlock">
+            <summary>
+            Defines a block which bootstraps shops for AdventureWorks Sample environment.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentShopsBlock.#ctor(Sitecore.Commerce.Core.IAddEntitiesPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.AdventureWorks.InitializeEnvironmentShopsBlock"/> class.
+            </summary>
+            <param name="addEntitiesPipeline">
+            The add entities pipeline.
+            </param>
+        </member>
+        <member name="P:Plugin.Sample.AdventureWorks.InitializeEnvironmentShopsBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeEnvironmentShopsBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            The run.
+            </summary>
+            <param name="arg">
+            The argument.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="T:Plugin.Sample.AdventureWorks.InitializeInventoryBlock">
+            <summary>
+            Ensure Habitat catalog has been loaded.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.String, System.String,
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeInventoryBlock.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Sitecore.Commerce.Core.CommerceCommander)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.AdventureWorks.InitializeCatalogBlock"/> class.
+            </summary>
+            <param name="hostingEnvironment">The hosting environment.</param>
+            <param name="commander">The CommerceCommander.</param>
+        </member>
+        <member name="P:Plugin.Sample.AdventureWorks.InitializeInventoryBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="P:Plugin.Sample.AdventureWorks.InitializeInventoryBlock.HostingEnvironment">
+            <summary>
+            Gets the <see cref="T:Microsoft.AspNetCore.Hosting.IHostingEnvironment"/> implementation.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.AdventureWorks.InitializeInventoryBlock.HostEnvironment">
+            <summary>
+            Gets the <see cref="T:Microsoft.AspNetCore.Hosting.IWebHostEnvironment"/> implementation.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.AdventureWorks.InitializeInventoryBlock.ImportInventorySetsCommand">
+            <summary>
+            Gets the <see cref="P:Plugin.Sample.AdventureWorks.InitializeInventoryBlock.ImportInventorySetsCommand"/> implementation.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.InitializeInventoryBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Executes the block.
+            </summary>
+            <param name="arg">The argument.</param>
+            <param name="context">The context.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Plugin.Sample.AdventureWorks.RegisteredPluginBlock">
+            <summary>
+            Defines the registered plugin block.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.Collections.Generic.IEnumerable{Sitecore.Commerce.Core.RegisteredPluginModel},
+                    System.Collections.Generic.IEnumerable{Sitecore.Commerce.Core.RegisteredPluginModel},
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.AdventureWorks.RegisteredPluginBlock.Run(System.Collections.Generic.IEnumerable{Sitecore.Commerce.Core.RegisteredPluginModel},Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            The run.
+            </summary>
+            <param name="arg">
+            The argument.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+            <returns>
+            The list of <see cref="T:Sitecore.Commerce.Core.RegisteredPluginModel"/>
+            </returns>
+        </member>
+    </members>
+</doc>

@@ -12,3 +12,5 @@ WORKDIR C:\inetpub\wwwroot
 
 # Copy solution website files
 COPY --from=solution \artifacts\sitecore\ .\
+
+COPY wdp/ ./

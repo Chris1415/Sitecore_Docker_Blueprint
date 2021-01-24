@@ -1,0 +1,15 @@
+{
+  "EnvironmentName": "HabitatAuthoring",
+  "EngineUri": "PlaceholderForAuthoringUrl",
+  "IdentityServerUri": "PlaceholderForIdentityServerUrl",
+  "BizFxUri": "PlaceholderForBizFxUrl",
+  "Language": "PlaceholderForDefaultLanguage",
+  "ContentLanguage": "PlaceholderForDefaultLanguage",
+  "Currency": "PlaceholderForDefaultCurrency",
+  "ShopName": "PlaceholderForDefaultShopName",
+  "LanguageCookieName": "selectedLanguage",
+  "ContentLanguageCookieName": "selectedContentLanguage",
+  "EnvironmentCookieName": "selectedEnvironment",
+  "AutoCompleteTimeout_ms": 300,
+  "AccessTokenUpdateInterval_ms": 300000
+}

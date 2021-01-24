@@ -1,0 +1,517 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plugin.Sample.Habitat</name>
+    </assembly>
+    <members>
+        <member name="T:Plugin.Sample.Habitat.ConfigureSitecore">
+            <summary>
+            The Habitat configure class.
+            </summary>
+            <seealso cref="T:Sitecore.Framework.Configuration.IConfigureSitecore" />
+        </member>
+        <member name="M:Plugin.Sample.Habitat.ConfigureSitecore.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            The configure services.
+            </summary>
+            <param name="services">
+            The services.
+            </param>
+        </member>
+        <member name="T:Plugin.Sample.Habitat.HabitatConstants">
+            <summary>
+            The Habitat constants.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.Habitat.HabitatConstants.InitializeSellableItemsBlock">
+            <summary>
+            The initialize sellable items block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.Habitat.HabitatConstants.InitializeCatalogBlock">
+            <summary>
+            The initialize catalog block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.Habitat.HabitatConstants.RegisteredPluginBlock">
+            <summary>
+            The registered plugin block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.Habitat.HabitatConstants.InitializeBundlesBlock">
+            <summary>
+            The initialize bundles block name.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.Habitat.InitializeCatalogBlock">
+            <summary>
+            Ensure Habitat catalog has been loaded.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.String, System.String,
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeCatalogBlock.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Sitecore.Commerce.Plugin.Catalog.IImportCatalogsPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.Habitat.InitializeCatalogBlock"/> class.
+            </summary>
+            <param name="hostingEnvironment">The hosting environment.</param>
+            <param name="importCatalogsPipeline">The import catalogs pipeline.</param>
+        </member>
+        <member name="P:Plugin.Sample.Habitat.InitializeCatalogBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeCatalogBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Executes the block.
+            </summary>
+            <param name="arg">The argument.</param>
+            <param name="context">The context.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeCatalogBlock.ImportCatalogAsync(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Import catalog from file.
+            </summary>
+            <param name="context">The context to execute <see cref="T:Sitecore.Commerce.Plugin.Catalog.IImportCatalogsPipeline"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Plugin.Sample.Habitat.InitializeEnvironmentBundlesBlock">
+            <summary>
+            Ensure that a bundle is created
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.String, System.String,
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentBundlesBlock.#ctor(Sitecore.Commerce.Core.CommerceCommander)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.Habitat.InitializeEnvironmentBundlesBlock"/> class.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.Habitat.InitializeEnvironmentBundlesBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentBundlesBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Executes the block.
+            </summary>
+            <param name="arg">The argument.</param>
+            <param name="context">The context.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Plugin.Sample.Habitat.InitializeEnvironmentPricingBlock">
+            <summary>
+            Defines a block which initializes pricing.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.String, System.String,
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPricingBlock.#ctor(Sitecore.Commerce.Plugin.Pricing.IAddPriceBookPipeline,Sitecore.Commerce.Plugin.Pricing.IAddPriceCardPipeline,Sitecore.Commerce.Plugin.Pricing.IAddPriceSnapshotPipeline,Sitecore.Commerce.Plugin.Pricing.IAddPriceTierPipeline,Sitecore.Commerce.Plugin.Pricing.IAddPriceSnapshotTagPipeline,Sitecore.Commerce.Core.IPersistEntityPipeline,Sitecore.Commerce.Plugin.Pricing.IAssociateCatalogToBookPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.Habitat.InitializeEnvironmentPricingBlock"/> class.
+            </summary>
+            <param name="addPriceBookPipeline">The add price book pipeline.</param>
+            <param name="addPriceCardPipeline">The add price card pipeline.</param>
+            <param name="addPriceSnapshotPipeline">The add price snapshot pipeline.</param>
+            <param name="addPriceTierPipeline">The add price tier pipeline.</param>
+            <param name="addPriceSnapshotTagPipeline">The add price snapshot tag pipeline.</param>
+            <param name="persistEntityPipeline">The persist entity pipeline.</param>
+            <param name="associateCatalogToBookPipeline">The add public coupon pipeline.</param>
+        </member>
+        <member name="P:Plugin.Sample.Habitat.InitializeEnvironmentPricingBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPricingBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            The run.
+            </summary>
+            <param name="arg">
+            The argument.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+            <returns>
+            The <see cref="T:System.String"/>.
+            </returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPricingBlock.CreateProductsCard(Sitecore.Commerce.Plugin.Pricing.PriceBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the products card.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPricingBlock.CreateVariantsCard(Sitecore.Commerce.Plugin.Pricing.PriceBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the variants card.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPricingBlock.CreateTagsCard(Sitecore.Commerce.Plugin.Pricing.PriceBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the tags card.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock">
+            <summary>
+            Defines a block which bootstraps promotions.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.String, System.String,
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.#ctor(Sitecore.Commerce.Core.IPersistEntityPipeline,Sitecore.Commerce.Plugin.Promotions.IAddPromotionBookPipeline,Sitecore.Commerce.Plugin.Promotions.IAddPromotionPipeline,Sitecore.Commerce.Plugin.Promotions.IAddQualificationPipeline,Sitecore.Commerce.Plugin.Promotions.IAddBenefitPipeline,Sitecore.Commerce.Plugin.Promotions.IAddPromotionItemPipeline,Sitecore.Commerce.Plugin.Coupons.IAddPublicCouponPipeline,Sitecore.Commerce.Plugin.Promotions.IAssociateCatalogToBookPipeline,Sitecore.Commerce.Plugin.Promotions.IAddPromotionFreeGiftPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock"/> class.
+            </summary>
+            <param name="persistEntityPipeline">The persist entity pipeline.</param>
+            <param name="addBookPipeline">The add book pipeline.</param>
+            <param name="addPromotionPipeline">The add promotion pipeline.</param>
+            <param name="addQualificationPipeline">The add qualification pipeline.</param>
+            <param name="addBenefitPipeline">The add benefit pipeline.</param>
+            <param name="addPromotionItemPipeline">The add promotion item pipeline.</param>
+            <param name="addPublicCouponPipeline">The add public coupon pipeline.</param>
+            <param name="associateCatalogToBookPipeline">The add public coupon pipeline.</param>
+            <param name="addFreeGiftPipeline">The add free gift pipeline.</param>
+        </member>
+        <member name="P:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            The run.
+            </summary>
+            <param name="arg">
+            The argument.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateCartFreeShippingPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the cart free shipping promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateCartExclusive5PctOffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates cart exclusive 5 percent off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateCartExclusive5OffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the cart exclusive5 off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateCartExclusiveOptixCameraPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates cart exclusive optix camera promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateCart15PctOffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates cart 15 percent off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateCart10PctOffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext,System.DateTimeOffset)">
+            <summary>
+            Creates the cart10 PCT off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <param name="date">The date.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateCart10OffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext,System.DateTimeOffset)">
+            <summary>
+            Creates the cart10 off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <param name="date">The date.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateDisabledPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the disabled promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateLineTouchScreenPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates line Touch Screen promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateLineLaptopPricePromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the line laptop price promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateLineTouchScreen5OffPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the line TOuch Screen 5 off promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateLineExclusiveMiraLaptopPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the line mire laptop exclusive promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateLineExclusive20PctOffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates line exclusive 20 percent off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateLineExclusive20OffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates the line exclusive $20 off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateLine5PctOffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates line 5 percent off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentPromotionsBlock.CreateLine5OffCouponPromotion(Sitecore.Commerce.Plugin.Promotions.PromotionBook,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Creates line 5 amount off coupon promotion.
+            </summary>
+            <param name="book">The book.</param>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="T:Plugin.Sample.Habitat.InitializeEnvironmentSellableItemsBlock">
+            <summary>
+            Defines a block which bootstraps sellable items the Habitat sample environment.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.String, System.String,
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentSellableItemsBlock.#ctor(Sitecore.Commerce.Core.IPersistEntityPipeline,Sitecore.Commerce.Core.IFindEntityPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.Habitat.InitializeEnvironmentSellableItemsBlock"/> class.
+            </summary>
+            <param name="persistEntityPipeline">
+            The persist entity pipeline.
+            </param>
+            <param name="findEntityPipeline">
+            The find entity pipeline.
+            </param>
+        </member>
+        <member name="P:Plugin.Sample.Habitat.InitializeEnvironmentSellableItemsBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentSellableItemsBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            The run.
+            </summary>
+            <param name="arg">
+            The argument.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentSellableItemsBlock.BootstrapAppliances(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the appliances.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentSellableItemsBlock.BootstrapAudio(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the audio.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentSellableItemsBlock.BootstrapCameras(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the cameras.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>a <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentSellableItemsBlock.BootstrapComputers(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the computers.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeEnvironmentSellableItemsBlock.BootstrapGiftCards(Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Bootstraps the gift cards.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/></returns>
+        </member>
+        <member name="T:Plugin.Sample.Habitat.InitializeInventoryBlock">
+            <summary>
+            Ensure Habitat inventory has been loaded.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.String, System.String,
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeInventoryBlock.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Sitecore.Commerce.Core.CommerceCommander)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.Habitat.InitializeCatalogBlock"/> class.
+            </summary>
+            <param name="hostingEnvironment">The hosting environment.</param>
+            <param name="commander">The CommerceCommander.</param>
+        </member>
+        <member name="P:Plugin.Sample.Habitat.InitializeInventoryBlock.ShouldNotRunPolicyTrigger">
+            <inheritdoc />
+            <summary>
+            Gets the should not run policy trigger.
+            </summary>
+            <value>
+            The should not run policy trigger.
+            </value>
+        </member>
+        <member name="P:Plugin.Sample.Habitat.InitializeInventoryBlock.HostingEnvironment">
+            <summary>
+            Gets the <see cref="T:Microsoft.AspNetCore.Hosting.IHostingEnvironment"/> implementation.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.Habitat.InitializeInventoryBlock.HostEnvironment">
+            <summary>
+            Gets the <see cref="T:Microsoft.AspNetCore.Hosting.IWebHostEnvironment"/> implementation.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.InitializeInventoryBlock.RunAsync(System.String,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Executes the block.
+            </summary>
+            <param name="arg">The argument.</param>
+            <param name="context">The context.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Plugin.Sample.Habitat.RegisteredPluginBlock">
+            <summary>
+            Defines the registered plugin block.
+            </summary>
+            <seealso>
+                <cref>
+                    Sitecore.Framework.Pipelines.PipelineBlock{System.Collections.Generic.IEnumerable{Sitecore.Commerce.Core.RegisteredPluginModel},
+                    System.Collections.Generic.IEnumerable{Sitecore.Commerce.Core.RegisteredPluginModel},
+                    Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+                </cref>
+            </seealso>
+        </member>
+        <member name="M:Plugin.Sample.Habitat.RegisteredPluginBlock.Run(System.Collections.Generic.IEnumerable{Sitecore.Commerce.Core.RegisteredPluginModel},Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            The run.
+            </summary>
+            <param name="arg">
+            The argument.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+            <returns>
+            The list of <see cref="T:Sitecore.Commerce.Core.RegisteredPluginModel"/>
+            </returns>
+        </member>
+    </members>
+</doc>

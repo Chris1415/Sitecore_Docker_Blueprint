@@ -1,0 +1,74 @@
+﻿div[data-sc-id=LeftColumnPanel] {
+    border-right: 1px solid #cccccc;
+}
+
+img[data-sc-id=AdjustmentsImage],
+img[data-sc-id=PartyImage],
+img[data-sc-id=CartImage],
+img[data-sc-id=BillingImage],
+img[data-sc-id=ShippingImage],
+img[data-sc-id=DetailsImage] {
+    padding-right: 10px;
+}
+
+span[data-sc-id=AdjustmentsTitle],
+span[data-sc-id=PartyTitle],
+span[data-sc-id=CartTitle],
+span[data-sc-id=BillingTitle],
+span[data-sc-id=ShippingTitle],
+span[data-sc-id=DetailsTitle] {
+    vertical-align: bottom;
+}
+
+div[data-sc-id=PartyListList],
+div[data-sc-id=CartLinesList],
+div[data-sc-id=AdjustmentsList],
+div[data-sc-id=DetailDataRowPanel],
+div[data-sc-id=ShippingDataRowPanel],
+div[data-sc-id=BillingDataRowPanel] {
+    margin-top: 10px;
+}
+
+div[data-sc-id=ShippingDataRowPanel] .row,
+div[data-sc-id=BillingDataRowPanel] .row,
+div[data-sc-id=DetailDataRowPanel] .row {
+    margin: 0;
+    padding: 6px 0px;
+    background: #fff;
+}
+
+.CartLines-ToolTip,
+.PartyLines-ToolTip {
+    background: #f7f7f7;
+    width: 300px;
+    position: absolute;
+    /*box-shadow: 1px 1px 0 #555,
+                2px 2px 0 #555,
+                3px 3px 1px rgba(0, 0, 0, .3),
+                0   1px 0   rgba(255,255,255, .5) inset;*/   
+}
+
+.arrow_box:after, .arrow_box:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #f7f7f7;
+	border-width: 15px;
+	margin-left: -15px;
+}
+
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-bottom-color: #ffffff;
+	border-width: 16px;
+	margin-left: -16px;
+}

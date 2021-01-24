@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <Sitecore>
+    <XConnect>
+      <Collection>
+        <Services>
+          <ICalculatedFacetHandler.CommerceInteractionsCacheHandler>
+            <Type>Sitecore.XConnect.Collection.Model.Plugins.CommerceInteractionsCacheHandler, Sitecore.Commerce.Connect.Collection.Model</Type>
+            <As>Sitecore.XConnect.Service.ICalculatedFacetHandler, Sitecore.XConnect.Service</As>
+            <LifeTime>Singleton</LifeTime>
+            <Options>
+              <MaximumInteractionCount>42</MaximumInteractionCount>
+              <MaximumCacheEntryCount>50</MaximumCacheEntryCount>
+              <MaximumInteractionPeriod>30.00:00:00</MaximumInteractionPeriod>
+            </Options>
+          </ICalculatedFacetHandler.CommerceInteractionsCacheHandler>
+          <IContactMergeHandler.CommerceInteractionsCacheHandler>
+            <Type>Sitecore.XConnect.Collection.Model.Plugins.CommerceInteractionsCacheHandler, Sitecore.Commerce.Connect.Collection.Model</Type>
+            <As>Sitecore.XConnect.Service.IContactMergeHandler, Sitecore.XConnect.Service</As>
+            <LifeTime>Singleton</LifeTime>
+            <Options>
+              <MaximumInteractionCount>42</MaximumInteractionCount>
+              <MaximumCacheEntryCount>50</MaximumCacheEntryCount>
+              <MaximumInteractionPeriod>30.00:00:00</MaximumInteractionPeriod>
+            </Options>
+          </IContactMergeHandler.CommerceInteractionsCacheHandler>
+        </Services>
+      </Collection>
+    </XConnect>
+  </Sitecore>
+</Settings>

@@ -14,7 +14,27 @@ Param (
     [Parameter(Mandatory = $true,
         HelpMessage = "Sets the sitecore\\admin password for this environment via environment variable.",
         ParameterSetName = "env-init")]
-    [string]$AdminPassword
+    [string]$AdminPassword,
+
+    [Parameter(Mandatory = $true,
+        HelpMessage = "Set the Braintree environment sandbox or production",
+        ParameterSetName = "env-init")]
+    [string]$braintreeEnvironment,
+
+    [Parameter(Mandatory = $true,
+        HelpMessage = "Set the Braintree MerchantId taken from your braintree account",
+        ParameterSetName = "env-init")]
+    [string]$braintreeMerchantId,
+
+    [Parameter(Mandatory = $true,
+        HelpMessage = "Set the Braintree Public Key taken from your braintree account",
+        ParameterSetName = "env-init")]
+    [string]$braintreePublicKey,
+
+    [Parameter(Mandatory = $true,
+        HelpMessage = "Set the Braintree Private Key taken from your braintree account",
+        ParameterSetName = "env-init")]
+    [string]$braintreePrivateKey   
 )
 
 $ErrorActionPreference = "Stop";
@@ -96,7 +116,10 @@ Add-HostsEntry "cm.blueprint.de"
 Add-HostsEntry "cd.blueprint.de"
 Add-HostsEntry "id.blueprint.de"
 Add-HostsEntry "www.blueprint.de"
-
+Add-HostsEntry "bizfx.blueprint.de"
+Add-HostsEntry "authoring.blueprint.de"
+Add-HostsEntry "shops.blueprint.de"
+Add-HostsEntry "ops.blueprint.de"
 
 ###############################
 # Populate the environment file
@@ -139,6 +162,21 @@ if ($InitEnv) {
 
     # SITECORE_ADMIN_PASSWORD
     Set-DockerComposeEnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
+	
+	# XC_IDENTITY_COMMERCEENGINECONNECTCLIENT_CLIENTSECRET1
+	Set-DockerComposeEnvFileVariable "XC_IDENTITY_COMMERCEENGINECONNECTCLIENT_CLIENTSECRET1" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)
+    
+	# XC_ENGINE_BRAINTREEENVIRONMENT 
+	Set-DockerComposeEnvFileVariable "XC_ENGINE_BRAINTREEENVIRONMENT" -Value $braintreeEnvironment
+    
+	# XC_ENGINE_BRAINTREEMERCHANTID
+	Set-DockerComposeEnvFileVariable "XC_ENGINE_BRAINTREEMERCHANTID" -Value $braintreeMerchantId
+    
+	#XC_ENGINE_BRAINTREEPUBLICKEY
+	Set-DockerComposeEnvFileVariable "XC_ENGINE_BRAINTREEPUBLICKEY" -Value $braintreePublicKey
+    
+	#XC_ENGINE_BRAINTREEPRIVATEKEY
+	Set-DockerComposeEnvFileVariable "XC_ENGINE_BRAINTREEPRIVATEKEY" -Value $braintreePrivateKey
 }
 
 Write-Host "Done!" -ForegroundColor Green

@@ -1,0 +1,36 @@
+﻿{
+  "AppSettings": {
+    "AntiForgeryEnabled":  false,
+    "CommerceServicesHostPostfix": "",
+    "UseHttpsInKestrel": true,
+    "SslPort": 5000,
+    "SslPfxPath": "wwwroot/localhost.pfx",
+    "SslPfxPassword": "sitecore"
+  },
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Information",
+        "System": "Information"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Async",
+        "Args": {
+          "configure": [{
+            "Name": "LiterateConsole"
+          }]
+        }
+      },
+      {
+        "Name": "ApplicationInsights",
+        "Args": {
+          "restrictedToMinimumLevel": "Information",
+          "telemetryConverter": "Serilog.Sinks.ApplicationInsights.Sinks.ApplicationInsights.TelemetryConverters.TraceTelemetryConverter, Serilog.Sinks.ApplicationInsights"
+        }
+      }
+    ]
+  }
+}

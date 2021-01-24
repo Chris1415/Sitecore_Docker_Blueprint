@@ -1,0 +1,26 @@
+﻿<Settings>
+  <Sitecore>
+    <XConnect>
+      <Services>
+        <DescriptorLocator>
+          <Options>
+            <PredicateDescriptors>
+              <CartEmptyCondition>
+                <id>{A3362146-1F26-4046-BC25-FE51415EB78D}</id>
+                <type>Sitecore.Commerce.MarketingAutomation.Rules.Conditions.CartEmptyCondition, Sitecore.Commerce.Connect.MarketingAutomation.Rules</type>
+              </CartEmptyCondition>
+              <ContactHasEmail>
+                <id>{5915EA5A-AA31-4696-B440-6FD75CF06DED}</id>
+                <type>Sitecore.Commerce.MarketingAutomation.Rules.Conditions.ContactHasEmailCondition, Sitecore.Commerce.Connect.MarketingAutomation.Rules</type>
+              </ContactHasEmail>
+              <CartManipulatedCondition>
+                <id>{47134E14-C9FF-4C9A-816D-7CFD92E7616D}</id>
+                <type>Sitecore.Commerce.MarketingAutomation.Rules.Conditions.CartManipulatedCondition, Sitecore.Commerce.Connect.MarketingAutomation.Rules</type>
+              </CartManipulatedCondition>
+            </PredicateDescriptors>
+          </Options>
+        </DescriptorLocator>
+      </Services>
+    </XConnect>
+  </Sitecore>
+</Settings>

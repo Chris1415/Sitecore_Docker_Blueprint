@@ -1,0 +1,72 @@
+<script type="text/javascript">
+    var keys = {
+        isAuthorized: '_isAuthorized',
+        authStateControl: 'authStateControl',
+        authNonce: 'authNonce',
+        authorizationData: 'authorizationData',
+        authorizationDataIdToken: 'authorizationDataIdToken'
+    };
+
+    var getValue = function (key) {
+        var item = window.localStorage.getItem(key);
+        if (item) {
+            return JSON.parse(item);
+        }
+    };
+
+    var setValue = function (key, value) {
+        window.localStorage.setItem(key, JSON.stringify(value));
+    };
+
+    var decodeBase64 = function (value) {
+        var output = value.replace('-', '+').replace('_', '/');
+        switch (output.length % 4) {
+            case 0:
+                break;
+            case 2:
+                output += '==';
+                break;
+            case 3:
+                output += '=';
+                break;
+        }
+
+        return atob(output);
+    }
+
+    var hash = window.location.hash.substr(1);
+    var segments = hash.split('&');
+
+    var parameters = {};
+    for (var i = 0; i < segments.length; i++) {
+        var pair = segments[i].split('=');
+        parameters[pair[0]] = pair[1];
+    }
+
+    if (parameters.hasOwnProperty('error')) {
+        setValue(keys.isAuthorized, false);
+        setValue(keys.authStateControl, '');
+        setValue(keys.authNonce, '');
+        setValue(keys.authorizationData, '');
+        setValue(keys.authorizationDataIdToken, '');
+
+        parent.location.reload();
+    }
+    else {
+        var accessToken = parameters['access_token'];
+        var idToken = parameters['id_token'];
+
+        if (parameters['state'] === getValue(keys.authStateControl) && accessToken && idToken) {
+            var data = JSON.parse(decodeBase64(idToken.split('.')[1]));
+
+            if (data.nonce === getValue(keys.authNonce)) {
+                setValue(keys.authStateControl, '');
+                setValue(keys.authNonce, '');
+                setValue(keys.authorizationData, accessToken);
+                setValue(keys.authorizationDataIdToken, idToken);
+            }
+        }
+
+        frameElement.parentElement.removeChild(frameElement);
+    }
+</script>

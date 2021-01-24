@@ -1,0 +1,13 @@
+{
+    "ValidationErrors": {
+        "IsRequired": "{{DisplayName}} est requis.",
+        "IncorrectDecimalValue": "{{DisplayName}} contient une valeur incorrecte.",
+        "IncorrectDateValue": "{{DisplayName}} contient une date incorrecte."
+    },
+    "ActionExecuted": "{{DisplayName}} exécuté.",
+    "Back": "Retour",
+    "Logout": "Déconnecter",
+    "LanguageSelector": "Langue affichée",
+    "NoSearchResults": "Aucun résultat ne correspond à vos critères de sélection.",
+    "Searching": "Recherche..."
+}

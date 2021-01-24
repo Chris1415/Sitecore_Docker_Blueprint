@@ -1,0 +1,67 @@
+﻿{
+    "$type": "Sitecore.Commerce.Core.PolicySet, Sitecore.Commerce.Core",
+    "Id": "Entity-PolicySet-ContentHubPolicySet",
+    "Version": 1,
+    "IsPersisted": false,
+    "Name": "ContentHubPolicySet",
+    "Policies": {
+        "$type": "System.Collections.Generic.List`1[[Sitecore.Commerce.Core.Policy, Sitecore.Commerce.Core]], mscorlib",
+        "$values": [
+            {
+                "$type": "Plugin.Sample.ContentHub.AzureServiceBusPolicy, Plugin.Sample.ContentHub",
+                "ConnectionString": "PlaceholderForASBPrimaryConnectionString",
+                "TopicName": "PlaceholderForASBTopicName",
+                "SubscriptionName": "PlaceholderForASBSubscriptionName"
+            },
+            {
+                "$type": "Plugin.Sample.ContentHub.ContentHubClientPolicy, Plugin.Sample.ContentHub",
+                "EndpointUrl": "PlaceholderForContentHubEndpointUrl",
+                "UserName": "PlaceholderForContentHubUserName",
+                "Password": "PlaceholderForContentHubPassword",
+                "ClientId": "PlaceholderForContentHubClientId",
+                "ClientSecret": "PlaceholderForContentHubClientSecret",
+                "KnownSSORedirects": "PlaceholderForContentHubKnownSSORedirects",
+                "TimeoutInSeconds": 90,
+                "RetryCount": 3
+            },
+            {
+                "$type": "Plugin.Sample.ContentHub.SynchronizationPolicy, Plugin.Sample.ContentHub",
+                "DefaultCulture": "en-US",
+                "EntityForeignKey": "ProductNumber",
+                "ProductEntityType": "M.PCM.Product",
+                "AssetEntityType": "M.Asset",
+                "PublicLinkEntityType": "M.PublicLink"
+            },
+            {
+                "$type": "Plugin.Sample.ContentHub.ProductSynchronizationPolicy, Plugin.Sample.ContentHub",
+                "PropertyMapping": {
+                    "$type": "System.Collections.Generic.List`1[[Plugin.Sample.ContentHub.PropertyMap, Plugin.Sample.ContentHub]], mscorlib",
+                    "$values": [
+                      {
+                        "$type": "Plugin.Sample.ContentHub.PropertyMap, Plugin.Sample.ContentHub",
+                        "FromProperty": "ProductName",
+                        "ToProperty": "Name"
+                      },
+                      {
+                        "$type": "Plugin.Sample.ContentHub.PropertyMap, Plugin.Sample.ContentHub",
+                        "FromProperty": "ProductName",
+                        "ToProperty": "DisplayName"
+                      },
+                      {
+                        "$type": "Plugin.Sample.ContentHub.PropertyMap, Plugin.Sample.ContentHub",
+                        "FromProperty": "ProductLongDescription",
+                        "ToProperty": "Description"
+                      }
+                    ]
+                }
+            },
+            {
+                "$type": "Plugin.Sample.ContentHub.AssetSynchronizationPolicy, Plugin.Sample.ContentHub",
+                "EntityToMasterAssetRelationName": "PCMProductToMasterAsset",
+                "EntityToAssetRelationName": "PCMProductToAsset",
+                "AssetToPublicLinkRelationName": "AssetToPublicLink",
+                "AssetsAlternateTextFieldName": "Title"
+            }
+        ]
+    }
+}

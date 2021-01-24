@@ -1,0 +1,17 @@
+﻿<Settings>
+  <Sitecore>
+    <XConnect>
+      <Services>
+        <XConnect.Client.Configuration>
+          <Options>
+            <Models>
+              <CommerceModels>
+                <TypeName>Sitecore.Commerce.CustomModels.RegisterConnectEventModels, Sitecore.Commerce.Connect.Collection.Model</TypeName>
+              </CommerceModels>
+            </Models>
+          </Options>
+        </XConnect.Client.Configuration>
+      </Services>
+    </XConnect>
+  </Sitecore>
+</Settings>

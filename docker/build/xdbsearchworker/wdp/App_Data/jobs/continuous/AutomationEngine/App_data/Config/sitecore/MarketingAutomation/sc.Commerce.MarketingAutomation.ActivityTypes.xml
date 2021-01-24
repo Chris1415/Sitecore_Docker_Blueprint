@@ -1,0 +1,28 @@
+﻿<Settings>
+  <Sitecore>
+    <XConnect>
+      <MarketingAutomation>
+        <Engine>
+          <Services>
+            <Commerce.MarketingAutomation.Activity.AbandonedCartActivity>
+              <Type>Sitecore.Xdb.MarketingAutomation.Locator.ActivityTypeRegistration, Sitecore.Xdb.MarketingAutomation</Type>
+              <LifeTime>Singleton</LifeTime>
+              <Options>
+                <Id>{7AE9476D-816E-44BF-B9B5-A2CA339E5DB5}</Id>
+                <ImplementationType>Sitecore.Commerce.MarketingAutomation.Activities.AbandonedCartActivity, Sitecore.Commerce.Connect.MarketingAutomation.Rules</ImplementationType>
+              </Options>
+            </Commerce.MarketingAutomation.Activity.AbandonedCartActivity>
+            <Commerce.MarketingAutomation.Activity.SendEmail>
+              <Type>Sitecore.Xdb.MarketingAutomation.Locator.ActivityTypeRegistration, Sitecore.Xdb.MarketingAutomation</Type>
+              <LifeTime>Singleton</LifeTime>
+              <Options>
+                <Id>{67CF10D8-0F12-4829-A25B-5CC5CBA01CA9}</Id>
+                <ImplementationType>Sitecore.Commerce.MarketingAutomation.Activities.SendEmail, Sitecore.Commerce.Connect.MarketingAutomation.Rules</ImplementationType>
+              </Options>
+            </Commerce.MarketingAutomation.Activity.SendEmail>
+          </Services>
+        </Engine>
+      </MarketingAutomation>
+    </XConnect>
+  </Sitecore>
+</Settings>

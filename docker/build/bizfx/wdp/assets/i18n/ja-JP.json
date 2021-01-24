@@ -1,0 +1,13 @@
+{
+    "ValidationErrors": {
+        "IsRequired": "{{DisplayName}} 必要とされている.",
+        "IncorrectDecimalValue": "{{DisplayName}} 間違った10進値を含む.",
+        "IncorrectDateValue": "{{DisplayName}} 間違った日付です"
+    },
+    "ActionExecuted": "{{DisplayName}} 実行済.",
+    "Back": "戻る",
+    "Logout": "ログアウト",
+    "LanguageSelector": "表示される言語",
+    "NoSearchResults": "検索クエリのエントリが見つかりませんでした",
+    "Searching": "検索する..."
+}

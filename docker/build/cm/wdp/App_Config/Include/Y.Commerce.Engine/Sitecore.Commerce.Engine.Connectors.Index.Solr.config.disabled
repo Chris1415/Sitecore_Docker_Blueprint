@@ -1,0 +1,159 @@
+﻿<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:search="http://www.sitecore.net/xmlconfig/search/" xmlns:role="http://www.sitecore.net/xmlconfig/role/">
+  <sitecore role:require="Standalone or ContentDelivery or ContentManagement" search:require="solr">
+    <contentSearch>
+      <indexConfigurations>
+        <defaultSolrIndexConfiguration type="Sitecore.ContentSearch.SolrProvider.SolrIndexConfiguration, Sitecore.ContentSearch.SolrProvider">
+          <fieldReaders type="Sitecore.ContentSearch.FieldReaders.FieldReaderMap, Sitecore.ContentSearch">
+            <mapFieldByName hint="raw:AddFieldReaderByFieldName">
+              <fieldReader fieldName="parentcataloglist" fieldReaderType="Sitecore.Commerce.Engine.Connect.Search.Readers.EntityListFieldReader, Sitecore.Commerce.Engine.Connect"/>
+              <fieldReader fieldName="childrencategorylist" fieldReaderType="Sitecore.Commerce.Engine.Connect.Search.Readers.EntityListFieldReader, Sitecore.Commerce.Engine.Connect"/>
+              <fieldReader fieldName="commerceancestorids" fieldReaderType="Sitecore.Commerce.Engine.Connect.Search.Readers.EntityListFieldReader, Sitecore.Commerce.Engine.Connect"/>
+            </mapFieldByName>
+          </fieldReaders>
+          <fieldMap type="Sitecore.ContentSearch.SolrProvider.SolrFieldMap, Sitecore.ContentSearch.SolrProvider">
+            <fieldNames hint="raw:AddFieldByFieldName">
+              <field fieldName="displayname" storageType="YES" indexType="UN_TOKENIZED" vectorType="NO" boost="1f" returnType="string" settingType="Sitecore.ContentSearch.SolrProvider.SolrSearchFieldConfiguration, Sitecore.ContentSearch.SolrProvider"/>
+              <field fieldName="commercesearchitemtype" storageType="YES" indexType="UN_TOKENIZED" vectorType="NO" boost="1f" returnType="text" settingType="Sitecore.ContentSearch.SolrProvider.SolrSearchFieldConfiguration, Sitecore.ContentSearch.SolrProvider"/>
+              <field fieldName="catalogentityid" storageType="YES" indexType="TOKENIZED" vectorType="NO" boost="1f" returnType="text" settingType="Sitecore.ContentSearch.SolrProvider.SolrSearchFieldConfiguration, Sitecore.ContentSearch.SolrProvider"/>
+              <field fieldName="productid" storageType="YES" indexType="TOKENIZED" vectorType="NO" boost="1f" returnType="text" settingType="Sitecore.ContentSearch.SolrProvider.SolrSearchFieldConfiguration, Sitecore.ContentSearch.SolrProvider"/>
+              <field fieldName="brand" storageType="YES" indexType="UN_TOKENIZED" vectorType="NO" boost="1f" returnType="string" settingType="Sitecore.ContentSearch.SolrProvider.SolrSearchFieldConfiguration, Sitecore.ContentSearch.SolrProvider"/>
+              <field fieldName="manufacturer" storageType="YES" indexType="UN_TOKENIZED" vectorType="NO" boost="1f" returnType="string" settingType="Sitecore.ContentSearch.SolrProvider.SolrSearchFieldConfiguration, Sitecore.ContentSearch.SolrProvider"/>
+              <field fieldName="typeofgood" storageType="YES" indexType="UN_TOKENIZED" vectorType="NO" boost="1f" returnType="string" settingType="Sitecore.ContentSearch.SolrProvider.SolrSearchFieldConfiguration, Sitecore.ContentSearch.SolrProvider"/>
+              <field fieldName="commerceancestorids" storageType="YES" indexType="TOKENIZED" vectorType="NO" boost="1f" returnType="guidCollection" settingType="Sitecore.ContentSearch.SolrProvider.SolrSearchFieldConfiguration, Sitecore.ContentSearch.SolrProvider"/>
+              <field fieldName="childrencategorylist" storageType="YES" indexType="TOKENIZED" vectorType="NO" boost="1f" returnType="guidCollection" settingType="Sitecore.ContentSearch.SolrProvider.SolrSearchFieldConfiguration, Sitecore.ContentSearch.SolrProvider"/>
+              <field fieldName="parentcataloglist" storageType="YES" indexType="TOKENIZED" vectorType="NO" boost="1f" returnType="guidCollection" settingType="Sitecore.ContentSearch.SolrProvider.SolrSearchFieldConfiguration, Sitecore.ContentSearch.SolrProvider"/>
+              <field fieldName="catalogname" storageType="YES" indexType="TOKENIZED" vectorType="NO" boost="1f" returnType="text" settingType="Sitecore.ContentSearch.SolrProvider.SolrSearchFieldConfiguration, Sitecore.ContentSearch.SolrProvider"/>
+              <field fieldName="excludefromwebsitesearchresults" storageType="YES" indexType="TOKENIZED" vectorType="NO" boost="1f" returnType="bool" settingType="Sitecore.ContentSearch.SolrProvider.SolrSearchFieldConfiguration, Sitecore.ContentSearch.SolrProvider"/>
+            </fieldNames>
+          </fieldMap>
+          <documentOptions type="Sitecore.ContentSearch.SolrProvider.SolrDocumentBuilderOptions, Sitecore.ContentSearch.SolrProvider">
+            <exclude hint="list:AddExcludedField">
+              <RelatedSellableItem_641A0B83 tag="{641A0B83-DE17-4C90-9F24-9639135A3DAC}">{641A0B83-DE17-4C90-9F24-9639135A3DAC}</RelatedSellableItem_641A0B83>
+              <VariationProperties_0185D335 tag="{0185D335-4545-EDD6-76A8-460DB418966A}">{0185D335-4545-EDD6-76A8-460DB418966A}</VariationProperties_0185D335>
+              <ParentCategoryList_46E1891C tag="{46E1891C-387F-49E1-F543-A9E7E837EED0}">{46E1891C-387F-49E1-F543-A9E7E837EED0}</ParentCategoryList_46E1891C>
+              <ParentCategoryList_F4B64D68 tag="{F4B64D68-F727-7A2D-F1E2-628E5704AA18}">{F4B64D68-F727-7A2D-F1E2-628E5704AA18}</ParentCategoryList_F4B64D68>
+
+              <WebsiteSearchScope_FE5208D1 tag="{FE5208D1-D7F6-4E5D-8A43-95652C35D0B3}">{FE5208D1-D7F6-4E5D-8A43-95652C35D0B3}</WebsiteSearchScope_FE5208D1>
+              <SitecoreId_F41B1B99 tag="{F41B1B99-0107-DD43-F234-ADAE63D913F3}">{F41B1B99-0107-DD43-F234-ADAE63D913F3}</SitecoreId_F41B1B99>
+              <Description_A121D29C tag="{A121D29C-AAD3-8DBD-43BA-714E9BD10421}">{A121D29C-AAD3-8DBD-43BA-714E9BD10421}</Description_A121D29C>
+              <Description_0758DB64 tag="{0758DB64-0746-2BBB-241B-2ABD830A33C6}">{0758DB64-0746-2BBB-241B-2ABD830A33C6}</Description_0758DB64>
+              <SelectedCatalogs_ED3EBCCD tag="{ED3EBCCD-A230-4659-923F-014707E1945D}">{ED3EBCCD-A230-4659-923F-014707E1945D}</SelectedCatalogs_ED3EBCCD>
+              <RuntimeSearchFacets_7E48EE19 tag="{7E48EE19-93FC-4071-A192-470F1259EAE0}">{7E48EE19-93FC-4071-A192-470F1259EAE0}</RuntimeSearchFacets_7E48EE19>
+              <SortFields_05124B76 tag="{05124B76-FA67-4123-87B9-16E1883E9244}">{05124B76-FA67-4123-87B9-16E1883E9244}</SortFields_05124B76>
+              <ItemsPerPage_08B14202 tag="{08B14202-D89B-42A5-A7AD-CD1F389DDB07}">{08B14202-D89B-42A5-A7AD-CD1F389DDB07}</ItemsPerPage_08B14202>
+              <CategoryDatasource_2882072B tag="{2882072B-E310-406B-8DD9-B22C9EA4A0F3}">{2882072B-E310-406B-8DD9-B22C9EA4A0F3}</CategoryDatasource_2882072B>
+              <DisplayOnSite_FF45E279 tag="{FF45E279-7051-42AD-BF91-117F5EC4BD16}">{FF45E279-7051-42AD-BF91-117F5EC4BD16}</DisplayOnSite_FF45E279>
+              <BaseProperty_D8A78E27 tag="{D8A78E27-F87F-409B-A4DF-D69335DD466F}">{D8A78E27-F87F-409B-A4DF-D69335DD466F}</BaseProperty_D8A78E27>
+              <IsRequired_63CB4F24 tag="{63CB4F24-A2D2-4082-9821-8F350A781E48}">{63CB4F24-A2D2-4082-9821-8F350A781E48}</IsRequired_63CB4F24>
+              <SpecificationSearchable_7EE38888 tag="{7EE38888-5F13-4CB1-BAD0-09F5B7759856}">{7EE38888-5F13-4CB1-BAD0-09F5B7759856}</SpecificationSearchable_7EE38888>
+              <FreeTextSearchable_81180D30 tag="{81180D30-1185-426F-AE2D-7DA7741399A1}">{81180D30-1185-426F-AE2D-7DA7741399A1}</FreeTextSearchable_81180D30>
+              <AssignToAllProductTypes_A0F35A32 tag="{A0F35A32-14B5-4147-9851-7E0BBDC17EFC}">{A0F35A32-14B5-4147-9851-7E0BBDC17EFC}</AssignToAllProductTypes_A0F35A32>
+              <ManagedbyExternalCommerceSystem_09E76FED tag="{09E76FED-D919-4277-B6BF-748628DFD8ED}">{09E76FED-D919-4277-B6BF-748628DFD8ED}</ManagedbyExternalCommerceSystem_09E76FED>
+              <Value_4F17697F tag="{4F17697F-BD00-4D76-B4F5-1B53C0C8D884}">{4F17697F-BD00-4D76-B4F5-1B53C0C8D884}</Value_4F17697F>
+              <Value_D1B895F9 tag="{D1B895F9-8487-4308-8FCB-F73F45BB7CD9}">{D1B895F9-8487-4308-8FCB-F73F45BB7CD9}</Value_D1B895F9>
+              <Value_48A49B5C tag="{48A49B5C-6DF0-4CAB-AAE7-E9BC0E380B3F}">{48A49B5C-6DF0-4CAB-AAE7-E9BC0E380B3F}</Value_48A49B5C>
+              <WebsiteUrl_3A6FF55F tag="{3A6FF55F-4354-46F2-BF70-D6550D834922}">{3A6FF55F-4354-46F2-BF70-D6550D834922}</WebsiteUrl_3A6FF55F>
+              <ProductURLMacro_991E7D30 tag="{991E7D30-115B-444A-BFD5-3831727E78E1}">{991E7D30-115B-444A-BFD5-3831727E78E1}</ProductURLMacro_991E7D30>
+              <ProductType_D5806F22 tag="{D5806F22-E082-4C82-87BD-439A62EF92C6}">{D5806F22-E082-4C82-87BD-439A62EF92C6}</ProductType_D5806F22>
+              <ProductClasses_891039C9 tag="{891039C9-FE24-46B6-A5DE-BA958A6925CF}">{891039C9-FE24-46B6-A5DE-BA958A6925CF}</ProductClasses_891039C9>
+              <Divisions_0F949B65 tag="{0F949B65-EE6C-4D70-B692-54D801BA812C}">{0F949B65-EE6C-4D70-B692-54D801BA812C}</Divisions_0F949B65>
+              <Name_6A65DFC6 tag="{6A65DFC6-6A35-4E8D-93EA-D1D4F40711C2}">{6A65DFC6-6A35-4E8D-93EA-D1D4F40711C2}</Name_6A65DFC6>
+              <Description_3E873F0E tag="{3E873F0E-4A03-4169-91AF-FAE982F9CBE3}">{3E873F0E-4A03-4169-91AF-FAE982F9CBE3}</Description_3E873F0E>
+              <ExternalParentID_008F1DA3 tag="{008F1DA3-097E-4FEC-8322-9303308C63EA}">{008F1DA3-097E-4FEC-8322-9303308C63EA}</ExternalParentID_008F1DA3>
+              <Name_44C7D49F tag="{44C7D49F-0C37-4A56-B135-AA831E7F1EB9}">{44C7D49F-0C37-4A56-B135-AA831E7F1EB9}</Name_44C7D49F>
+              <Description_D918B5F7 tag="{D918B5F7-75E9-4345-913C-B79E1171CC42}">{D918B5F7-75E9-4345-913C-B79E1171CC42}</Description_D918B5F7>
+              <Name_3308641B tag="{3308641B-EB85-4FE7-8D0D-543E5B7EA4B6}">{3308641B-EB85-4FE7-8D0D-543E5B7EA4B6}</Name_3308641B>
+              <Description_645563ED tag="{645563ED-597B-4095-ACC8-EDA71049C3D3}">{645563ED-597B-4095-ACC8-EDA71049C3D3}</Description_645563ED>
+              <Name_1AC1BFA4 tag="{1AC1BFA4-4113-4C66-AFE2-F3F3C0266C73}">{1AC1BFA4-4113-4C66-AFE2-F3F3C0266C73}</Name_1AC1BFA4>
+              <Description_609C7279 tag="{609C7279-6E83-4ED2-9F7E-7E9BEF1397F0}">{609C7279-6E83-4ED2-9F7E-7E9BEF1397F0}</Description_609C7279>
+              <Type_9D507AF0 tag="{9D507AF0-463A-4151-AAA2-8C5AD6632E36}">{9D507AF0-463A-4151-AAA2-8C5AD6632E36}</Type_9D507AF0>
+              <RelatedProducts_B039E503 tag="{B039E503-5EAF-4688-80A1-B9F32DE6D800}">{B039E503-5EAF-4688-80A1-B9F32DE6D800}</RelatedProducts_B039E503>
+              <Description_62C925B2 tag="{62C925B2-B720-465B-8047-E776BE22BD79}">{62C925B2-B720-465B-8047-E776BE22BD79}</Description_62C925B2>
+              <Type_10870BDB tag="{10870BDB-03DC-4EB0-922E-C891A3B96F37}">{10870BDB-03DC-4EB0-922E-C891A3B96F37}</Type_10870BDB>
+              <URI_D2A79CB7 tag="{D2A79CB7-A015-4BA4-B63D-BEB127BF5F0E}">{D2A79CB7-A015-4BA4-B63D-BEB127BF5F0E}</URI_D2A79CB7>
+              <Resource_FEF7847E tag="{FEF7847E-3AC3-4C79-BE15-BF407C461DE6}">{FEF7847E-3AC3-4C79-BE15-BF407C461DE6}</Resource_FEF7847E>
+              <Mainimage_BB61C579 tag="{BB61C579-50C7-40E7-B32E-A66BDC5D2DC3}">{BB61C579-50C7-40E7-B32E-A66BDC5D2DC3}</Mainimage_BB61C579>
+              <Group_6486CBD0 tag="{6486CBD0-3E73-4293-9DA9-52249BBA163D}">{6486CBD0-3E73-4293-9DA9-52249BBA163D}</Group_6486CBD0>
+              <Key_88892C6A tag="{88892C6A-F865-493E-82B7-5C21E67C2FA4}">{88892C6A-F865-493E-82B7-5C21E67C2FA4}</Key_88892C6A>
+              <Value_59B79BAF tag="{59B79BAF-4F30-4ECA-961D-4AFAB14D157C}">{59B79BAF-4F30-4ECA-961D-4AFAB14D157C}</Value_59B79BAF>
+              <LookupValue_8377B000 tag="{8377B000-0EE9-4F77-9EBA-2B0822669F84}">{8377B000-0EE9-4F77-9EBA-2B0822669F84}</LookupValue_8377B000>
+              <Description_92630A4A tag="{92630A4A-369D-47CE-9FF1-A72A7DD67969}">{92630A4A-369D-47CE-9FF1-A72A7DD67969}</Description_92630A4A>
+              <VariantSpecifications_95CF928F tag="{95CF928F-0CA7-4DAF-B6B1-8DFE31AC9523}">{95CF928F-0CA7-4DAF-B6B1-8DFE31AC9523}</VariantSpecifications_95CF928F>
+              <Name_93E7751E tag="{93E7751E-AEC7-4EA7-B5D8-B6D6653B3E8B}">{93E7751E-AEC7-4EA7-B5D8-B6D6653B3E8B}</Name_93E7751E>
+              <Description_EC7D4AC3 tag="{EC7D4AC3-83B6-4653-944A-097AAFDFFF07}">{EC7D4AC3-83B6-4653-944A-097AAFDFFF07}</Description_EC7D4AC3>
+              <ExternalParentID_5D89D406 tag="{5D89D406-B223-426E-A029-CE7138A9BAB2}">{5D89D406-B223-426E-A029-CE7138A9BAB2}</ExternalParentID_5D89D406>
+              <Name_02EAA1D4 tag="{02EAA1D4-A90A-4124-B2BA-3453794DAF10}">{02EAA1D4-A90A-4124-B2BA-3453794DAF10}</Name_02EAA1D4>
+              <Name_F3F37114 tag="{F3F37114-38B0-43DF-B9C7-512B62081BF1}">{F3F37114-38B0-43DF-B9C7-512B62081BF1}</Name_F3F37114>
+              <ExternalID_F2F908F1 tag="{F2F908F1-806E-4706-911B-6794B73576D0}">{F2F908F1-806E-4706-911B-6794B73576D0}</ExternalID_F2F908F1>
+              <Value_290DEFD0 tag="{290DEFD0-7B9A-4541-A326-87C44BEE5309}">{290DEFD0-7B9A-4541-A326-87C44BEE5309}</Value_290DEFD0>
+              <Description_4B1331AC tag="{4B1331AC-A540-448C-884A-9F6CDC067842}">{4B1331AC-A540-448C-884A-9F6CDC067842}</Description_4B1331AC>
+              <CountryCode_6364FD2C tag="{6364FD2C-7B9E-482D-B96B-7C324D49011E}">{6364FD2C-7B9E-482D-B96B-7C324D49011E}</CountryCode_6364FD2C>
+              <Name_9F6720CC tag="{9F6720CC-654F-4FDD-9848-7039DA6A0E7B}">{9F6720CC-654F-4FDD-9848-7039DA6A0E7B}</Name_9F6720CC>
+              <Code_3860AB02 tag="{3860AB02-9645-47BF-9224-3E3D4C3C6BD3}">{3860AB02-9645-47BF-9224-3E3D4C3C6BD3}</Code_3860AB02>
+              <Name_725BC3BC tag="{725BC3BC-0DCB-40A7-B6D8-64A254E10B1A}">{725BC3BC-0DCB-40A7-B6D8-64A254E10B1A}</Name_725BC3BC>
+              <Description_8D70DD9B tag="{8D70DD9B-709E-427D-848D-32BD8AAED724}">{8D70DD9B-709E-427D-848D-32BD8AAED724}</Description_8D70DD9B>
+              <Currencies_3FAC8159 tag="{3FAC8159-F5C1-471D-A26C-4C3C3D494532}">{3FAC8159-F5C1-471D-A26C-4C3C3D494532}</Currencies_3FAC8159>
+              <DefaultCurrency_9CC02000 tag="{9CC02000-C6FB-41B6-B3B2-F1E9B2DFF4D1}">{9CC02000-C6FB-41B6-B3B2-F1E9B2DFF4D1}</DefaultCurrency_9CC02000>
+              <Title_19110EBD tag="{19110EBD-4668-429D-9237-E8DFE81C09A8}">{19110EBD-4668-429D-9237-E8DFE81C09A8}</Title_19110EBD>
+              <Name_349B8CB1 tag="{349B8CB1-A03B-41F9-BBA3-0F92DF4F21EA}">{349B8CB1-A03B-41F9-BBA3-0F92DF4F21EA}</Name_349B8CB1>
+              <TypeID_B282BAAD tag="{B282BAAD-F8EB-4FD6-A42D-88A6714426DB}">{B282BAAD-F8EB-4FD6-A42D-88A6714426DB}</TypeID_B282BAAD>
+              <Title_F311C61A tag="{F311C61A-08DD-411A-B280-42E335EC6118}">{F311C61A-08DD-411A-B280-42E335EC6118}</Title_F311C61A>
+              <Description_3A5CF40A tag="{3A5CF40A-D1CE-4DB6-AF7C-77923F546743}">{3A5CF40A-D1CE-4DB6-AF7C-77923F546743}</Description_3A5CF40A>
+              <FulfillmentOptionType_EF1E0A0B tag="{EF1E0A0B-AC9A-4171-9CBC-00DA3D85250A}">{EF1E0A0B-AC9A-4171-9CBC-00DA3D85250A}</FulfillmentOptionType_EF1E0A0B>
+              <Description_86088F94 tag="{86088F94-B8EA-45EF-8DAF-AC792B66D9BA}">{86088F94-B8EA-45EF-8DAF-AC792B66D9BA}</Description_86088F94>
+              <Languages_12B7253C tag="{12B7253C-1E8C-43C1-A733-124957D529FB}">{12B7253C-1E8C-43C1-A733-124957D529FB}</Languages_12B7253C>
+              <DefaultLanguage_3A621478 tag="{3A621478-CC5C-4777-8CB3-A7911AE264E2}">{3A621478-CC5C-4777-8CB3-A7911AE264E2}</DefaultLanguage_3A621478>
+              <FallbackLanguage_FFD6D079 tag="{FFD6D079-7DBC-4F1E-B46E-75745B71B1E6}">{FFD6D079-7DBC-4F1E-B46E-75745B71B1E6}</FallbackLanguage_FFD6D079>
+              <Title_7207EC3E tag="{7207EC3E-F92A-4193-9BE9-F5C2140E4793}">{7207EC3E-F92A-4193-9BE9-F5C2140E4793}</Title_7207EC3E>
+              <Name_985DA69E tag="{985DA69E-3B93-40D3-BF7B-E8B2C45FEF73}">{985DA69E-3B93-40D3-BF7B-E8B2C45FEF73}</Name_985DA69E>
+              <TypeID_A4FDFEC1 tag="{A4FDFEC1-F911-43CB-B4E1-E24B34C52443}">{A4FDFEC1-F911-43CB-B4E1-E24B34C52443}</TypeID_A4FDFEC1>
+              <Title_8BB2CC42 tag="{8BB2CC42-F0D1-4D31-A94F-DA60BD47EC2D}">{8BB2CC42-F0D1-4D31-A94F-DA60BD47EC2D}</Title_8BB2CC42>
+              <Description_E8E394F9 tag="{E8E394F9-1771-4A65-B802-DC33969B9589}">{E8E394F9-1771-4A65-B802-DC33969B9589}</Description_E8E394F9>
+              <PaymentOptionType_3C9AB946 tag="{3C9AB946-F6BB-4A99-A5B6-C7FD79E2DE4B}">{3C9AB946-F6BB-4A99-A5B6-C7FD79E2DE4B}</PaymentOptionType_3C9AB946>
+              <Countries-Regions_6D8C6738 tag="{6D8C6738-20EC-4CA0-B9EE-DC6B64CA224F}">{6D8C6738-20EC-4CA0-B9EE-DC6B64CA224F}</Countries-Regions_6D8C6738>
+              <CurrencySet_F8ABFA72 tag="{F8ABFA72-0FBA-44A5-9122-CF11ACB0EA61}">{F8ABFA72-0FBA-44A5-9122-CF11ACB0EA61}</CurrencySet_F8ABFA72>
+              <CurrencyDescription_510E3FCA tag="{510E3FCA-7730-4BE6-9B74-7D1AB7287F47}">{510E3FCA-7730-4BE6-9B74-7D1AB7287F47}</CurrencyDescription_510E3FCA>
+              <CurrencySymbol_360EC3F9 tag="{360EC3F9-FE2C-41BC-A00D-424B24FA9579}">{360EC3F9-FE2C-41BC-A00D-424B24FA9579}</CurrencySymbol_360EC3F9>
+              <CurrencySymbolPosition_E505DAF1 tag="{E505DAF1-5476-4B05-AF5D-F3425859EB91}">{E505DAF1-5476-4B05-AF5D-F3425859EB91}</CurrencySymbolPosition_E505DAF1>
+              <CurrencyNumberFormat_2BA6F36E tag="{2BA6F36E-BA91-41A9-A252-2358456799F1}">{2BA6F36E-BA91-41A9-A252-2358456799F1}</CurrencyNumberFormat_2BA6F36E>
+              <CurrencyDescription_3E688EF7 tag="{3E688EF7-75F1-4FCB-BFD2-6B1F00416FCC}">{3E688EF7-75F1-4FCB-BFD2-6B1F00416FCC}</CurrencyDescription_3E688EF7>
+              <CurrencySymbol_FA180BCA tag="{FA180BCA-7F42-4816-8F0E-BDD955BACAB6}">{FA180BCA-7F42-4816-8F0E-BDD955BACAB6}</CurrencySymbol_FA180BCA>
+              <CurrencySymbolPosition_C1E67A7D tag="{C1E67A7D-DA01-4948-8179-C5441D55FEC5}">{C1E67A7D-DA01-4948-8179-C5441D55FEC5}</CurrencySymbolPosition_C1E67A7D>
+              <CurrencyNumberFormat_BA9B8563 tag="{BA9B8563-B162-4AAB-BCB9-F5EA65BC6240}">{BA9B8563-B162-4AAB-BCB9-F5EA65BC6240}</CurrencyNumberFormat_BA9B8563>
+              <FulfillmentOptions_0452EB98 tag="{0452EB98-BC28-4FD8-A3B4-533F26C62705}">{0452EB98-BC28-4FD8-A3B4-533F26C62705}</FulfillmentOptions_0452EB98>
+              <AllowitemstobedeliveredIndividually_769B63DB tag="{769B63DB-453F-44E6-AA90-CBC916E47F7D}">{769B63DB-453F-44E6-AA90-CBC916E47F7D}</AllowitemstobedeliveredIndividually_769B63DB>
+              <LanguageSet_03265DC1 tag="{03265DC1-CCFE-470D-AED1-EA9AAB5B3F55}">{03265DC1-CCFE-470D-AED1-EA9AAB5B3F55}</LanguageSet_03265DC1>
+              <PaymentOptions_EE2D99C3 tag="{EE2D99C3-35C0-4467-8532-0E2AA960BB87}">{EE2D99C3-35C0-4467-8532-0E2AA960BB87}</PaymentOptions_EE2D99C3>
+              <Description_796B8793 tag="{796B8793-0846-4396-A771-2361A4D55BC7}">{796B8793-0846-4396-A771-2361A4D55BC7}</Description_796B8793>
+              <Title_A68724CC tag="{A68724CC-9513-46F5-AA82-D26C0644B21D}">{A68724CC-9513-46F5-AA82-D26C0644B21D}</Title_A68724CC>
+            </exclude>
+          </documentOptions>
+        </defaultSolrIndexConfiguration>
+      </indexConfigurations>
+      <configuration type="Sitecore.ContentSearch.ContentSearchConfiguration, Sitecore.ContentSearch">
+        <indexes role:require="Standalone or (ContentManagement and Indexing)" hint="list:AddIndex">
+          <index id="sitecore_master_index">
+            <strategies hint="list:AddStrategy">
+              <strategy ref="contentSearch/indexConfigurations/indexUpdateStrategies/commerceEngineIntervalAsynchronousStrategyMaster" />
+            </strategies>
+            <locations hint="list:AddCrawler">
+              <crawler type="Sitecore.Commerce.Engine.Connect.Search.Crawlers.CommerceEngineCrawler, Sitecore.Commerce.Engine.Connect">
+                <ListName>SitecoreItemIndexingMaster</ListName>
+              </crawler>
+            </locations>
+          </index>
+          <index id="sitecore_web_index">
+            <strategies hint="list:AddStrategy">
+              <strategy ref="contentSearch/indexConfigurations/indexUpdateStrategies/commerceEngineIntervalAsynchronousStrategyWeb" />
+            </strategies>
+            <locations hint="list:AddCrawler">
+              <crawler type="Sitecore.Commerce.Engine.Connect.Search.Crawlers.CommerceEngineCrawler, Sitecore.Commerce.Engine.Connect">
+                <ListName>SitecoreItemIndexingWeb</ListName>
+              </crawler>
+            </locations>
+          </index>
+        </indexes>
+      </configuration>
+    </contentSearch>
+  </sitecore>
+</configuration>

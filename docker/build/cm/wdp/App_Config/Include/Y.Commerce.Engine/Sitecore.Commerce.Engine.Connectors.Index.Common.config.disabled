@@ -1,0 +1,43 @@
+﻿<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:role="http://www.sitecore.net/xmlconfig/role/">
+  <sitecore role:require="Standalone or ContentDelivery or ContentManagement">
+    <pipelines>
+      <indexing.getChildrenToIndex>
+        <!-- 
+          Insert our processor first so that we can intercept Commmerce items that we do not want indexed into the below referenced indexes.
+          As Commerce uses a sepearte crawler to index Commerce items, we insert this processor to stop the default crawlers from attempting to index
+          Commerce items.
+          By default the processor below will skip indexing of children of the following locations or templates:
+            Commerce Catalog Folder   ID {334E2B54-F913-411D-B159-A7B16D65242C}
+        -->
+        <processor type="Sitecore.Commerce.Engine.Connect.Pipelines.GetChildrenToIndex, Sitecore.Commerce.Engine.Connect" patch:before="*[1]">
+          <!-- The list of indexes that we do not want commerce items to be indexed to -->
+          <Indexes hint="list:AddString" help="Add index names below to stop crawling of Commerce items by the default crawler">
+            <IndexName role:require="Standalone or ContentManagement">sitecore_master_index</IndexName>
+            <IndexName>sitecore_web_index</IndexName>
+            <IndexName role:require="Standalone or ContentManagement">sitecore_testing_index</IndexName>
+            <IndexName role:require="Standalone or ContentManagement">sitecore_suggested_test_index</IndexName>
+          </Indexes>
+        </processor>
+      </indexing.getChildrenToIndex>
+      <indexing.filterIndex.inbound>
+        <processor type="Sitecore.Commerce.Engine.Connect.Pipelines.CommerceInboundIndexFilter, Sitecore.Commerce.Engine.Connect" />
+      </indexing.filterIndex.inbound>
+    </pipelines>
+    <contentSearch>
+      <indexConfigurations>
+        <indexUpdateStrategies role:require="Standalone or ContentDelivery or ContentManagement">
+          <commerceEngineIntervalAsynchronousStrategyMaster role:require="Standalone or ContentManagement" type="Sitecore.Commerce.Engine.Connect.Search.Strategies.CommerceEngineIntervalAsynchronousStrategy, Sitecore.Commerce.Engine.Connect">
+            <IncrementalIndexListName>CatalogItemsIncrementalIndexMaster</IncrementalIndexListName>
+            <param desc="interval">00:10:00</param>
+            <param desc="database">master</param>
+          </commerceEngineIntervalAsynchronousStrategyMaster>
+          <commerceEngineIntervalAsynchronousStrategyWeb role:require="Standalone or ContentManagement" type="Sitecore.Commerce.Engine.Connect.Search.Strategies.CommerceEngineIntervalAsynchronousStrategy, Sitecore.Commerce.Engine.Connect">
+            <IncrementalIndexListName>CatalogItemsIncrementalIndexWeb</IncrementalIndexListName>
+            <param desc="interval">00:10:00</param>
+            <param desc="database">web</param>
+          </commerceEngineIntervalAsynchronousStrategyWeb>
+        </indexUpdateStrategies>
+      </indexConfigurations>
+    </contentSearch>
+  </sitecore>
+</configuration>

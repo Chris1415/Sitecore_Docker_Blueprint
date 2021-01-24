@@ -41,12 +41,15 @@ services:
   # Mount our SQL data folder and use our custom image with the Headless Services (JSS)
   # module data added. See Dockerfile for details.
   mssql:
-    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-mssql:${VERSION:-latest}
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xc0-mssql:${VERSION:-latest}
     build:
-      context: ./docker/build/mssql
+      context: ./docker/build/mssql/common
+      dockerfile: ../standalone/Dockerfile
       args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-mssql:${SITECORE_VERSION}
+        PARENT_IMAGE: ${XC_NONPRODUCTION_SITECORE_DOCKER_REGISTRY}sitecore-xc0-mssql:${XC_PACKAGES_TAG}
+        #PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-mssql:${SITECORE_VERSION}
         HEADLESS_SERVICES_IMAGE: ${HEADLESS_SERVICES_IMAGE}
+        SITECORE_CORE_DB: ${SITECORE_CORE_DB}
     mem_limit: 2GB
     volumes:
       - type: bind
@@ -56,12 +59,14 @@ services:
   # Mount our Solr data folder and use our retagged Solr image.
   # Some modules (like SXA) also require additions to the Solr image.
   solr:
-    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-solr:${VERSION:-latest}
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xc0-solr:${VERSION:-latest}
     build:
       context: ./docker/build/solr
       args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-solr:${SITECORE_VERSION}
-    mem_limit: 1GB
+        PARENT_IMAGE: ${XC_NONPRODUCTION_SITECORE_DOCKER_REGISTRY}sitecore-xc0-solr:${XC_PACKAGES_TAG}
+        #PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-solr:${SITECORE_VERSION}
+        SOLR_COMMERCE_CORE_NAMES: "CatalogItems,Customers,Orders,PriceCards,Promotions"
+    mem_limit: 2GB
     volumes:
       - type: bind
         source: .\docker\data\solr
@@ -70,11 +75,12 @@ services:
   # Use our retagged Identity Server image.
   # Configure for a mounted license file instead of using SITECORE_LICENSE.
   id:
-    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-id:${VERSION:-latest}
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xc-id:${VERSION:-latest}
     build:
       context: ./docker/build/id
       args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-id:${SITECORE_VERSION}
+        PARENT_IMAGE: ${XC_SITECORE_DOCKER_REGISTRY}sitecore-xc-id:${XC_PACKAGES_TAG}
+        #PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-id:${SITECORE_VERSION}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
@@ -84,11 +90,12 @@ services:
   # Folders are mounted below for code deployment and log output. See Dockerfile for details.
   # Configure for a mounted license file instead of using SITECORE_LICENSE.
   cm:
-    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-cm:${VERSION:-latest}
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xc0-cm:${VERSION:-latest}
     build:
       context: ./docker/build/cm
       args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-cm:${SITECORE_VERSION}
+        PARENT_IMAGE: ${XC_SITECORE_DOCKER_REGISTRY}sitecore-xc0-cm:${XC_PACKAGES_TAG}
+        #PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-cm:${SITECORE_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
         TOOLS_IMAGE: ${TOOLS_IMAGE}
         MANAGEMENT_SERVICES_IMAGE: ${MANAGEMENT_SERVICES_IMAGE}
@@ -107,11 +114,12 @@ services:
   # Configure for a mounted license folder instead of using SITECORE_LICENSE.
   # Note: XConnect roles expect a folder with license.xml, not the file itself.
   xconnect:
-    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-xconnect:${VERSION:-latest}
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xc0-xconnect:${VERSION:-latest}
     build:
       context: ./docker/build/xconnect
       args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-xconnect:${SITECORE_VERSION}
+        PARENT_IMAGE: ${XC_SITECORE_DOCKER_REGISTRY}sitecore-xc0-xconnect:${XC_PACKAGES_TAG}
+        #PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-xconnect:${SITECORE_VERSION}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment: 
@@ -120,11 +128,14 @@ services:
   # Use our retagged XConnect Search Indexer image.
   # Configure for a mounted license folder instead of using SITECORE_LICENSE.
   xdbsearchworker:
-    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-xdbsearchworker:${VERSION:-latest}
+    scale: 0
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xc0-xdbsearchworker:${VERSION:-latest}
     build:
       context: ./docker/build/xdbsearchworker
       args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-xdbsearchworker:${SITECORE_VERSION}
+        PARENT_IMAGE: ${XC_SITECORE_DOCKER_REGISTRY}sitecore-xc0-xdbsearchworker:${XC_PACKAGES_TAG}
+        #PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-xdbsearchworker:${SITECORE_VERSION}
+        CONTENT_PATH: wdp/App_Data/jobs/continuous/IndexWorker
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment: 
@@ -133,11 +144,14 @@ services:
   # Use our retagged Marketing Automation Engine image. 
   # Configure for a mounted license folder instead of using SITECORE_LICENSE.
   xdbautomationworker:
-    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-xdbautomationworker:${VERSION:-latest}
+    scale: 0
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xc0-xdbautomationworker:${VERSION:-latest}
     build:
       context: ./docker/build/xdbautomationworker
       args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-xdbautomationworker:${SITECORE_VERSION}
+        PARENT_IMAGE: ${XC_SITECORE_DOCKER_REGISTRY}sitecore-xc0-xdbautomationworker:${XC_PACKAGES_TAG}
+        #PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-xdbautomationworker:${SITECORE_VERSION}
+        CONTENT_PATH: wdp/App_Data/jobs/continuous/AutomationEngine
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment: 
@@ -146,7 +160,8 @@ services:
   # Use our retagged Cortex Processing Engine image.
   # Configure for a mounted license folder instead of using SITECORE_LICENSE.
   cortexprocessingworker:
-    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-cortexprocessingworker:${VERSION:-latest}
+    scale: 0
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xc0-cortexprocessingworker:${VERSION:-latest}
     build:
       context: ./docker/build/cortexprocessingworker
       args:
@@ -155,3 +170,15 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment: 
       SITECORE_LICENSE_LOCATION: c:\license\
+ # bizfx:
+ #   build:
+ #     context: ./docker/build/bizfx
+ #     args:
+ #       PARENT_IMAGE: mcr.microsoft.com/windows/servercore/iis:windowsservercore-${OS_IMAGE_TAG}
+ #   image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xc0-bizfx:${VERSION:-latest}
+ # engine:
+ #   build:
+ #     context: ./docker/build/engine
+ #     args:
+ #       PARENT_IMAGE: mcr.microsoft.com/windows/servercore:${OS_IMAGE_TAG}
+ #   image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xc-engine:${VERSION:-latest}

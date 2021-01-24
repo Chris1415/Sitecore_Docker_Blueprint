@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:role="http://www.sitecore.net/xmlconfig/role/">
+  <sitecore role:require="Standalone or ContentDelivery or ContentManagement">
+    <dataProviders>
+      <catalogProvider role:require="Standalone or ContentManagement" type="Sitecore.Commerce.Engine.Connect.DataProvider.CatalogDataProvider, Sitecore.Commerce.Engine.Connect">
+        <targetDatabaseName>master</targetDatabaseName>
+      </catalogProvider>
+      <catalogProvider role:require="ContentDelivery" type="Sitecore.Commerce.Engine.Connect.DataProvider.CatalogDataProvider, Sitecore.Commerce.Engine.Connect">
+        <targetDatabaseName>web</targetDatabaseName>
+      </catalogProvider>
+      <workflowProvider type="Sitecore.Commerce.Engine.Connect.DataProvider.WorkflowDataProvider, Sitecore.Commerce.Engine.Connect" />
+    </dataProviders>
+    <databases>
+      <database role:require="Standalone or ContentManagement" id="master" singleInstance="true" type="Sitecore.Data.DefaultDatabase, Sitecore.Kernel">
+        <dataProviders>
+          <dataProvider ref="dataProviders/catalogProvider" />
+          <dataProvider ref="dataProviders/workflowProvider" />
+        </dataProviders>
+      </database>
+      <database id="web" singleInstance="true" type="Sitecore.Data.DefaultDatabase, Sitecore.Kernel">
+        <dataProviders>
+          <dataProvider ref="dataProviders/catalogProvider" />
+          <dataProvider ref="dataProviders/workflowProvider" />
+        </dataProviders>
+      </database>
+    </databases>
+  </sitecore>
+</configuration>

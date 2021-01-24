@@ -1,0 +1,1929 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plugin.Sample.ContentHub</name>
+    </assembly>
+    <members>
+        <member name="T:Plugin.Sample.ContentHub.ImportEntityCommand">
+            <summary>
+                Represents a <see cref="T:Sitecore.Commerce.Core.Commands.CommerceCommand"/> that imports changes of
+                <see cref="T:Sitecore.Commerce.Core.CommerceEntity"/> done in Content Hub.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ImportEntityCommand.#ctor(Plugin.Sample.ContentHub.IImportEntityPipeline,Microsoft.Extensions.Logging.ILogger{Plugin.Sample.ContentHub.ImportEntityCommand},Microsoft.ApplicationInsights.TelemetryClient,Sitecore.Commerce.Core.CommerceEnvironment,System.IServiceProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.ImportEntityCommand"/> class.
+            </summary>
+            <param name="importEntityPipeline">
+                The <see cref="T:Plugin.Sample.ContentHub.IImportEntityPipeline"/> to import changes of <see cref="T:Sitecore.Commerce.Core.CommerceEntity"/> done in Content Hub.
+            </param>
+            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger"/> to log diagnostic information.</param>
+            <param name="telemetryClient">
+                The <see cref="T:Microsoft.ApplicationInsights.TelemetryClient"/>, required for <see cref="T:Sitecore.Commerce.Core.CommerceContext"/>.
+            </param>
+            <param name="globalEnvironment">
+                The global <see cref="T:Sitecore.Commerce.Core.CommerceEnvironment"/>, required for <see cref="T:Sitecore.Commerce.Core.CommerceContext"/>.
+            </param>
+            <param name="serviceProvider">The <see cref="T:System.IServiceProvider"/> that contains additional dependencies.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="importEntityPipeline"/>, <paramref name="globalEnvironment"/>, <paramref name="logger"/>, or
+                <paramref name="telemetryClient"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ImportEntityCommand.Process(Sitecore.Commerce.Core.CommerceEnvironment,Plugin.Sample.ContentHub.ServiceBusMessage)">
+            <summary>
+                Imports changes of <see cref="T:Sitecore.Commerce.Core.CommerceEntity"/> done in Content Hub.
+            </summary>
+            <param name="environment">
+                The <see cref="T:Sitecore.Commerce.Core.CommerceEnvironment"/> within which <see cref="T:Plugin.Sample.ContentHub.IImportEntityPipeline"/> will be executed.
+            </param>
+            <param name="serviceBusMessage">
+                The <see cref="T:Plugin.Sample.ContentHub.ServiceBusMessage"/> that contains information about changed <see cref="T:Sitecore.Commerce.Core.CommerceEntity"/>.
+            </param>
+            <returns>
+                A <see cref="T:System.Threading.Tasks.Task"/> that represents an asynchronous operation.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="environment"/> or <paramref name="serviceBusMessage"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ContentHubImage">
+            <summary>
+                Represents a class that contains information about the image, received from Content Hub.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ContentHubImage.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.ContentHubImage" /> class.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ContentHubImage.#ctor(System.Uri,System.Int32,System.Int32,System.String,System.Boolean,System.Nullable{System.Int64})">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.ContentHubImage" /> class.
+            </summary>
+            <param name="url">The <see cref="T:System.Uri"/> of the image.</param>
+            <param name="width">The width (in pixels) of the image.</param>
+            <param name="height">The height (in pixels) of the image.</param>
+            <param name="alternateText">The alternative information for an image if a user cannot view it.</param>
+            <param name="isMaster">
+                The <see cref="T:System.Boolean"/> value that defines whether the image is master (main) or not.
+            </param>
+            <param name="linkId">The related link id.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="url"/> or <paramref name="alternateText"/> is <see langword="null"/>
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+                <paramref name="width"/> or <paramref name="height"/> is less or equal to 0.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubImage.Url">
+            <summary>
+                Gets the image URL.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubImage.Width">
+            <summary>
+                Gets the image width.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubImage.Height">
+            <summary>
+                Gets the image height.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubImage.IsMaster">
+            <summary>
+                Gets the image Master status.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubImage.AlternateText">
+            <summary>
+                Gets the alternative information for an image if a user cannot view it.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ContentHubImagesComponent">
+            <summary>
+            Represents a <see cref="T:Sitecore.Commerce.Core.Component"/> that contains images from Content Hub.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubImagesComponent.ContentHubImages">
+            <summary>
+            Gets the images retrieved from Content Hub.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ConfigureServiceApiBlock">
+            <summary>
+            Defines a block which configures the OData model for the <see cref="N:Plugin.Sample.ContentHub"/> plugin
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ConfigureServiceApiBlock.Run(Microsoft.AspNet.OData.Builder.ODataConventionModelBuilder,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+                Runs the specified model builder.
+            </summary>
+            <param name="arg">The model builder.</param>
+            <param name="context">The context.</param>
+            <returns>The <see cref="T:Microsoft.AspNet.OData.Builder.ODataConventionModelBuilder"/> with new types.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ConfigureSitecore">
+            <summary>
+                The configure class for <see cref="N:Plugin.Sample.ContentHub"/>.
+            </summary>
+            <seealso cref="T:Sitecore.Framework.Configuration.IConfigureSitecore" />
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ConfigureSitecore.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Configure services necessary for <see cref="N:Plugin.Sample.ContentHub"/>.
+            </summary>
+            <param name="services">
+                The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to register necessary services.
+            </param>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ContentHubConstants">
+            <summary>
+            The constants for <see cref="N:Plugin.Sample.ContentHub"/> plugin.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.InitializeServiceBusBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.InitializeServiceBusBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.FetchEntityBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.FetchEntityBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.FetchAssetEntitiesBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.FetchAssetEntitiesBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.FetchImagePublicLinksBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.FetchImagePublicLinksBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.FindSellableItemBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.FindSellableItemBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.FetchAssetProductEntitiesBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.FetchAssetProductEntitiesBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.FetchPublicLinkAssetEntitiesBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.FetchPublicLinkAssetEntitiesBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.UpdateSellableItemPropertiesBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.UpdateSellableItemPropertiesBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.UpdateLocalizedPropertiesBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.UpdateLocalizedPropertiesBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.UpdateLocalizedComponentsBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.UpdateLocalizedComponentsBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.MapContentHubPropertiesBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.MapContentHubPropertiesBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.PersistSellableItemBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.PersistSellableItemBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.PersistLocalizationsBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.PersistLocalizationsBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.BuildImagesComponentBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.BuildImagesComponentBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ConfigureServiceApiBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.ConfigureServiceApiBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.GetSellableItemContentHubImagesViewBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.GetSellableItemContentHubImagesViewBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.SetImagesComponentBlock">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.SetImagesComponentBlock"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImportEntityPipeline">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.ImportEntityPipeline"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImportProductEntityPipeline">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.ImportProductEntityPipeline"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImportAssetEntityPipeline">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.ImportAssetEntityPipeline"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.IImportPublicLinkEntityPipeline">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.IImportPublicLinkEntityPipeline"/> block name.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.PublicLinkRelativeUrl">
+            <summary>
+            Public Link Relative URL
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.PublicLinkVersionHash">
+            <summary>
+            Public Link Version Hash
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.PublicLinkCompletedStatusName">
+            <summary>
+            Name of the status for completed Public link
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ContentHubEntityVersionProperty">
+            <summary>
+            Content Hub Version Property Name
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.PublicLinkStatusPropertyName">
+            <summary>
+            Name of the Status property of a Content Hub public link <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.PublicLinkFileKeyPropertyName">
+            <summary>
+            Name of the FileKey property of a Content Hub public link <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.PublicLinkConversionConfigurationPropertyName">
+            <summary>
+            Name of the ConversionConfiguration property of a Content Hub public link <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.AssetFilePropertiesPropertyName">
+            <summary>
+            Name of the FileProperties property of a Content Hub asset <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.AssetRenditionsPropertyName">
+            <summary>
+            Name of the Renditions property of a Content Hub asset <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.DownloadOriginalRenditionName">
+            <summary>
+            Name of the DownloadOriginal Content Hub <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IRendition"/>.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.RenditionWidthPropertyName">
+            <summary>
+            Name of the Width property of a Content Hub <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IRendition"/>.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.RenditionHeightPropertyName">
+            <summary>
+            Name of the Height property of a Content Hub <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IRendition"/>.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.FilePropertiesFieldName">
+            <summary>
+            Name of the Properties field in Json for <see cref="T:Plugin.Sample.ContentHub.FileProperties"/>.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImagesGroupName">
+            <summary>
+            Name of the images group provided in <see cref="P:Plugin.Sample.ContentHub.FileProperties.Group"/>.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImagesEntityViewDisplayName">
+            <summary>
+            The default display name for the Sitecore DAM Assets <see cref="T:Sitecore.Commerce.EntityViews.EntityView"/>.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImagesEntityViewName">
+            <summary>
+            The view name for the Sitecore DAM Assets <see cref="T:Sitecore.Commerce.EntityViews.EntityView"/>.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImagesEntityViewPublicLinkViewPropertyName">
+            <summary>
+            The <see cref="T:Sitecore.Commerce.EntityViews.ViewProperty"/> name for the image's public link.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImagesEntityViewAlternateTextViewPropertyName">
+            <summary>
+            The <see cref="T:Sitecore.Commerce.EntityViews.ViewProperty"/> name for the image's alternate text.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImagesEntityViewImageViewPropertyName">
+            <summary>
+            The <see cref="T:Sitecore.Commerce.EntityViews.ViewProperty"/> name for the image.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImagesEntityViewWidthViewPropertyName">
+            <summary>
+            The <see cref="T:Sitecore.Commerce.EntityViews.ViewProperty"/> name for the image width.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImagesEntityViewHeightViewPropertyName">
+            <summary>
+            The <see cref="T:Sitecore.Commerce.EntityViews.ViewProperty"/> name for the image height.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImagesEntityViewIsMasterFileViewPropertyName">
+            <summary>
+            The <see cref="T:Sitecore.Commerce.EntityViews.ViewProperty"/> name for the IsMasterFile property.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ImageViewPropertyRawValueStringFormat">
+            <summary>
+            The raw value string format of the image to be rendered.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.PublicLinkViewPropertyRawValueStringFormat">
+            <summary>
+            The <see cref="T:Sitecore.Commerce.EntityViews.ViewProperty"/> name for the image's public link that is to be rendered.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.EntityViewPropertyUITypeHtml">
+            <summary>
+            Defines the HTML <see cref="T:Sitecore.Commerce.EntityViews.ViewProperty"/> UI type.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.DefaultLanguageToken">
+            <summary>
+            Defines the default language token content hub uses to represent as the culture
+            for non-localizable properties.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ContentHubEntityNotFoundError">
+            <summary>
+            The value to log messages when a entity not found error occur.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ContentHubEntityMappingMismatch">
+            <summary>
+            The value to log messages when a mismatch error occur.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ContentHubProductIdMissingOrInvalid">
+            <summary>
+            The value to log messages when missing or invalid id error occur.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.ContentHubSellableItemMissing">
+            <summary>
+            The value to log messages when missing <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> error occur.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.BlockPrefix">
+            <summary>
+            Defines the <see cref="T:Sitecore.Framework.Pipelines.PipelineBlock"/> prefix for Content Hub blocks.
+            </summary>
+        </member>
+        <member name="F:Plugin.Sample.ContentHub.ContentHubConstants.PipelinePrefix">
+            <summary>
+            Defines the <see cref="T:Sitecore.Framework.Pipelines.IPipeline"/> prefix for Content Hub pipelines.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.EnvironmentExtensions">
+            <summary>
+            Extension methods for <see cref="T:Sitecore.Commerce.Core.CommerceEnvironment"/>
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.EnvironmentExtensions.IsPolicyConfigured``1(Sitecore.Commerce.Core.CommerceEnvironment)">
+            <summary>
+            Check if and specific <see cref="T:Sitecore.Commerce.Core.Policy"/> is configured on the <see cref="T:Sitecore.Commerce.Core.CommerceEnvironment"/>.
+            </summary>
+            <typeparam name="T">The <see cref="T:Sitecore.Commerce.Core.Policy"/> type.</typeparam>
+            <param name="environment">The <see cref="T:Sitecore.Commerce.Core.CommerceEnvironment"/> to check.</param>
+            <returns>True if the <see cref="T:Sitecore.Commerce.Core.CommerceEnvironment"/> contains the <see cref="T:Sitecore.Commerce.Core.Policy"/>, otherwise false.</returns>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.EnvironmentExtensions.GetConfiguredPolicy``1(Sitecore.Commerce.Core.CommerceEnvironment)">
+            <summary>
+            Get the configured <see cref="T:Sitecore.Commerce.Core.Policy"/> from the <see cref="T:Sitecore.Commerce.Core.CommerceEnvironment"/>
+            </summary>
+            <typeparam name="T">The <see cref="T:Sitecore.Commerce.Core.Policy"/> type.</typeparam>
+            <param name="environment">The <see cref="T:Sitecore.Commerce.Core.CommerceEnvironment"/> to check.</param>
+            <returns>The <see cref="T:Sitecore.Commerce.Core.Policy"/></returns>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.IEntityExtensions">
+            <summary>
+            Defines extension methods for <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.IEntityExtensions.GetMultiLanguagePropertyValueAsync``1(Stylelabs.M.Sdk.Contracts.Base.IEntity,System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the value of the property identified by <paramref name="property"/>
+            for the culture specified by <paramref name="cultureInfo"/>.
+            </summary>
+            <typeparam name="T">The type of the property to return</typeparam>
+            <param name="entity">The instance of the <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/> to get the property from.</param>
+            <param name="property">The name of the property.</param>
+            <param name="cultureInfo">The culture for which the property should be retrieved.</param>
+            <returns>The value of the property, or default(T) if the property does not exist.</returns>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.IEntityExtensions.GetMultiLanguagePropertyValueAsync``1(Stylelabs.M.Sdk.Contracts.Base.IEntity,System.String,System.String)">
+            <summary>
+            Gets the value of the property identified by <paramref name="property"/>
+            for the culture specified by <paramref name="culture"/>.
+            </summary>
+            <typeparam name="T">The type of the property to return</typeparam>
+            <param name="entity">The instance of the <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/> to get the property from.</param>
+            <param name="property">The name of the property.</param>
+            <param name="culture">The string representation of the culture for which the property should be retrieved.</param>
+            <returns>The value of the property, or default(T) if the property does not exist.</returns>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.MappingStringExtensions">
+            <summary>
+            Defines extension methods for <see cref="T:Plugin.Sample.ContentHub.PropertyMap"/> properties.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.MappingStringExtensions.GetToPropertyViewName(System.String)">
+            <summary>
+            Extract the view name of the property.
+            </summary>
+            <param name="property">The string property that contains the view name.</param>
+            <returns>The view name</returns>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.MappingStringExtensions.GetToPropertyName(System.String)">
+            <summary>
+            Extract the name of the property.
+            </summary>
+            <param name="property">The string property that contains the name.</param>
+            <returns>The name</returns>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ContentHubClientFactory">
+            <summary>
+            Represents a factory to create <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> instances.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubClientFactory.RetryCount">
+            <summary>
+                Gets or sets amount of retries that should be done by any
+                <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> created by <see cref="T:Plugin.Sample.ContentHub.ContentHubClientFactory"/>.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubClientFactory.Timeout">
+            <summary>
+                Gets or sets a <see cref="T:System.TimeSpan"/> before requests done by any
+                <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> created by <see cref="T:Plugin.Sample.ContentHub.ContentHubClientFactory"/> fail with timeout.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ContentHubClientFactory.CreateClient(Plugin.Sample.ContentHub.ContentHubClientPolicy)">
+            <summary>
+                Creates the <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> using information from <paramref name="policy"/>.
+            </summary>
+            <param name="policy">
+                The <see cref="T:Plugin.Sample.ContentHub.ContentHubClientPolicy"/> that contains information to instantiate <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/>.
+            </param>
+            <returns>An instance of <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="policy"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ServiceBusSubscriptionClientFactory">
+            <summary>
+            Represents a factory to create <see cref="T:Microsoft.Azure.ServiceBus.ISubscriptionClient"/> and <see cref="T:Microsoft.Azure.ServiceBus.ITopicClient"/> instances.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ServiceBusSubscriptionClientFactory.CreateSubscriptionClient(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new concrete implementation of the <see cref="T:Microsoft.Azure.ServiceBus.ISubscriptionClient"/> interface.
+            </summary>
+            <param name="connectionString">The connection string to connect to Azure Service Bus.</param>
+            <param name="topicName">The name of the topic to connect to.</param>
+            <param name="subscriptionName">The name of the subscription to connect to.</param>
+            <returns>New <see cref="T:Microsoft.Azure.ServiceBus.ISubscriptionClient"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="connectionString"/>, <paramref name="topicName"/>, or
+                <paramref name="subscriptionName"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="connectionString"/>, <paramref name="topicName"/>, or
+                <paramref name="subscriptionName"/> is <see cref="F:System.String.Empty"/> or contains only whitespace characters.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.AssetRendition">
+            <summary>
+            Represents a rendition for asset.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.AssetRendition.#ctor(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String},System.Collections.Generic.IReadOnlyDictionary{System.String,System.String[]})">
+            <summary>
+            Initializes a new instance of <see cref="T:Plugin.Sample.ContentHub.AssetRendition"/>.
+            </summary>
+            <param name="status">The status of the rendition.</param>
+            <param name="properties">
+                The <see cref="T:System.Collections.Generic.IReadOnlyDictionary`2"/> where key and value are the name and value of
+                the property, respectively.
+            </param>
+            <param name="locations">
+                The <see cref="T:System.Collections.Generic.IReadOnlyDictionary`2"/> where key is the name of the location and value
+                is the <see cref="T:System.Array"/> of location values.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="status"/> or <paramref name="locations"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="status"/> is <see cref="F:System.String.Empty"/> or contains only whitespace characters.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.AssetRendition.Status">
+            <summary>
+            Gets the status of the rendition.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.AssetRendition.Properties">
+            <summary>
+                Gets the <see cref="T:System.Collections.Generic.IReadOnlyDictionary`2"/> where key and value are the name and value of
+                the property, respectively.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.AssetRendition.Locations">
+            <summary>
+                Gets the <see cref="T:System.Collections.Generic.IReadOnlyDictionary`2"/> where key is the name of the location and value
+                is the <see cref="T:System.Array"/> of location values.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.Changeset">
+            <summary>
+            Represents a set of changes received as part of <see cref="T:Plugin.Sample.ContentHub.SaveEntityMessage"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.Changeset.#ctor(System.Collections.Generic.IReadOnlyList{Plugin.Sample.ContentHub.PropertyChange},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{Plugin.Sample.ContentHub.RelationChange})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.Changeset"/> class.
+            </summary>
+            <param name="propertyChanges">The collection of changed properties.</param>
+            <param name="cultures">The collection of the cultures within changed Content Hub entity.</param>
+            <param name="relationChanges">The collection of changes in entity's relationships.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="propertyChanges"/>, <paramref name="cultures"/>, or <paramref name="relationChanges"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.Changeset.PropertyChanges">
+            <summary>
+            Gets the collection of changed properties.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.Changeset.Cultures">
+            <summary>
+            Gets the collection of the cultures within changed Content Hub entity.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.Changeset.RelationChanges">
+            <summary>
+            Gets the collection of changes in entity's relationships.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ConversionConfiguration">
+            <summary>
+                Represents a class with information about the conversion of a Content Hub Asset from original to
+                another form, accessible via Public Link.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ConversionConfiguration.#ctor(System.Int32,System.Int32,Plugin.Sample.ContentHub.Ratio,Plugin.Sample.ContentHub.CroppingConfiguration,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Initializes a new instance of <see cref="T:Plugin.Sample.ContentHub.ConversionConfiguration"/>.
+            </summary>
+            <param name="originalWidth">The original width of an Asset.</param>
+            <param name="originalHeight">The original height of an Asset.</param>
+            <param name="ratio">The ratio of the conversion with respect to its original.</param>
+            <param name="croppingConfiguration">The optional <see cref="P:Plugin.Sample.ContentHub.ConversionConfiguration.CroppingConfiguration"/> of an Asset.</param>
+            <param name="width">The optional width, if different from <paramref name="originalWidth"/>.</param>
+            <param name="height">The optional height, if different from <paramref name="originalHeight"/>.</param>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ConversionConfiguration.Width">
+            <summary>
+            Gets the optional width, if different from <see cref="P:Plugin.Sample.ContentHub.ConversionConfiguration.OriginalWidth"/>.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ConversionConfiguration.Height">
+            <summary>
+            Gets the optional height, if different from <see cref="P:Plugin.Sample.ContentHub.ConversionConfiguration.OriginalHeight"/>.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ConversionConfiguration.CroppingConfiguration">
+            <summary>
+            Gets the optional <see cref="P:Plugin.Sample.ContentHub.ConversionConfiguration.CroppingConfiguration"/> of an Asset.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ConversionConfiguration.OriginalWidth">
+            <summary>
+            Gets the original width of an Asset.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ConversionConfiguration.OriginalHeight">
+            <summary>
+            Gets the original height of an Asset.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ConversionConfiguration.Ratio">
+            <summary>
+            Gets the ratio of an Asset.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.CroppingConfiguration">
+            <summary>
+                Represents a class with information about the way cropping has been performed
+                as part of <see cref="T:Plugin.Sample.ContentHub.ConversionConfiguration"/>. 
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.CroppingConfiguration.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+                Initializes a new instance of <see cref="T:Plugin.Sample.ContentHub.CroppingConfiguration"/>.
+            </summary>
+            <param name="croppingType">The type of the cropping that has been performed.</param>
+            <param name="width">The output width.</param>
+            <param name="height">The output height.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="croppingType"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="croppingType"/> is <see cref="F:System.String.Empty"/> or contains only whitespace characters.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+                <paramref name="width"/> or <paramref name="height"/> is less than or equal to zero.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.CroppingConfiguration.CroppingType">
+            <summary>
+            Gets the type of the cropping that has been performed.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.CroppingConfiguration.Width">
+            <summary>
+            Gets the output width.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.CroppingConfiguration.Height">
+            <summary>
+            Gets the output height.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.DeleteEntityMessage">
+            <summary>
+                Represents a message that contains information about deleted
+                Content Hub entity, received as part of <see cref="T:Plugin.Sample.ContentHub.ServiceBusMessage"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.DeleteEntityMessage.#ctor(System.String,System.String,System.Int64,System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.DeleteEntityMessage"/> class.
+            </summary>
+            <param name="eventType">The type of the current event.</param>
+            <param name="targetDefinition">The definition of the target Content Hub entity.</param>
+            <param name="targetId">The id of the target Content Hub entity.</param>
+            <param name="targetIdentifier">The identifier of the target Content Hub entity.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="eventType"/>, <paramref name="targetDefinition"/>, or <paramref name="targetIdentifier"/>is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="eventType"/>, <paramref name="targetDefinition"/>, or <paramref name="targetIdentifier"/>
+                is <see cref="F:System.String.Empty"/> or contains only whitespace characters.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+                <paramref name="targetId"/> is less than or equal to zero.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.EntityMessage">
+            <summary>
+                Represents a message that contains information about Content Hub entity, received as part of <see cref="T:Plugin.Sample.ContentHub.ServiceBusMessage"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.EntityMessage.#ctor(System.String,System.String,System.Int64,System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.EntityMessage"/> class.
+            </summary>
+            <param name="eventType">The type of the current event.</param>
+            <param name="targetDefinition">The definition of the target Content Hub entity.</param>
+            <param name="targetId">The id of the target Content Hub entity.</param>
+            <param name="targetIdentifier">The identifier of the target Content Hub entity.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="eventType"/>, <paramref name="targetDefinition"/>, or <paramref name="targetIdentifier"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="eventType"/>, <paramref name="targetDefinition"/>, or <paramref name="targetIdentifier"/>
+                is <see cref="F:System.String.Empty"/> or contains only whitespace characters.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+                <paramref name="targetId"/> is less than or equal to zero.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.EntityMessage.EventType">
+            <summary>
+            Gets the type of the current event.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.EntityMessage.TargetDefinition">
+            <summary>
+            Gets the definition of the target Content Hub entity.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.EntityMessage.TargetId">
+            <summary>
+            Gets the id of the target Content Hub entity.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.EntityMessage.TargetIdentifier">
+            <summary>
+            Gets the identifier of the target Content Hub entity.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.FileProperties">
+            <summary>
+            Represents a set of file properties of a Content Hub Asset.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FileProperties.#ctor(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.Double,System.String,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:Plugin.Sample.ContentHub.FileProperties"/>.
+            </summary>
+            <param name="group">The name of the group the asset belongs to.</param>
+            <param name="extension">The extension of the asset file.</param>
+            <param name="width">The width of the asset.</param>
+            <param name="height">The height of the asset.</param>
+            <param name="resolution">The resolution of the asset.</param>
+            <param name="colorSpace">The name of color space used in asset.</param>
+            <param name="megapixels">The amount of megapixels in the asset.</param>
+            <param name="application">The name of the application used for asset.</param>
+            <param name="contentType">The MIME content type for asset.</param>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.FileProperties.Group">
+            <summary>
+            Gets the name of the group the asset belongs to.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.FileProperties.Extension">
+            <summary>
+            Gets the extension of the asset file.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.FileProperties.Width">
+            <summary>
+            Gets the width of the asset.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.FileProperties.Height">
+            <summary>
+            Gets the height of the asset.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.FileProperties.Resolution">
+            <summary>
+            Gets the resolution of the asset.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.FileProperties.ColorSpace">
+            <summary>
+            Gets the name of color space used in asset.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.FileProperties.Megapixels">
+            <summary>
+            Gets the amount of megapixels in the asset.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.FileProperties.Application">
+            <summary>
+            Gets the name of the application used for asset.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.FileProperties.ContentType">
+            <summary>
+            Gets the MIME content type for asset.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.PropertyChange">
+            <summary>
+            Defines a class that represents a property change on a
+            Content Hub entity.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.PropertyChange.#ctor(System.String,System.String,System.String,System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.PropertyChange"/> class.
+            </summary>
+            <param name="property">The name of the changed property.</param>
+            <param name="type">The data type of the property.</param>
+            <param name="culture">The culture of the property.</param>
+            <param name="originalValue">The original value of the property.</param>
+            <param name="newValue">The new value of the property.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="property"/>, <paramref name="type"/>, or <paramref name="culture"/>,
+                is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="property"/>, <paramref name="type"/>, or <paramref name="culture"/>
+                 is <see cref="F:System.String.Empty"/> or contains only whitespace.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.PropertyChange.Culture">
+            <summary>
+            The culture in which the property value was changed.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.PropertyChange.Property">
+            <summary>
+            The name of the property whose value was changed.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.PropertyChange.Type">
+            <summary>
+            The data type of the property whose value was changed.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.PropertyChange.OriginalValue">
+            <summary>
+            The original value of the property before it was changed.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.PropertyChange.NewValue">
+            <summary>
+            The updated value of the property.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.PropertyMap">
+            <summary>
+            Represents a mapping between property names.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.PropertyMap.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.PropertyMap"/> class.
+            </summary>
+            <param name="fromProperty">The source property for mapping.</param>
+            <param name="toProperty">The target property for mapping.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="fromProperty"/> or <paramref name="toProperty"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="fromProperty"/> or <paramref name="toProperty"/> is <see cref="F:System.String.Empty"/>
+                or contains only whitespace characters.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.PropertyMap.FromProperty">
+            <summary>
+            Gets the source property for mapping.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.PropertyMap.ToProperty">
+            <summary>
+            Gets the target property for mapping.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.Ratio">
+            <summary>
+            Represents a ratio of <see cref="T:Plugin.Sample.ContentHub.ConversionConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.Ratio.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:Plugin.Sample.ContentHub.Ratio"/>.
+            </summary>
+            <param name="name">The name of the <see cref="T:Plugin.Sample.ContentHub.Ratio"/>.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="name"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="name"/> is <see cref="F:System.String.Empty"/> or contains only whitespace characters.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.Ratio.Name">
+            <summary>
+            Gets the name of the <see cref="T:Plugin.Sample.ContentHub.Ratio"/>.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.RelationChange">
+            <summary>
+                Represents a change in relations between Content Hub entities,
+                received as part of <see cref="T:Plugin.Sample.ContentHub.Changeset"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.RelationChange.#ctor(System.String,System.Int32,System.Int32,System.Collections.Generic.IReadOnlyList{System.Int32},System.Collections.Generic.IReadOnlyList{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.RelationChange"/> class.
+            </summary>
+            <param name="relation">The relation between entities.</param>
+            <param name="role">The role of relation.</param>
+            <param name="cardinality">The cardinality of relation.</param>
+            <param name="newValues">The collection of new values in relation.</param>
+            <param name="removedValues">The collection of removed values from relation.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="relation"/>, <paramref name="newValues"/>, or <paramref name="removedValues"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="relation"/> is <see cref="F:System.String.Empty"/> or contains only whitespace characters.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.RelationChange.Relation">
+            <summary>
+            Gets the relation between entities.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.RelationChange.Role">
+            <summary>
+            Gets the role of relation.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.RelationChange.Cardinality">
+            <summary>
+            Gets the cardinality of relation.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.RelationChange.NewValues">
+            <summary>
+            Gets the collection of new values in relation.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.RelationChange.RemovedValues">
+            <summary>
+            Gets the collection of removed values from relation.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.SaveEntityMessage">
+            <summary>
+                Represents a message that contains information about changed
+                Content Hub entity, received as part of <see cref="T:Plugin.Sample.ContentHub.ServiceBusMessage"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.SaveEntityMessage.#ctor(System.String,System.String,System.Int64,System.String,System.Boolean,System.DateTime,System.Int32,System.Int32,Plugin.Sample.ContentHub.Changeset)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.SaveEntityMessage"/> class.
+            </summary>
+            <param name="eventType">The type of the current event.</param>
+            <param name="targetDefinition">The definition of the target Content Hub entity.</param>
+            <param name="targetId">The id of the target Content Hub entity.</param>
+            <param name="targetIdentifier">The identifier of the target Content Hub entity.</param>
+            <param name="isNew">Specifies, whether the Content Hub entity is new or not.</param>
+            <param name="timestamp">The timestamp of when event has happened.</param>
+            <param name="userId">The id of the user, who made the changes.</param>
+            <param name="version">The version of the Content Hub entity.</param>
+            <param name="changeSet">The <see cref="P:Plugin.Sample.ContentHub.SaveEntityMessage.ChangeSet"/> with details of changed properties.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="eventType"/>, <paramref name="targetDefinition"/>, <paramref name="targetIdentifier"/>,
+                or <paramref name="changeSet"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="eventType"/>, <paramref name="targetDefinition"/>, or <paramref name="targetIdentifier"/>
+                is <see cref="F:System.String.Empty"/> or contains only whitespace characters.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+                <paramref name="targetId"/>, <paramref name="userId"/>, or <paramref name="version"/>
+                is less than or equal to zero.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.SaveEntityMessage.IsNew">
+            <summary>
+            Gets the value that specifies, whether the Content Hub entity is new or not.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.SaveEntityMessage.Timestamp">
+            <summary>
+            Gets the timestamp of when event has happened.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.SaveEntityMessage.UserId">
+            <summary>
+            Gets the id of the user, who made the changes.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.SaveEntityMessage.Version">
+            <summary>
+            Gets the version of the Content Hub entity.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.SaveEntityMessage.ChangeSet">
+            <summary>
+            Gets the <see cref="P:Plugin.Sample.ContentHub.SaveEntityMessage.ChangeSet"/> with details of changed properties.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ServiceBusMessage">
+            <summary>
+            Represents a message received from Azure Service Bus.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ServiceBusMessage.TargetDefinition">
+            <summary>
+                Gets the definition of the target Content Hub entity.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ServiceBusMessage.TargetId">
+            <summary>
+                Gets the id of the target Content Hub entity.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ServiceBusMessage.EntityMessage">
+            <summary>
+                Gets, Sets the <see cref="T:Plugin.Sample.ContentHub.EntityMessage"/> that contains information
+                about changed Content Hub entity.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ServiceBusMessage.SaveEntityMessage">
+            <summary>
+                Gets the <see cref="T:Plugin.Sample.ContentHub.SaveEntityMessage"/> that contains information
+                about changed Content Hub entity.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ServiceBusMessage.DeleteEntityMessage">
+            <summary>
+                Gets the <see cref="T:Plugin.Sample.ContentHub.SaveEntityMessage"/> that contains information
+                about changed Content Hub entity.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ServiceBusMessage.Context">
+            <summary>
+                Gets the context of the current <see cref="T:Plugin.Sample.ContentHub.ServiceBusMessage"/>.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ServiceBusMessageContext">
+            <summary>
+            Represents a context of the <see cref="T:Plugin.Sample.ContentHub.ServiceBusMessage"/>.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ImportEntityArgument">
+            <summary>
+                Represents a <see cref="T:Sitecore.Commerce.Core.PipelineArgument"/> for <see cref="T:Plugin.Sample.ContentHub.IImportEntityPipeline"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ImportEntityArgument.#ctor(Plugin.Sample.ContentHub.ServiceBusMessage,Plugin.Sample.ContentHub.ContentHubClientPolicy,Plugin.Sample.ContentHub.SynchronizationPolicy,Plugin.Sample.ContentHub.ProductSynchronizationPolicy,Plugin.Sample.ContentHub.AssetSynchronizationPolicy)">
+            <summary>
+            Initializes a new an instance of the <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/> class.
+            </summary>
+            <param name="message">The <see cref="T:Plugin.Sample.ContentHub.ServiceBusMessage"/> that contains information about changed entity.</param>
+            <param name="clientPolicy">The <see cref="T:Plugin.Sample.ContentHub.ContentHubClientPolicy"/> that contains connection information for the target Content Hub instance.</param>
+            <param name="synchronizationPolicy">The <see cref="T:Plugin.Sample.ContentHub.SynchronizationPolicy"/> that contains basic information needed to synchronize data from Content Hub.</param>
+            <param name="productSynchronizationPolicy">The <see cref="T:Plugin.Sample.ContentHub.ProductSynchronizationPolicy"/> that contains information needed to synchronize product data from Content Hub.</param>
+            <param name="assetSynchronizationPolicy">The <see cref="T:Plugin.Sample.ContentHub.AssetSynchronizationPolicy"/> that contains information needed to synchronize asset data from Content Hub.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="message"/>, <paramref name="clientPolicy"/>, or <paramref name="synchronizationPolicy"/>
+                is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.Message">
+            <summary>
+            The <see cref="T:Plugin.Sample.ContentHub.ServiceBusMessage"/> received.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.ClientPolicy">
+            <summary>
+            Gets the <see cref="T:Plugin.Sample.ContentHub.ContentHubClientPolicy"/> that contains information about target Content Hub instance.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.SynchronizationPolicy">
+            <summary>
+            Gets the <see cref="T:Plugin.Sample.ContentHub.SynchronizationPolicy"/> that contains basic information about synchronizing
+            Commerce Engine with Content Hub.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.TargetId">
+            <summary>
+            Gets the id of the target Content Hub entity.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.TargetIdentifier">
+            <summary>
+            Gets the identifier of the target Content Hub entity.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.EventType">
+            <summary>
+            Gets the type of the current event.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.Version">
+            <summary>
+            Gets the version of the Content Hub entity.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.Entity">
+            <summary>
+            Gets or sets the Content Hub <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.Assets">
+            <summary>
+            Gets or sets the assets related to <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Entity"/>.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.ContentHubImagesComponent">
+            <summary>
+            Gets or sets the <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/> that contains image links with additional metadata.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.Properties">
+            <summary>
+            Gets or sets the properties related to <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Entity"/>.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.PublicLinkToImageMappings">
+            <summary>
+                Gets or sets the <see cref="T:System.Collections.Generic.IDictionary`2"/>, where key is a Public Link
+                and value is a corresponding image.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.CommerceEntity">
+            <summary>
+            Gets or sets the <see cref="T:Sitecore.Commerce.Core.CommerceEntity"/> that corresponds to current <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Entity"/>.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.LocalizationEntity">
+            <summary>
+            Gets or sets the <see cref="T:Sitecore.Commerce.Core.LocalizationEntity"/> for <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.CommerceEntity"/>.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.EditedCultures">
+            <summary>
+            Gets or sets the list of cultures affected by the Content Hub update.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.LocalizationsUpdated">
+            <summary>
+            Gets or sets a value that reflects whether this update includes localizations.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.ProductSynchronizationPolicy">
+            <summary>
+            Gets the <see cref="T:Plugin.Sample.ContentHub.ProductSynchronizationPolicy"/> containing information used to synchronize product data.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ImportEntityArgument.AssetSynchronizationPolicy">
+            <summary>
+            Gets the <see cref="T:Plugin.Sample.ContentHub.AssetSynchronizationPolicy"/> containing information used to synchronize asset data.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.BuildImagesComponentBlock">
+            <summary>
+                Defines a block that builds <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/> based on the information,
+                provided by <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.BuildImagesComponentBlock.RunAsync(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+                Builds an <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/> based on the information, provided in <paramref name="arg"/>.
+            </summary>
+            <param name="arg">
+                The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/> which contains information, required to build <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/>.
+            </param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/> for current block execution.</param>
+            <returns><paramref name="arg"/> with built <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.ContentHubImagesComponent"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/>, <paramref name="arg.Entity.Entity"/> or <paramref name="context"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.GetSellableItemContentHubImagesViewBlock">
+            <summary>
+                Defines a block that populates a <see cref="T:Sitecore.Commerce.EntityViews.EntityView"/> for <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> with images information from Content Hub.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.GetSellableItemContentHubImagesViewBlock.Run(Sitecore.Commerce.EntityViews.EntityView,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+                Updates <paramref name="arg"/> with information received from Content Hub.
+            </summary>
+            <param name="arg">
+                The <see cref="T:Sitecore.Commerce.EntityViews.EntityView"/> to populate if <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> has <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/>.
+            </param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/> to execute current block.</param>
+            <returns>The <paramref name="arg"/> with updated <see cref="T:Sitecore.Commerce.EntityViews.EntityView"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/>, <paramref name="context"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.FetchAssetEntitiesBlock">
+            <summary>
+            Defines a block that fetches Content Hub asset entities.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FetchAssetEntitiesBlock.#ctor(Plugin.Sample.ContentHub.ContentHubClientFactory)">
+            <summary>
+                Initializes an instance of the <see cref="T:Plugin.Sample.ContentHub.FetchAssetEntitiesBlock"/>.
+            </summary>
+            <param name="clientFactory">The <see cref="T:Plugin.Sample.ContentHub.ContentHubClientFactory"/> to get <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/>.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="clientFactory"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FetchAssetEntitiesBlock.RunAsync(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+                Retrieves <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/> asset instances, related to
+                <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Entity"/> of <paramref name="arg"/>.
+            </summary>
+            <param name="arg">
+                The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/> which contains <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.
+            </param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/> for current block execution.</param>
+            <returns><paramref name="arg"/> with retrieved <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Assets"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/>, <paramref name="context"/>, or
+                <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Entity"/> of <paramref name="arg"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.FetchAssetProductEntitiesBlock">
+            <summary>
+                Defines a block that loads the <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity">product entities</see> related to a Content Hub <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity">asset</see>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FetchAssetProductEntitiesBlock.#ctor(Plugin.Sample.ContentHub.ContentHubClientFactory,Plugin.Sample.ContentHub.IImportProductEntityPipeline)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.FetchAssetProductEntitiesBlock" />.
+            </summary>
+            <param name="clientFactory">The <see cref="T:Plugin.Sample.ContentHub.ContentHubClientFactory"/> to fetch the related products <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.</param>
+            <param name="importProductPipeline">The <see cref="T:Plugin.Sample.ContentHub.IImportProductEntityPipeline"/> to import a content hub entity product.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="clientFactory"/> or <paramref name="importProductPipeline"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FetchAssetProductEntitiesBlock.RunAsync(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+                Ensures that for each related product in the <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Entity">asset</see> in <paramref name="arg"/>
+                and the removed ids from the <see cref="P:Plugin.Sample.ContentHub.Changeset.RelationChanges"/> the <see cref="T:Plugin.Sample.ContentHub.ImportAssetEntityPipeline"/> is run.
+            property.
+            </summary>
+            <param name="arg">The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/> that contains <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.</param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/> to execute current block.</param>
+            <returns><paramref name="arg"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/>, <paramref name="context"/>, or <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Entity"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.FetchEntityBlock">
+            <summary>
+                Defines a block that fetches the Content Hub <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FetchEntityBlock.#ctor(Plugin.Sample.ContentHub.ContentHubClientFactory,Plugin.Sample.ContentHub.IImportProductEntityPipeline,Plugin.Sample.ContentHub.IImportAssetEntityPipeline,Plugin.Sample.ContentHub.IImportPublicLinkEntityPipeline)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.FetchEntityBlock"/> class.
+            </summary>
+            <param name="clientFactory">The <see cref="T:Plugin.Sample.ContentHub.ContentHubClientFactory"/> to get <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/>.</param>
+            <param name="importProductEntityPipeline">
+                The <see cref="T:Plugin.Sample.ContentHub.ImportProductEntityPipeline"/> to update <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> from Content Hub product.
+            </param>
+            <param name="importAssetEntityPipeline">
+                The <see cref="T:Plugin.Sample.ContentHub.ImportAssetEntityPipeline"/> to update <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/> of all
+                related <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> from Content Hub asset.
+            </param>
+            <param name="importPublicLinkEntityPipeline">
+                The <see cref="T:Plugin.Sample.ContentHub.ImportPublicLinkEntityPipeline"/> to update <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/> from Content Hub public link.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="clientFactory"/>, <paramref name="importProductEntityPipeline"/>, <paramref name="importAssetEntityPipeline"/> or
+                <paramref name="importPublicLinkEntityPipeline"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FetchEntityBlock.RunAsync(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+                Retrieves <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/> from Content Hub using <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/> and checks the <see cref="P:Plugin.Sample.ContentHub.ServiceBusMessage.TargetDefinition"/>
+                to call the specific <see cref="T:Sitecore.Framework.Pipelines.IPipeline"/>.
+            </summary>
+            <param name="arg">
+                The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/> which contains information about the <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/> to load.
+            </param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/> for current block execution.</param>
+            <returns>The <paramref name="arg"/> that contains the loaded <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/> or <paramref name="context"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.FetchImagePublicLinksBlock">
+            <summary>
+            Defines a block that fetches the Content Hub asset public links.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FetchImagePublicLinksBlock.#ctor(Plugin.Sample.ContentHub.ContentHubClientFactory)">
+            <summary>
+                Initializes an instance of the <see cref="T:Plugin.Sample.ContentHub.FetchImagePublicLinksBlock"/>.
+            </summary>
+            <param name="clientFactory">The <see cref="T:Plugin.Sample.ContentHub.ContentHubClientFactory"/> to get <see cref="T:Stylelabs.M.Sdk.WebClient.IWebMClient"/>.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="clientFactory"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FetchImagePublicLinksBlock.RunAsync(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+                Retrieves <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/> Public Link instances, related to
+                <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Assets"/> of <paramref name="arg"/>.
+            </summary>
+            <param name="arg">
+                The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/>, which contains <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Assets"/>.
+            </param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/> for current block execution.</param>
+            <returns>
+                <paramref name="arg"/> with retrieved <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.PublicLinkToImageMappings"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/> or <paramref name="context"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.FetchPublicLinkAssetEntitiesBlock">
+            <summary>
+                Represents a block which loads the related assets of a public link and run the <see cref="T:Plugin.Sample.ContentHub.ImportAssetEntityPipeline"/>
+                on each of the related assets.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FetchPublicLinkAssetEntitiesBlock.#ctor(Plugin.Sample.ContentHub.ContentHubClientFactory,Plugin.Sample.ContentHub.IImportAssetEntityPipeline)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.FetchPublicLinkAssetEntitiesBlock" />.
+            </summary>
+            <param name="clientFactory">The <see cref="T:Plugin.Sample.ContentHub.ContentHubClientFactory"/> to fetch <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.</param>
+            <param name="importAssetPipeline">The <see cref="T:Plugin.Sample.ContentHub.IImportAssetEntityPipeline"/> to import a content hub entity asset.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="clientFactory"/> or <paramref name="importAssetPipeline"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FetchPublicLinkAssetEntitiesBlock.RunAsync(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+                Ensures that for each related asset in the <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Entity">public link</see> in <paramref name="arg"/>
+                the <see cref="T:Plugin.Sample.ContentHub.ImportAssetEntityPipeline"/> is run.
+            </summary>
+            <param name="arg">The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/> that contains <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.</param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/> to execute current block.</param>
+            <returns><paramref name="arg"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/>, <paramref name="context"/>, or <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Entity"/>
+                of <paramref name="arg"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.FindSellableItemBlock">
+            <summary>
+                Represents a block which ensures that for received Content Hub <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>
+                there is appropriate <see cref="T:Sitecore.Commerce.Core.CommerceEntity"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FindSellableItemBlock.#ctor(Sitecore.Commerce.Core.IFindEntityPipeline)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.FindSellableItemBlock" />.
+            </summary>
+            <param name="findEntityPipeline">The <see cref="T:Sitecore.Commerce.Core.IFindEntityPipeline"/> to get <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/>.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="findEntityPipeline"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.FindSellableItemBlock.RunAsync(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Ensures that for <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Entity"/> in <paramref name="arg"/> there is appropriate
+            <see cref="T:Sitecore.Commerce.Core.CommerceEntity"/> with the same value of <see cref="P:Plugin.Sample.ContentHub.SynchronizationPolicy.EntityForeignKey"/>
+            property.
+            </summary>
+            <param name="arg">The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/> that contains <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/>.</param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/> to execute current block.</param>
+            <returns><paramref name="arg"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/>, <paramref name="context"/>, or <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Entity"/>
+                of <paramref name="arg"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.InitializeServiceBusBlock">
+            <summary>
+                Defines a block which subscribes to service bus messages
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.InitializeServiceBusBlock.#ctor(Sitecore.Commerce.Core.CommerceCommander,Plugin.Sample.ContentHub.ServiceBusSubscriptionClientFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.InitializeServiceBusBlock"/> class.
+            </summary>
+            <param name="commerceCommander">
+                The <see cref="T:Sitecore.Commerce.Core.CommerceCommander"/> to get <see cref="T:Plugin.Sample.ContentHub.ImportEntityCommand"/> for
+                <see cref="T:Sitecore.Commerce.Core.CommerceEntity"/> changes import into Commerce Engine.
+            </param>
+            <param name="serviceBusClientsFactory">
+                The <see cref="T:Plugin.Sample.ContentHub.ServiceBusSubscriptionClientFactory"/> to communicate with Azure Service Bus.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="commerceCommander"/> or <paramref name="serviceBusClientsFactory"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.InitializeServiceBusBlock.RunAsync(Sitecore.Commerce.Core.CommerceEnvironment,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Configures message handlers for Azure Service Bus. 
+            </summary>
+            <param name="arg">
+                The current <see cref="T:Sitecore.Commerce.Core.CommerceEnvironment"/> to use for <see cref="T:Plugin.Sample.ContentHub.ImportEntityCommand"/>.
+            </param>
+            <param name="context">The current <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/>.</param>
+            <returns><paramref name="arg"/></returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/> or <paramref name="context"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.MapContentHubPropertiesBlock">
+            <summary>
+            Defines a block that maps the ContentHub property values their corresponding values.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.MapContentHubPropertiesBlock.RunAsync(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Maps the ContentHub product properties to their corresponding values.
+            </summary>
+            <param name="arg">The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/>.</param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/>The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/>.</param>
+            <returns>The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/> containing the mappings.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/>
+            </exception>
+            <remarks>
+            Property mappings are defined in the <see cref="T:Plugin.Sample.ContentHub.ProductSynchronizationPolicy"/>.
+            When the method completes successfully, the <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.Properties"/> property will contain the mappings.
+            </remarks>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.PersistLocalizationsBlock">
+            <summary>
+            Defines a block that persists localized properties of a <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/>
+            using a <see cref="T:Sitecore.Commerce.Core.LocalizationEntity"/> in response to a Content Hub update.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.PersistLocalizationsBlock.#ctor(Sitecore.Commerce.Core.IPersistEntityPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.PersistLocalizationsBlock"/> class.
+            </summary>
+            <param name="persistEntityPipeline">An instance of <see cref="T:Sitecore.Commerce.Core.IPersistEntityPipeline"/>, used to persist updated localizations.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="persistEntityPipeline"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.PersistLocalizationsBlock.RunAsync(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+                Persists the updated localized properties.
+            </summary>
+            <param name="arg">The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/>, containing information about the update.</param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/></param>
+            <returns>The <paramref name="arg"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/>, <paramref name="arg.LocalizationEntity.LocalizationEntity"/>, or <paramref name="context"/>
+                is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.PersistSellableItemBlock">
+            <summary>
+            Defines a block that persists a <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> that has been updated in response to
+            a Content Hub update.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.PersistSellableItemBlock.#ctor(Sitecore.Commerce.Core.IPersistEntityPipeline)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.PersistSellableItemBlock"/> class.
+            </summary>
+            <param name="persistPipeline">An instance of <see cref="T:Sitecore.Commerce.Core.IPersistEntityPipeline"/> used to persist updates to a <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/>.</param>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.PersistSellableItemBlock.RunAsync(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+                Persists the updated <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/>.
+            </summary>
+            <param name="arg">The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/> that contains information regarding the update from Content Hub.</param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/>.</param>
+            <returns>The <paramref name="arg"/> argument.</returns>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.SetImagesComponentBlock">
+            <summary>
+            Defines a block that sets or removes the <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/> on a <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/>,
+            depending on whether there are any associated Content Hub images.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.SetImagesComponentBlock.Run(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Sets or removes the <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/> of a <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/>.
+            </summary>
+            <param name="arg">
+                The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/> that contains the <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> to update in
+                the <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.CommerceEntity"/> property.
+            </param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/> to execute current block.</param>
+            <returns>The <paramref name="arg"/> with updated <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/>, <paramref name="context"/>, or <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.CommerceEntity"/>
+                in <paramref name="arg"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.CommerceEntity"/> in <paramref name="arg"/> is not of <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> type.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.UpdateLocalizedComponentsBlock">
+            <summary>
+            Defines a block that updates the <see cref="T:Sitecore.Commerce.Core.LocalizationEntity"/> <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/> corresponding to
+            a <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> that has been updated in Content Hub.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.UpdateLocalizedComponentsBlock.RunAsync(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Updates the <see cref="T:Sitecore.Commerce.Core.LocalizationEntity"/> ComponentsProperties
+            </summary>
+            <param name="arg">The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/>, containing information about the update.</param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/></param>
+            <returns>The <paramref name="arg"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/>, <paramref name="arg.CommerceEntity.CommerceEntity"/>,
+                or <paramref name="context"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.UpdateLocalizedPropertiesBlock">
+            <summary>
+            Defines a block that updates the <see cref="T:Sitecore.Commerce.Core.LocalizationEntity"/> corresponding to
+            a <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> that has been updated in Content Hub.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.UpdateLocalizedPropertiesBlock.Run(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+            Updates the <see cref="T:Sitecore.Commerce.Core.LocalizationEntity"/>
+            </summary>
+            <param name="arg">The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/>, containing information about the update.</param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/></param>
+            <returns>The <paramref name="arg"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/>, <paramref name="arg.CommerceEntity.CommerceEntity"/>,
+                or <paramref name="context"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.UpdateSellableItemPropertiesBlock">
+            <summary>
+                Defines a block that updates the properties of a <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> as a result of
+                a Content Hub update to that item.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.UpdateSellableItemPropertiesBlock.Run(Plugin.Sample.ContentHub.ImportEntityArgument,Sitecore.Commerce.Core.CommercePipelineExecutionContext)">
+            <summary>
+                Updates <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> with the changes, received from Content Hub.
+            </summary>
+            <param name="arg">
+                The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/> that contains <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> to update in
+                <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.CommerceEntity"/>.
+            </param>
+            <param name="context">The <see cref="T:Sitecore.Commerce.Core.CommercePipelineExecutionContext"/> to execute current block.</param>
+            <returns>The <paramref name="arg"/> with updated <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="arg"/>, <paramref name="context"/>, or <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.CommerceEntity"/>
+                in <paramref name="arg"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <see cref="P:Plugin.Sample.ContentHub.ImportEntityArgument.CommerceEntity"/> in <paramref name="arg"/> is not of <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> type.
+            </exception>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.UpdateSellableItemPropertiesBlock.ValidatePropertyValue(System.String,System.String,Plugin.Sample.ContentHub.ImportEntityArgument)">
+            <summary>
+            Validates an incoming property value from a Content Hub update.
+            </summary>
+            <param name="propertyName">The name of the property being updated.</param>
+            <param name="propertyValue">The new value of the property.</param>
+            <param name="arg">The <see cref="T:Plugin.Sample.ContentHub.ImportEntityArgument"/> containing information about the update.</param>
+            <returns>
+            <c>true</c> is the value is valid; otherwise <c>false</c>.</returns>
+            <remarks>
+            If this method returns <c>false</c>, the sellable item property denoted by <paramref name="propertyName"/>
+            will not be updated. This method can be overridden by derived classes to provide custom validation for
+            properties being updated by Content Hub.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+                 <paramref name="propertyName"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                 <paramref name="propertyName"/> is empty or all whitespace.
+            </exception>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.IImportAssetEntityPipeline">
+            <summary>
+            Defines an interface for a pipeline that imports content hub <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/> updates.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.IImportEntityPipeline">
+            <summary>
+            Defines an interface for a pipeline that imports content hub <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/> updates to <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/>.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.IImportProductEntityPipeline">
+            <summary>
+            Defines an interface for a pipeline that imports product updates to a <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/>.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.IImportPublicLinkEntityPipeline">
+            <summary>
+            Defines an interface for a pipeline that imports updates from CH PublicLinks to <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/>.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ImportAssetEntityPipeline">
+            <summary>
+            Defines a pipeline that implements the <see cref="T:Plugin.Sample.ContentHub.IImportAssetEntityPipeline"/> interface. This pipeline
+            imports updates to a <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/>  of the <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> from a Content Hub asset instance.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ImportAssetEntityPipeline.#ctor(Sitecore.Framework.Pipelines.IPipelineConfiguration{Plugin.Sample.ContentHub.IImportAssetEntityPipeline},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.ImportAssetEntityPipeline"/> class.
+            </summary>
+            <param name="configuration">The <see cref="T:Sitecore.Framework.Pipelines.IPipelineConfiguration"/> for this pipeline.</param>
+            <param name="loggerFactory">The <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> instance to be used for logging.</param>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ImportEntityPipeline">
+            <summary>
+            Defines a class that implements the <see cref="T:Plugin.Sample.ContentHub.IImportEntityPipeline"/> interface. This pipeline
+            imports updates to a <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/> from a Content Hub instance.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ImportEntityPipeline.#ctor(Sitecore.Framework.Pipelines.IPipelineConfiguration{Plugin.Sample.ContentHub.IImportEntityPipeline},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.ImportEntityPipeline"/> class.
+            </summary>
+            <param name="configuration">The <see cref="T:Sitecore.Framework.Pipelines.IPipelineConfiguration"/> for this pipeline.</param>
+            <param name="loggerFactory">The <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> instance to be used for logging.</param>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ImportProductEntityPipeline">
+            <summary>
+            Defines a class that implements the <see cref="T:Plugin.Sample.ContentHub.IImportProductEntityPipeline"/> interface. This pipeline
+            imports content hub product updates to a <see cref="T:Sitecore.Commerce.Plugin.Catalog.SellableItem"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ImportProductEntityPipeline.#ctor(Sitecore.Framework.Pipelines.IPipelineConfiguration{Plugin.Sample.ContentHub.IImportProductEntityPipeline},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.ImportProductEntityPipeline"/> class.
+            </summary>
+            <param name="configuration">The <see cref="T:Sitecore.Framework.Pipelines.IPipelineConfiguration"/> for this pipeline.</param>
+            <param name="loggerFactory">The <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> instance to be used for logging.</param>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ImportPublicLinkEntityPipeline">
+            <summary>
+            Defines a pipeline that imports updates from CH PublicLinks to <see cref="T:Plugin.Sample.ContentHub.ContentHubImagesComponent"/>.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ImportPublicLinkEntityPipeline.#ctor(Sitecore.Framework.Pipelines.IPipelineConfiguration{Plugin.Sample.ContentHub.IImportPublicLinkEntityPipeline},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.ImportPublicLinkEntityPipeline"/> class.
+            </summary>
+            <param name="configuration">The <see cref="T:Sitecore.Framework.Pipelines.IPipelineConfiguration"/> for this pipeline.</param>
+            <param name="loggerFactory">The <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> instance to be used for logging.</param>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.AssetSynchronizationPolicy">
+            <summary>
+            Defines a class that represents information needed to synchronize digital assets
+            (DAM data) from Content Hub.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.AssetSynchronizationPolicy.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.AssetSynchronizationPolicy" /> class.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.AssetSynchronizationPolicy.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.AssetSynchronizationPolicy"/> class.
+            </summary>
+            <param name="entityToMasterAssetRelationName">The name of the relation between entity and master asset.</param>
+            <param name="entityToAssetRelationName">The name of the relation between entity and asset.</param>
+            <param name="assetToPublicLinkRelationName">The name of the relation between asset and public link.</param>
+            <param name="assetsAlternateTextFieldName">The name of the property that represents the alternative text asset field on Content Hub.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="entityToMasterAssetRelationName"/>, <paramref name="entityToAssetRelationName"/>,
+                <paramref name="assetToPublicLinkRelationName"/>, or <paramref name="assetsAlternateTextFieldName"/> is <see langword="null" />
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="entityToMasterAssetRelationName"/>, <paramref name="entityToAssetRelationName"/>,
+                <paramref name="assetToPublicLinkRelationName"/>, or <paramref name="assetsAlternateTextFieldName"/> is an empty string or contains only whitespace.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.AssetSynchronizationPolicy.EntityToMasterAssetRelationName">
+            <summary>
+            Gets the name of the relation between entity and master asset.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.AssetSynchronizationPolicy.EntityToAssetRelationName">
+            <summary>
+            Gets the name of the relation between entity and asset.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.AssetSynchronizationPolicy.AssetToPublicLinkRelationName">
+            <summary>
+            Gets the name of the relation between asset and public link.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.AssetSynchronizationPolicy.AssetsAlternateTextFieldName">
+            <summary>
+            Gets the name of the property that represents the alternate text foreign key between Content Hub and Commerce Engine.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.AzureServiceBusPolicy">
+            <summary>
+                Defines the <see cref="T:Sitecore.Commerce.Core.Policy"/> to work with Azure Service Bus.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.AzureServiceBusPolicy.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.AzureServiceBusPolicy" /> class.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.AzureServiceBusPolicy.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.AzureServiceBusPolicy"/> class.
+            </summary>
+            <param name="connectionString">The connection string to connect to Azure Service Bus.</param>
+            <param name="subscriptionName">The name of Azure Service Bus subscription.</param>
+            <param name="topicName">The topic name for incoming messages.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="connectionString"/>,
+                <paramref name="subscriptionName"/>, or <paramref name="topicName"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="connectionString"/>,
+            <paramref name="subscriptionName"/>, or <paramref name="topicName"/> is <see cref="F:System.String.Empty"/>
+                or contains whitespace characters only.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.AzureServiceBusPolicy.ConnectionString">
+            <summary>
+                Gets the connection string to connect to Azure Service Bus.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.AzureServiceBusPolicy.TopicName">
+            <summary>
+                Gets the topic name for incoming messages.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.AzureServiceBusPolicy.SubscriptionName">
+            <summary>
+                Gets the name of Azure Service Bus subscription.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.BizFxPolicy">
+            <summary>
+                Represents a <see cref="T:Sitecore.Commerce.Core.Policy"/> that, if present, allows display of Content Hub Images section in BizFx.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ContentHubClientPolicy">
+            <summary>
+                Represents a <see cref="T:Sitecore.Commerce.Core.Policy"/> that contains connection information about target Content Hub instance.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ContentHubClientPolicy.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.ContentHubClientPolicy" /> class.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ContentHubClientPolicy.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.ContentHubClientPolicy"/> class.
+            </summary>
+            <param name="endpointUrl">The url to Content Hub endpoint.</param>
+            <param name="userName">The username to use for authentication with Content Hub endpoint.</param>
+            <param name="password">The password to use for authentication with Content Hub endpoint.</param>
+            <param name="clientId">The client id to use for authentication with Content Hub endpoint.</param>
+            <param name="clientSecret">The client secret to use for authentication with Content Hub endpoint.</param>
+            <param name="knownSSORedirects">The known SSO redirect URls that must trigger security token refreshes.</param>
+            <param name="timeoutInSeconds">The amount of seconds before requests to Content Hub endpoint time out.</param>
+            <param name="retryCount">The amount of attempts to execute request to Content Hub endpoint before throwing error.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="endpointUrl"/>, <paramref name="userName"/>, <paramref name="password"/>, <paramref name="clientId"/>,
+                <paramref name="clientSecret"/>, or <paramref name="knownSSORedirects"/> is <see langword="null"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="endpointUrl"/>, <paramref name="userName"/>, <paramref name="password"/>, <paramref name="clientId"/>,
+                or <paramref name="clientSecret"/> is <see cref="F:System.String.Empty"/> or contains only whitespace characters.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+                <paramref name="timeoutInSeconds"/> or <paramref name="timeoutInSeconds"/> is less than or equal to zero.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubClientPolicy.EndpointUrl">
+            <summary>
+            Gets the url to Content Hub endpoint.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubClientPolicy.UserName">
+            <summary>
+            Gets the username to use for authentication with Content Hub endpoint.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubClientPolicy.Password">
+            <summary>
+            Gets the password to use for authentication with Content Hub endpoint.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubClientPolicy.ClientId">
+            <summary>
+            Gets the client id to use for authentication with Content Hub endpoint.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubClientPolicy.ClientSecret">
+            <summary>
+            Gets the client secret to use for authentication with Content Hub endpoint.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubClientPolicy.KnownSSORedirects">
+            <summary>
+            Gets the known SSO redirect URls that must trigger security token refreshes.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubClientPolicy.TimeoutInSeconds">
+            <summary>
+            Gets the amount of seconds before requests to Content Hub endpoint time out.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ContentHubClientPolicy.RetryCount">
+            <summary>
+            Gets the amount of attempts to execute request to Content Hub endpoint before throwing error.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.ProductSynchronizationPolicy">
+            <summary>
+            Defines a class that represents information needed to synchronize products
+            (PCM data) from Content Hub.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ProductSynchronizationPolicy.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.ProductSynchronizationPolicy" /> class.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.ProductSynchronizationPolicy.#ctor(System.Collections.Generic.IReadOnlyList{Plugin.Sample.ContentHub.PropertyMap})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.ProductSynchronizationPolicy"/> class.
+            </summary>
+            <param name="propertyMapping">The list of property mappings between Content Hub and Commerce Engine entity properties.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="propertyMapping"/> is <see langword="null" />
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.ProductSynchronizationPolicy.PropertyMapping">
+            <summary>
+            Gets the collection of property mappings between Content Hub and Commerce Engine entities.
+            </summary>
+        </member>
+        <member name="T:Plugin.Sample.ContentHub.SynchronizationPolicy">
+            <summary>
+            Defines a policy that contains basic common information needed to synchronize
+            any kind of content from Content Hub. This policy must be configured in order
+            to synchronize PCM or DAM data.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.SynchronizationPolicy.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.SynchronizationPolicy" /> class.
+            </summary>
+        </member>
+        <member name="M:Plugin.Sample.ContentHub.SynchronizationPolicy.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Plugin.Sample.ContentHub.SynchronizationPolicy"/> class.
+            </summary>
+            <param name="productEntityType">A string representation of the type of the product entity</param>
+            <param name="assetEntityType">A string representation of the type of the asset entity</param>
+            <param name="publicLinkEntityType">A string representation of the type of the public link entity</param>
+            <param name="entityForeignKey">The name of the property that represents a foreign key between Content Hub and Commerce Engine.</param>
+            <param name="defaultCulture">The Content Hub culture that should be mapped to the default culture in Commerce Engine.</param>
+            <exception cref="T:System.ArgumentNullException">
+                <paramref name="productEntityType"/>, <paramref name="assetEntityType"/>, <paramref name="publicLinkEntityType"/>, <paramref name="entityForeignKey"/>,
+                or <paramref name="defaultCulture"/> is <see langword="null" />
+            </exception>
+            <exception cref="T:System.ArgumentException">
+                <paramref name="productEntityType"/>, <paramref name="assetEntityType"/>, <paramref name="publicLinkEntityType"/>, <paramref name="entityForeignKey"/>,
+                or <paramref name="defaultCulture"/> is an empty string or contains only whitespace.
+            </exception>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.SynchronizationPolicy.DefaultCulture">
+            <summary>
+            Gets the Content Hub culture that corresponds to the default culture in Commerce Engine.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.SynchronizationPolicy.EntityForeignKey">
+            <summary>
+            Gets the name of the property that represents a foreign key between Content Hub and Commerce Engine.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.SynchronizationPolicy.ProductEntityType">
+            <summary>
+            Gets a string representation of the product <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/> type in Content Hub.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.SynchronizationPolicy.AssetEntityType">
+            <summary>
+            Gets a string representation of the asset <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/> type in Content Hub.
+            </summary>
+        </member>
+        <member name="P:Plugin.Sample.ContentHub.SynchronizationPolicy.PublicLinkEntityType">
+            <summary>
+            Gets a string representation of the public link <see cref="T:Stylelabs.M.Sdk.Contracts.Base.IEntity"/> type in Content Hub.
+            </summary>
+        </member>
+    </members>
+</doc>

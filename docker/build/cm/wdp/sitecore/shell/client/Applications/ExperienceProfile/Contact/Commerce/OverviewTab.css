@@ -1,0 +1,6 @@
+﻿div[data-sc-id=AbandonedCartsMetricsBorder] .row,
+div[data-sc-id=OrderMetricsBorder] .row {
+    margin: 0;
+    padding: 8px 0;
+    background: #fff;
+}

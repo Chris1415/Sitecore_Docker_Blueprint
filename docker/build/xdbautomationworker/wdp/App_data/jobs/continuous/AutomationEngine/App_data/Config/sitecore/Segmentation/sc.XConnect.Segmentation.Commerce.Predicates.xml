@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <Sitecore>
+    <XConnect>
+      <Services>
+        <DescriptorLocator>
+          <Options>
+            <PredicateDescriptors>
+              <OrderWithGivenProduct>
+                <id>{79A70D6C-226A-4FB9-AEDE-EAF909518574}</id>
+                <type>Sitecore.Commerce.Connect.MarketingAutomation.Rules.Segmentation.Predicates.OrderWithGivenProduct, Sitecore.Commerce.Connect.MarketingAutomation.Rules</type>
+              </OrderWithGivenProduct>
+            </PredicateDescriptors>
+          </Options>
+        </DescriptorLocator>
+      </Services>
+    </XConnect>
+  </Sitecore>
+</Settings>
