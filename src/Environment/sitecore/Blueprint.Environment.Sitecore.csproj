@@ -92,6 +92,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Feature\Demo\xconnect\Blueprint.Feature.Demo.XConnect.csproj">
+      <Project>{d6dd5e60-e4ee-4c0c-b246-aefc57dc73d5}</Project>
+      <Name>Blueprint.Feature.Demo.XConnect</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
