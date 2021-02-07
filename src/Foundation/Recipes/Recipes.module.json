@@ -1,0 +1,16 @@
+{
+  "namespace": "Foundation.Recipes",
+  "references": [ "Foundation.Serialization" ],
+  "items": {
+    "includes": [
+      {
+        "name": "templates",
+        "path": "/sitecore/templates/Foundation/Recipes"
+      },
+      {
+        "name": "media",
+        "path": "/sitecore/media library/Foundation/Recipes"
+      }
+    ]
+  }
+}

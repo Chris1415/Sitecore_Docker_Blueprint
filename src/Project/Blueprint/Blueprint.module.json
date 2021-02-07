@@ -1,8 +1,9 @@
 {
   "namespace": "Project.Blueprint",
+  "references": [ "Foundation.Recipes" ],
   "items": {
     "includes": [
-	   {
+      {
         "name": "layouts",
         "path": "/sitecore/layout/Layouts/Project/Blueprint"
       },

@@ -1,0 +1,30 @@
+﻿---
+ID: "f2896791-a052-4445-ac13-44ece4baf9a5"
+Parent: "dbbd94df-3741-43d1-888f-84953e67b7fd"
+Template: "3f205ea0-c23e-461d-a456-1af8101a0d8d"
+Path: /sitecore/content/Blueprint/Data/Recipes/Quick noodle soup
+SharedFields:
+- ID: "429be450-ff77-4ed2-91e1-02d1ec9eb4b4"
+  Hint: Id
+  Value: 0002
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210207T152822Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6dd5e8dd-cfde-45bf-8052-a18edf1c1c61"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "bdb92fd0-6dd4-4494-8b93-bbaed43043ee"
+      Hint: Name
+      Value: Quick noodle soup
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210207T174953Z

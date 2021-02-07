@@ -174,6 +174,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "transforms", "transforms", 
 		docker\build\cd\transforms\Web.config.xdt = docker\build\cd\transforms\Web.config.xdt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Recipes", "Recipes", "{E46CCB99-2B6B-490E-9424-BDC01105D7EE}"
+	ProjectSection(SolutionItems) = preProject
+		src\Foundation\Recipes\Recipes.module.json = src\Foundation\Recipes\Recipes.module.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Foundation.Recipes", "src\Foundation\Recipes\code\Blueprint.Foundation.Recipes.csproj", "{6CFBA4FB-2569-45A9-8424-A5810E64F14A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -196,6 +203,10 @@ Global
 		{8D8430CB-619F-4391-B86B-8D3383C17EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D8430CB-619F-4391-B86B-8D3383C17EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D8430CB-619F-4391-B86B-8D3383C17EED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CFBA4FB-2569-45A9-8424-A5810E64F14A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CFBA4FB-2569-45A9-8424-A5810E64F14A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CFBA4FB-2569-45A9-8424-A5810E64F14A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CFBA4FB-2569-45A9-8424-A5810E64F14A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -235,6 +246,8 @@ Global
 		{F772BFFF-2119-4564-95E2-2365E5A36D23} = {99B21DAA-D0A5-4E63-AC46-14A010115203}
 		{93A97D97-6FD9-4978-B8D7-49EAF9EEFED5} = {EE32F1AC-785E-45B7-A24C-697181CC79D3}
 		{E1841E58-A49D-4085-A2DB-B148BB282987} = {2BCC3D98-800F-4A85-8D4F-BFCDBD11B42F}
+		{E46CCB99-2B6B-490E-9424-BDC01105D7EE} = {99B21DAA-D0A5-4E63-AC46-14A010115203}
+		{6CFBA4FB-2569-45A9-8424-A5810E64F14A} = {E46CCB99-2B6B-490E-9424-BDC01105D7EE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1100B2C6-7E13-4751-9A8A-4D4C869F31CC}

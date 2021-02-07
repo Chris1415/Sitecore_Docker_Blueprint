@@ -1,0 +1,13 @@
+{
+  "namespace": "Foundation.Serialization",
+  "items": {
+    "includes": [
+      {
+        "name": "Media Library",
+        "path": "/sitecore/media library/Foundation",
+        "scope":  "SingleItem"
+      }
+    ]
+  }
+}
+

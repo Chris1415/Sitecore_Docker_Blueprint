@@ -1,0 +1,37 @@
+﻿---
+ID: "679744e9-e3a2-4762-91f0-6c474c9b08d6"
+Parent: "dbbd94df-3741-43d1-888f-84953e67b7fd"
+Template: "3f205ea0-c23e-461d-a456-1af8101a0d8d"
+Path: /sitecore/content/Blueprint/Data/Recipes/Apple pie
+SharedFields:
+- ID: "429be450-ff77-4ed2-91e1-02d1ec9eb4b4"
+  Hint: Recipe Id
+  Value: 0001
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210207T152711Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a187ef5d-81a8-4436-ae18-fde5cb7b86be"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "bdb92fd0-6dd4-4494-8b93-bbaed43043ee"
+      Hint: Recipe Name
+      Value: Apple pie
+    - ID: "c2f36d66-1792-4304-8ceb-b1df77c09451"
+      Hint: Description
+      Value: Delicious and fast recipes for gandma's special apple pie
+    - ID: "d7ad7064-b33c-446c-8952-20dbc5918a31"
+      Hint: Image
+      Value: |
+        <image mediaid="{4A3B769A-ABA4-43C9-B5BF-2FE32F13169F}" />
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210207T200642Z

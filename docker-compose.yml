@@ -177,6 +177,7 @@ services:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1 -Port 8080"]
       timeout: 300s
   cortexprocessingworker:
+    scale: 0
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-cortexprocessingworker:${SITECORE_VERSION}
     depends_on:

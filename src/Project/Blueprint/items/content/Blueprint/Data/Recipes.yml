@@ -1,0 +1,23 @@
+﻿---
+ID: "dbbd94df-3741-43d1-888f-84953e67b7fd"
+Parent: "fdc4f80e-57da-45c7-b521-8cc9dd2ec7a7"
+Template: "b6702c3e-0cfe-48e0-a6e4-40ce9e75b2bd"
+Path: /sitecore/content/Blueprint/Data/Recipes
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210207T152630Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "263fbd55-cca2-40ad-80fe-609e62125e7c"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210207T152630Z
