@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Localization;
 using Blueprint.Project.BlueprintSite.Configuration;
 using Sitecore.AspNet.RenderingEngine.Localization;
 using Microsoft.AspNetCore.HttpOverrides;
+using Blueprint.Feature.Recipes.Extensions;
 
 namespace Blueprint.Project.BlueprintSite.Rendering
 {
@@ -61,6 +62,7 @@ namespace Blueprint.Project.BlueprintSite.Rendering
             {
                 //Register your components here
                 options
+                    .AddFeatureRecipes()
                     .AddDefaultPartialView("_ComponentNotFound");
             })
                 // Includes forwarding of Scheme as X-Forwarded-Proto to the Layout Service, so that
@@ -82,9 +84,9 @@ namespace Blueprint.Project.BlueprintSite.Rendering
             // Enable support for robot detection.
             //services.AddSitecoreVisitorIdentification(options =>
             //{
-                // Usually the SitecoreInstanceUri is same host as the Layout Service, but it can be any Sitecore CD/CM
-                // instance which shares same AspNet session with Layout Service. This address should be accessible
-                // from the Rendering Host and will be used to proxy robot detection scripts.
+            // Usually the SitecoreInstanceUri is same host as the Layout Service, but it can be any Sitecore CD/CM
+            // instance which shares same AspNet session with Layout Service. This address should be accessible
+            // from the Rendering Host and will be used to proxy robot detection scripts.
             //    options.SitecoreInstanceUri = Configuration.InstanceUri;
             //});
         }

@@ -1,0 +1,29 @@
+﻿---
+ID: "aa6bba12-d10c-4f52-b63e-e58c2689a127"
+Parent: "94de9ac3-a9f7-40ab-ae90-acda364b9c40"
+Template: "794e8b5e-4e3c-4387-b829-cc3a43a72324"
+Path: /sitecore/content/Blueprint/Home/Recipe Search
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210211T102241Z
+    - ID: "792c31f8-e14a-4177-8ea3-9fc156e20e94"
+      Hint: Headline
+      Value: Recipe Search
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f9c849b1-1c04-46f5-ab76-976e4cf49e31"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210211T102302Z

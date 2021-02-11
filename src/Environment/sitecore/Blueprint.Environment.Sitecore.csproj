@@ -92,9 +92,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Foundation\Recipes\code\Blueprint.Foundation.Recipes.csproj">
+    <ProjectReference Include="..\..\Foundation\Recipes\code\Blueprint.Foundation.Recipes.Sitecore.csproj">
       <Project>{6cfba4fb-2569-45a9-8424-a5810e64f14a}</Project>
-      <Name>Blueprint.Foundation.Recipes</Name>
+      <Name>Blueprint.Foundation.Recipes.Sitecore</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

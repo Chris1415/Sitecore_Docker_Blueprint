@@ -1,8 +1,8 @@
 ﻿---
-ID: "1036928d-e4cf-4e3a-9e85-b8df601c53a1"
-Parent: "3f205ea0-c23e-461d-a456-1af8101a0d8d"
-Template: "3f205ea0-c23e-461d-a456-1af8101a0d8d"
-Path: /sitecore/templates/Foundation/Recipes/Recipe/__Standard Values
+ID: "7958809e-fb4e-4b7a-a4f2-a4ac61f50758"
+Parent: "794e8b5e-4e3c-4387-b829-cc3a43a72324"
+Template: "794e8b5e-4e3c-4387-b829-cc3a43a72324"
+Path: /sitecore/templates/Feature/Recipes/Recipe Search/__Standard Values
 Languages:
 - Language: en
   Versions:
@@ -10,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210207T151959Z
+      Value: 20210210T102641Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -19,13 +19,16 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
+    - ID: "792c31f8-e14a-4177-8ea3-9fc156e20e94"
+      Hint: Headline
+      Value: $name
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8aebf00e-e6c3-499d-9d36-d6a19a369dc1"
+      Value: "b259a0e1-3fa4-470f-a3d9-5fb3f51488b0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210207T152003Z
+      Value: 20210210T102644Z

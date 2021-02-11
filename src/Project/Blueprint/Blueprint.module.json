@@ -8,6 +8,10 @@
         "path": "/sitecore/layout/Layouts/Project/Blueprint"
       },
       {
+        "name": "placeholderSettings",
+        "path": "/sitecore/layout/Placeholder Settings/Project/Blueprint"
+      },
+      {
         "name": "forms",
         "path": "/sitecore/Forms/Blueprint"
       },
