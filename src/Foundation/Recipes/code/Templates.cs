@@ -15,7 +15,7 @@ namespace Blueprint.Foundation.Recipes
             {
                 public static readonly ID Name = new ID("{BDB92FD0-6DD4-4494-8B93-BBAED43043EE}");
                 public static readonly ID Description = new ID("{BDB92FD0-6DD4-4494-8B93-BBAED43043EE}");
-                public static readonly ID Image = new ID("{BDB92FD0-6DD4-4494-8B93-BBAED43043EE}");
+                public static readonly ID Image = new ID("{D7AD7064-B33C-446C-8952-20DBC5918A31}");
             }
         }
     }

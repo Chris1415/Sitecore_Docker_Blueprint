@@ -8,7 +8,7 @@ namespace Blueprint.Feature.Recipes.Extensions
     {
         public static RenderingEngineOptions AddFeatureRecipes(this RenderingEngineOptions options)
         {
-            options.AddModelBoundView<RecipeSearch>("RecipeSearch");
+            options.AddModelBoundView<RecipeSearchViewModel>("RecipeSearch");
 
             return options;
         }

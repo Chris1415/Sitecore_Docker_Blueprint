@@ -5,7 +5,7 @@ Template: "3f205ea0-c23e-461d-a456-1af8101a0d8d"
 Path: /sitecore/content/Blueprint/Data/Recipes/Quick noodle soup
 SharedFields:
 - ID: "429be450-ff77-4ed2-91e1-02d1ec9eb4b4"
-  Hint: Id
+  Hint: Recipe Id
   Value: 0002
 Languages:
 - Language: en
@@ -17,14 +17,18 @@ Languages:
       Value: 20210207T152822Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6dd5e8dd-cfde-45bf-8052-a18edf1c1c61"
+      Value: "cbb5ddc3-3d00-4199-bddb-a652f9cb7dcd"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "bdb92fd0-6dd4-4494-8b93-bbaed43043ee"
-      Hint: Name
+      Hint: Recipe Name
       Value: Quick noodle soup
+    - ID: "d7ad7064-b33c-446c-8952-20dbc5918a31"
+      Hint: Image
+      Value: |
+        <image mediaid="{C7C15D21-BBD5-4619-B5BF-CC45E49F0E65}" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210207T174953Z
+      Value: 20210214T165637Z

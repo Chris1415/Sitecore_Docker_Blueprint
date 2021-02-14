@@ -7,19 +7,16 @@ namespace Blueprint.Foundation.Recipes.Models.Search
 {
     public class RecipeSearchResultItem : SearchResultItem
     {
-        [IndexField("name")]
+        [IndexField("recipe_name")]
         public string RecipeName { get; set; }
+
+        [IndexField("recipe_id")]
+        public string RecipeId { get; set; }
 
         [IndexField("description")]
         public string Description { get; set; }
 
         [IndexField("image")]
         public string Image { get; set; }
-
-        [IndexField("preparationtime")]
-        public string PreparationTime { get; set; }
-
-        [IndexField("cooktime")]
-        public string Cooktime { get; set; }
     }
 }

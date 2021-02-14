@@ -31,7 +31,7 @@ Languages:
           <d
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
-              uid="{C8F397D9-9203-4048-9E9E-D37B9DCA6E4F}"
+              uid="{79F6BC76-AECA-4B65-AFFE-9111AF32CBE2}"
               s:ds="{AA6BBA12-D10C-4F52-B63E-E58C2689A127}"
               s:id="{16681F25-771C-4DF9-B790-9352E450CD3E}"
               s:ph="default_content" />
@@ -42,14 +42,14 @@ Languages:
       Value: 20200513T045800Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "bfea062e-e063-4f4f-abfd-6590edcfdade"
+      Value: "b50bf2ac-cbd1-4207-bba8-b5b0fbb31c75"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210211T102244Z
+      Value: 20210214T141656Z
     - ID: "f7080fb8-a2a8-4cc8-a601-f6a949d0e71c"
       Hint: Banner
       Value: |

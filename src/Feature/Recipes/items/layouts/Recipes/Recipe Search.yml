@@ -15,7 +15,7 @@ SharedFields:
   Value: /sitecore/templates/Feature/Recipes/Recipe Search
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
-  Value: "{9CAD874B-609D-44E7-AE13-D2660184886B}"
+  Value: "{E0D91A75-8C15-4062-B4B9-1F15DD9A3BDA}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
   Value: ./
@@ -29,11 +29,11 @@ Languages:
       Value: 20210210T102426Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2b092167-c66d-4739-bc53-eb750fa4e751"
+      Value: "2767ec39-caf6-417d-b7fe-16d0a92e92cf"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210211T102419Z
+      Value: 20210211T200631Z

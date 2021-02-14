@@ -45,10 +45,15 @@ namespace Blueprint.Foundation.Recipes.Services
                     // Pagination
                     int skip = parameters.Skip;
                     int take = parameters.Take;
-                    if (skip >= 0 || take > 0)
+                    if (skip >= 0 )
                     {
-                        results = results.Skip(skip).Take(take);
+                        results = results.Skip(skip);
                     }
+                    if (take > 0)
+                    {
+                        results = results.Take(take);
+                    }
+
                     return results.GetResults();
                 }
             }

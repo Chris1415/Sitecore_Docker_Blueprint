@@ -190,6 +190,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Feature.Recipes.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Foundation.Recipes.Sitecore", "src\Foundation\Recipes\code\Blueprint.Foundation.Recipes.Sitecore.csproj", "{6CFBA4FB-2569-45A9-8424-A5810E64F14A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serialization", "Serialization", "{B8A908A3-994A-4485-BB4C-BB981E8BAC73}"
+	ProjectSection(SolutionItems) = preProject
+		src\Foundation\Serialization\Serialization.module.json = src\Foundation\Serialization\Serialization.module.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SitecoreExtensions", "SitecoreExtensions", "{9D07F91C-DBA3-4B3F-B1EA-84FC2FA63707}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Foundation.SitecoreExtensions.Sitecore", "src\Foundation\SitecoreExtensions\SitecoreExtensions2\Blueprint.Foundation.SitecoreExtensions.Sitecore.csproj", "{3355B590-68DE-4776-BF95-A5292DC03FE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -224,6 +233,10 @@ Global
 		{6CFBA4FB-2569-45A9-8424-A5810E64F14A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CFBA4FB-2569-45A9-8424-A5810E64F14A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CFBA4FB-2569-45A9-8424-A5810E64F14A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3355B590-68DE-4776-BF95-A5292DC03FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3355B590-68DE-4776-BF95-A5292DC03FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3355B590-68DE-4776-BF95-A5292DC03FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3355B590-68DE-4776-BF95-A5292DC03FE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -268,6 +281,9 @@ Global
 		{57918355-F0AF-4639-8297-7D2ADEAE5843} = {72E6FB30-70E4-49CC-9069-A6898AE313B9}
 		{EFE2A169-9B75-4710-A8B8-E87AA68CC8AE} = {72E6FB30-70E4-49CC-9069-A6898AE313B9}
 		{6CFBA4FB-2569-45A9-8424-A5810E64F14A} = {E46CCB99-2B6B-490E-9424-BDC01105D7EE}
+		{B8A908A3-994A-4485-BB4C-BB981E8BAC73} = {99B21DAA-D0A5-4E63-AC46-14A010115203}
+		{9D07F91C-DBA3-4B3F-B1EA-84FC2FA63707} = {99B21DAA-D0A5-4E63-AC46-14A010115203}
+		{3355B590-68DE-4776-BF95-A5292DC03FE5} = {9D07F91C-DBA3-4B3F-B1EA-84FC2FA63707}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1100B2C6-7E13-4751-9A8A-4D4C869F31CC}

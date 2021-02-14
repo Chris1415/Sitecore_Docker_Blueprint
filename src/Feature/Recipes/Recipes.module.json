@@ -1,15 +1,20 @@
 {
-    "namespace": "Feature.Recipes",
-    "items": {
-        "includes": [
-          {
-            "name": "templates",
-            "path": "/sitecore/templates/Feature/Recipes"
-          },
-          {
-            "name": "layouts",
-            "path": "/sitecore/layout/Renderings/Feature/Recipes"
-          }
-        ]
-    }
+  "namespace": "Feature.Recipes",
+  "references": [ "Foundation.Serialization" ],
+  "items": {
+    "includes": [
+      {
+        "name": "templates",
+        "path": "/sitecore/templates/Feature/Recipes"
+      },
+      {
+        "name": "layouts",
+        "path": "/sitecore/layout/Renderings/Feature/Recipes"
+      },
+      {
+        "name": "ContentResolver",
+        "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Feature/Recipes"
+      }
+    ]
+  }
 }

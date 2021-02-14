@@ -1,5 +1,16 @@
-﻿@model Blueprint.Feature.Recipes.Models.RecipeSearch
+﻿@model Blueprint.Feature.Recipes.Models.RecipeSearchViewModel
 
-<div>
-    <h2 asp-for="@Model.Headline"></h2>
-</div> 
+<div class="container">
+    <h2>@Model.Headline</h2>
+    <div class="row">
+        @foreach (var recipe in Model.Recipes ?? new List<Blueprint.Feature.Recipes.Models.RecipeViewModel>())
+        {
+        <div class="col-3" style="text-align:center;border-color:black;border:solid;margin:5px;padding:5px;background-color:lightgrey;">
+            <img class="img-fluid" src="@recipe.Image" alt="@recipe.Name" />
+            <p style="margin-top:10px;"><b>ID:</b> @recipe.Id</p>
+            <p><b>NAME:</b> @recipe.Name</p>
+            <p><b>DESCRIPTION: </b>@recipe.Description</p>
+        </div>
+        } 
+    </div>
+</div>

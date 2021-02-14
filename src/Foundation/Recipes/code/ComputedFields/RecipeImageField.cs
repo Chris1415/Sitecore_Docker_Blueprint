@@ -1,4 +1,4 @@
-﻿using Blueprint.Foundation.Recipes.Extensions;
+﻿using Blueprint.Foundation.SitecoreExtensions.Extensions;
 using Sitecore.Configuration;
 using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.ComputedFields;
@@ -28,7 +28,8 @@ namespace Blueprint.Foundation.Recipes.ComputedFields
                     MediaItem mediaItem = ((ImageField)currentItem.Fields[Templates.Recipe.Fields.Image.ToString()])?.MediaItem;
 
                     var options = MediaUrlBuilderOptions.Empty;
-                    options.MaxWidth = 460;
+                    options.MaxWidth = 320;
+                    options.AlwaysIncludeServerUrl = true;
 
                     return mediaItem != null
                         ? HashingUtils.ProtectAssetUrl(MediaManager.GetMediaUrl(mediaItem, options))

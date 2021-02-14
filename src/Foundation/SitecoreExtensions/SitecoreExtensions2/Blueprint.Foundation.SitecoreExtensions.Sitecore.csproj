@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6CFBA4FB-2569-45A9-8424-A5810E64F14A}</ProjectGuid>
+    <ProjectGuid>{3355B590-68DE-4776-BF95-A5292DC03FE5}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Blueprint.Foundation.Recipes</RootNamespace>
-    <AssemblyName>Blueprint.Foundation.Recipes</AssemblyName>
+    <RootNamespace>Blueprint.Foundation.SitecoreExtensions</RootNamespace>
+    <AssemblyName>Blueprint.Foundation.SitecoreExtensions</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -44,12 +44,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Sitecore.ContentSearch, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Sitecore.ContentSearch.10.0.0\lib\net48\Sitecore.ContentSearch.dll</HintPath>
-    </Reference>
-    <Reference Include="Sitecore.ContentSearch.Linq, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Sitecore.ContentSearch.Linq.10.0.0\lib\net48\Sitecore.ContentSearch.Linq.dll</HintPath>
-    </Reference>
     <Reference Include="Sitecore.Kernel, Version=15.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Kernel.10.0.0\lib\net48\Sitecore.Kernel.dll</HintPath>
     </Reference>
@@ -92,19 +86,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComputedFields\RecipeImageField.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Models\Search\RecipeSearchParameters.cs" />
-    <Compile Include="Models\Search\RecipeSearchResultItem.cs" />
+    <Compile Include="Extensions\ItemExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IRecipeSearchService.cs" />
-    <Compile Include="Services\RecipeSearchService.cs" />
-    <Compile Include="Templates.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\Foundation\Foundation.Blueprint.Recipes.Search.Index.Master.config" />
-    <Content Include="App_Config\Include\Foundation\Foundation.Blueprint.Recipes.Search.IndexConfiguration.config" />
-    <Content Include="App_Config\Include\Foundation\Foundation.Blueprint.Recipes.Search.Index.Web.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -112,12 +98,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\SitecoreExtensions\SitecoreExtensions2\Blueprint.Foundation.SitecoreExtensions.Sitecore.csproj">
-      <Project>{3355b590-68de-4776-bf95-a5292dc03fe5}</Project>
-      <Name>Blueprint.Foundation.SitecoreExtensions.Sitecore</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -132,9 +112,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52035</DevelopmentServerPort>
+          <DevelopmentServerPort>56961</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52035/</IISUrl>
+          <IISUrl>http://localhost:56961/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
