@@ -41,16 +41,15 @@ if ($LASTEXITCODE -ne 0) {
     Write-Error "Unable to log into Sitecore, did the Sitecore environment start correctly? See logs above."
 }
 
+# Populate Solr managed schemas to avoid errors during item push
+Write-Host "Populating Solr managed schema..." -ForegroundColor Green
+$token = (Get-Content .\.sitecore\user.json | ConvertFrom-Json).endpoints.default.accessToken
+Invoke-RestMethod "https://cm.blueprint.de/sitecore/admin/PopulateManagedSchema.aspx?indexes=all" -Headers @{Authorization = "Bearer $token"} -UseBasicParsing | Out-Null
 Write-Host "Pushing latest items to Sitecore..." -ForegroundColor Green
 
-dotnet sitecore ser push
+dotnet sitecore ser push --publish
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Serialization push failed, see errors above."
-}
-
-dotnet sitecore publish
-if ($LASTEXITCODE -ne 0) {
-    Write-Error "Item publish failed, see errors above."
 }
 
 Write-Host "Opening site..." -ForegroundColor Green

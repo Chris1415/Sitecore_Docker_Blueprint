@@ -174,6 +174,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "transforms", "transforms", 
 		docker\build\cd\transforms\Web.config.xdt = docker\build\cd\transforms\Web.config.xdt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solr-init", "solr-init", "{CED43415-20DC-4E1D-9FD9-826212ABA712}"
+	ProjectSection(SolutionItems) = preProject
+		docker\build\solr-init\Dockerfile = docker\build\solr-init\Dockerfile
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -235,6 +240,7 @@ Global
 		{F772BFFF-2119-4564-95E2-2365E5A36D23} = {99B21DAA-D0A5-4E63-AC46-14A010115203}
 		{93A97D97-6FD9-4978-B8D7-49EAF9EEFED5} = {EE32F1AC-785E-45B7-A24C-697181CC79D3}
 		{E1841E58-A49D-4085-A2DB-B148BB282987} = {2BCC3D98-800F-4A85-8D4F-BFCDBD11B42F}
+		{CED43415-20DC-4E1D-9FD9-826212ABA712} = {E5DD1C47-A879-4084-AE47-A0802E57F5DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1100B2C6-7E13-4751-9A8A-4D4C869F31CC}

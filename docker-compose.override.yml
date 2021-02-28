@@ -93,13 +93,22 @@ services:
     build:
       context: ./docker/build/solr
       args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-solr:${SITECORE_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}nonproduction/solr:8.4.0-${SITECORE_VERSION}
     mem_limit: 1GB
     volumes:
       - type: bind
         source: .\docker\data\solr
         target: c:\data
 
+  # Mount our Solr data folder and use our retagged Solr image.
+  # Some modules (like SXA) also require additions to the Solr image.
+  solr-init:
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xp0-solr-init:${VERSION:-latest}
+    build:
+      context: ./docker/build/solr-init
+      args:
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-solr-init:${SITECORE_VERSION}
+                                                                   
   # Use our retagged Identity Server image.
   # Configure for a mounted license file instead of using SITECORE_LICENSE.
   id:
@@ -134,6 +143,10 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      RENDERING_HOST_PUBLIC_URI: "https://${RENDERING_HOST}"
+      ## Development Environment Optimizations
+      SITECORE_DEVELOPMENT_PATCHES: DevEnvOn,CustomErrorsOff,DebugOn,DiagnosticsOff,InitMessagesOff,RobotDetectionOff
+      Sitecore_AppSettings_exmEnabled:define: "no" # remove to turn on EXM                                                      
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
 
   # Use our retagged XConnect image.

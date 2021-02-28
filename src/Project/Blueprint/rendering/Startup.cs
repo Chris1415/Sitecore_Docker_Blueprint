@@ -1,20 +1,21 @@
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;										 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Sitecore.AspNet.RenderingEngine.Extensions;
+using Microsoft.Extensions.Hosting;						   
+using Sitecore.AspNet.RenderingEngine.Extensions;						   
 using Sitecore.LayoutService.Client.Extensions;
 using Sitecore.LayoutService.Client.Newtonsoft.Extensions;
 using Sitecore.LayoutService.Client.Request;
 using Sitecore.AspNet.ExperienceEditor;
 using System.Collections.Generic;
 using System.Globalization;
-using Microsoft.AspNetCore.Localization;
 using Blueprint.Project.BlueprintSite.Configuration;
 using Sitecore.AspNet.RenderingEngine.Localization;
 using Microsoft.AspNetCore.HttpOverrides;
+using Sitecore.AspNet.Tracking;
 
 namespace Blueprint.Project.BlueprintSite.Rendering
 {
@@ -67,7 +68,7 @@ namespace Blueprint.Project.BlueprintSite.Rendering
                 // Sitecore Media and other links have the correct scheme.
                 .ForwardHeaders()
                 // Enable forwarding of relevant headers and client IP for Sitecore Tracking and Personalization.
-                //.WithTracking()
+                .WithTracking()
                 // Enable support for the Experience Editor.
                 .WithExperienceEditor(options =>
                 {
@@ -75,18 +76,18 @@ namespace Blueprint.Project.BlueprintSite.Rendering
                     // if behind HTTPS termination or another proxy (like Traefik).
                     if (Configuration.RenderingHostUri != null)
                     {
-                        options.ApplicationUrl = Configuration.RenderingHostUri;
+                        options.Endpoint = Configuration.RenderingHostUri.ToString();
                     }
                 });
 
             // Enable support for robot detection.
-            //services.AddSitecoreVisitorIdentification(options =>
-            //{
+            services.AddSitecoreVisitorIdentification(options =>
+            {
                 // Usually the SitecoreInstanceUri is same host as the Layout Service, but it can be any Sitecore CD/CM
                 // instance which shares same AspNet session with Layout Service. This address should be accessible
                 // from the Rendering Host and will be used to proxy robot detection scripts.
-            //    options.SitecoreInstanceUri = Configuration.InstanceUri;
-            //});
+                options.SitecoreInstanceUri = Configuration.InstanceUri;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -133,7 +134,7 @@ namespace Blueprint.Project.BlueprintSite.Rendering
             });
 
             // Enable proxying of Sitecore robot detection scripts
-            //app.UseSitecoreVisitorIdentification();
+            app.UseSitecoreVisitorIdentification();
 
             app.UseEndpoints(endpoints =>
             {

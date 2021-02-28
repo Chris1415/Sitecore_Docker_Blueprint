@@ -19,6 +19,13 @@
         "type": "string"
       }
     },
+    "plugins": {
+      "type": "array",
+      "description": "Contains a list of Sitecore Plugin NugetPackages. The format of the name is [NugetPackageName]@[NugetPackageVersion]. These entries are normally managed using\nthe 'Sitecore Plugin Add' and 'Sitecore Plugin Remove' commands",
+      "items": {
+        "type": "string"
+      }
+    },
     "serialization": {
       "description": "Global item serialization default settings",
       "oneOf": [

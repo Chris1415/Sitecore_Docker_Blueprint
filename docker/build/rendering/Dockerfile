@@ -9,6 +9,7 @@ ARG DEBUG_PARENT_IMAGE
 ARG SOLUTION_IMAGE
 
 FROM ${DEBUG_PARENT_IMAGE} as debug
+ENV DOTNET_WATCH_SUPPRESS_LAUNCH_BROWSER=true
 WORKDIR /solution/src
 EXPOSE 80
 ENTRYPOINT ["dotnet", "watch", "-v", "--project", ".\\Project\\Blueprint\\rendering", "run", "--no-launch-profile"]

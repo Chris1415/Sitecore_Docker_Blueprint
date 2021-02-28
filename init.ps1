@@ -45,8 +45,8 @@ if (-not $SitecoreGallery) {
     $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
 }
 
-#Install and Import SitecoreDockerTools 
-$dockerToolsVersion = "10.0.5"
+# Install and Import SitecoreDockerTools 
+$dockerToolsVersion = "10.1.4"
 Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
 if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
     Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
@@ -54,7 +54,7 @@ if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $docker
 }
 Write-Host "Importing SitecoreDockerTools..." -ForegroundColor Green
 Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion
-
+Write-SitecoreDockerWelcome
 
 ##################################
 # Configure TLS/HTTPS certificates
@@ -106,39 +106,42 @@ if ($InitEnv) {
     Write-Host "Populating required .env file values..." -ForegroundColor Green
 
     # HOST_LICENSE_FOLDER
-    Set-DockerComposeEnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
+    Set-EnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
 
     # CM_HOST
-    Set-DockerComposeEnvFileVariable "CM_HOST" -Value "cm.blueprint.de"
+    Set-EnvFileVariable "CM_HOST" -Value "cm.blueprint.de"
 
     # ID_HOST
-    Set-DockerComposeEnvFileVariable "ID_HOST" -Value "id.blueprint.de"
+    Set-EnvFileVariable "ID_HOST" -Value "id.blueprint.de"
 
     # RENDERING_HOST
-    Set-DockerComposeEnvFileVariable "RENDERING_HOST" -Value "www.blueprint.de"
+    Set-EnvFileVariable "RENDERING_HOST" -Value "www.blueprint.de"
 
     # REPORTING_API_KEY = random 64-128 chars
-    Set-DockerComposeEnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial)
+    Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial)
 
     # TELERIK_ENCRYPTION_KEY = random 64-128 chars
-    Set-DockerComposeEnvFileVariable "TELERIK_ENCRYPTION_KEY" -Value (Get-SitecoreRandomString 128)
+    Set-EnvFileVariable "TELERIK_ENCRYPTION_KEY" -Value (Get-SitecoreRandomString 128)
+
+    # MEDIA_REQUEST_PROTECTION_SHARED_SECRET
+    Set-EnvFileVariable "MEDIA_REQUEST_PROTECTION_SHARED_SECRET" -Value (Get-SitecoreRandomString 64)
 
     # SITECORE_IDSECRET = random 64 chars
-    Set-DockerComposeEnvFileVariable "SITECORE_IDSECRET" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)
+    Set-EnvFileVariable "SITECORE_IDSECRET" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)
 
     # SITECORE_ID_CERTIFICATE
     $idCertPassword = Get-SitecoreRandomString 8 -DisallowSpecial
-    Set-DockerComposeEnvFileVariable "SITECORE_ID_CERTIFICATE" -Value (Get-SitecoreCertificateAsBase64String -DnsName "localhost" -Password (ConvertTo-SecureString -String $idCertPassword -Force -AsPlainText))
+    Set-EnvFileVariable "SITECORE_ID_CERTIFICATE" -Value (Get-SitecoreCertificateAsBase64String -DnsName "localhost" -Password (ConvertTo-SecureString -String $idCertPassword -Force -AsPlainText))
 
     # SITECORE_ID_CERTIFICATE_PASSWORD
-    Set-DockerComposeEnvFileVariable "SITECORE_ID_CERTIFICATE_PASSWORD" -Value $idCertPassword
+    Set-EnvFileVariable "SITECORE_ID_CERTIFICATE_PASSWORD" -Value $idCertPassword
 
     # SQL_SA_PASSWORD
     # Need to ensure it meets SQL complexity requirements
-    Set-DockerComposeEnvFileVariable "SQL_SA_PASSWORD" -Value (Get-SitecoreRandomString 19 -DisallowSpecial -EnforceComplexity)
+    Set-EnvFileVariable "SQL_SA_PASSWORD" -Value (Get-SitecoreRandomString 19 -DisallowSpecial -EnforceComplexity)
 
     # SITECORE_ADMIN_PASSWORD
-    Set-DockerComposeEnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
+    Set-EnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
 }
 
 Write-Host "Done!" -ForegroundColor Green
