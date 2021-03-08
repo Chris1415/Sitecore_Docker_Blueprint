@@ -37,7 +37,6 @@ services:
   # If target is 'debug', it will use the SDK image as parent and run 'dotnet watch.'
   # Otherwise, it's a standard ASP.NET Core container. See Dockerfile for details.
   rendering:
-    container_name: rendering
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-rendering:${VERSION:-latest}
     build:
       context: ./docker/build/rendering
