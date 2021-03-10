@@ -9,24 +9,20 @@
 		<RootNamespace>Blueprint.Project.BlueprintSite.Rendering</RootNamespace>
 	</PropertyGroup>
 
-	<Target Name="FixDotnetWatch" AfterTargets="_CoreCollectWatchItems">
-		<ItemGroup>
-			<_WatchRelativePath Include="@(Watch)" Condition="'%(Identity)' != '%(Watch.FullPath)'" />
-			<Watch Remove="@(_WatchRelativePath)" />
-			<Watch Include="%(_WatchRelativePath.FullPath)" />
-		</ItemGroup>
-	</Target>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+		<PackageReference Include="Microsoft.Extensions.Http" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
+		<PackageReference Include="Sitecore.AspNet.Tracking" />
+		<PackageReference Include="Sitecore.AspNet.Tracking.VisitorIdentification" />
+		<PackageReference Include="Sitecore.LayoutService.Client"/>
+		<PackageReference Include="Sitecore.AspNet.RenderingEngine" />
+		<PackageReference Include="Sitecore.AspNet.ExperienceEditor" />
+	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.1" />
-		<PackageReference Include="Microsoft.Extensions.Http" Version="3.1.1" />
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
-		<PackageReference Include="Sitecore.AspNet.Tracking" Version="16.0.0" />
-		<PackageReference Include="Sitecore.AspNet.Tracking.VisitorIdentification" Version="16.0.0" />
-		<PackageReference Include="Sitecore.LayoutService.Client" Version="16.0.0" />
-		<PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="16.0.0" />
-		<PackageReference Include="Sitecore.AspNet.ExperienceEditor" Version="16.0.0" />
+	  <ProjectReference Include="..\..\..\Feature\BasicContent\rendering\Blueprint.Feature.BasicContent.Rendering.csproj" />
 	</ItemGroup>
 
 </Project>
