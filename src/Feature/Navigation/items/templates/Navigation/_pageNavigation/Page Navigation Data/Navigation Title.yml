@@ -1,21 +1,15 @@
 ﻿---
-ID: "ca81347c-e361-4b3a-a329-bfcc2f8d5ea3"
-Parent: "bbe31f4c-c9f3-4a3a-9475-7f288cf89240"
+ID: "41aff118-a0a7-43a5-84f2-ebf4c9b2643e"
+Parent: "4bf06fb1-ac46-4a39-883f-c1dafc0181da"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/Navigation/Navigation/Navigation Data/Root
+Path: /sitecore/templates/Feature/Navigation/_pageNavigation/Page Navigation Data/Navigation Title
 SharedFields:
-- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
-  Hint: Source
-  Value: "query:$site//*[@@templatename='Homepage' OR @@templatename='Page']"
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: Droplink
+  Value: "Single-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 100
-- ID: "be351a73-fcb0-4213-93fa-c302d8ab4f51"
-  Hint: Shared
-  Value: 1
 Languages:
 - Language: en
   Versions:
@@ -23,14 +17,14 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210312T102650Z
+      Value: 20210315T132437Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e7c2020b-7a45-44ea-914f-5396812cbf0f"
+      Value: "ea342acf-fd6b-46cd-9026-fed3a03a9b72"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210315T125842Z
+      Value: 20210315T132439Z

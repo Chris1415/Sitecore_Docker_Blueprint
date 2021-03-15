@@ -20,10 +20,10 @@ namespace Blueprint.Feature.Navigation
 
         public static class PageNavigation
         {
-            public static readonly ID Id = new ID("{082010EB-23DE-42B3-B443-A8FA79AD92C2}");
+            public static readonly ID Id = new ID("{0B4A2991-51BC-4CAF-81F2-B18E574B5797}");
             public static class Fields
             {
-                public static readonly ID NavigationTitle = new ID("{0D468B5A-63B0-4FE0-A8C8-BAA1FE6F2319}");
+                public static readonly ID NavigationTitle = new ID("{41AFF118-A0A7-43A5-84F2-EBF4C9B2643E}");
                
             }
 

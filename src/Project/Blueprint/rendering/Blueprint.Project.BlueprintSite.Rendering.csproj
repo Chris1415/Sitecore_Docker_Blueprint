@@ -23,6 +23,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\Feature\BasicContent\rendering\Blueprint.Feature.BasicContent.Rendering.csproj" />
+	  <ProjectReference Include="..\..\..\Feature\Navigation\rendering\Blueprint.Feature.Navigation.Rendering.csproj" />
 	  <ProjectReference Include="..\..\Common\rendering\Blueprint.Project.Common.Rendering.csproj" />
 	</ItemGroup>
 

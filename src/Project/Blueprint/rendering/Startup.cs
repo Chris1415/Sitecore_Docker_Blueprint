@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Sitecore.AspNet.Tracking;
 using Blueprint.Feature.BasicContent.Extensions;
 using Blueprint.Project.Common.Extensions;
+using Blueprint.Feature.Navigation.Extensions;
 
 namespace Blueprint.Project.BlueprintSite.Rendering
 {
@@ -66,6 +67,7 @@ namespace Blueprint.Project.BlueprintSite.Rendering
                 options
                     .AddProjectCommon()
                     .AddFeatureBasicContent()
+                    .AddFeatureNavigation()
                     .AddDefaultPartialView("_ComponentNotFound");
             })
                 // Includes forwarding of Scheme as X-Forwarded-Proto to the Layout Service, so that

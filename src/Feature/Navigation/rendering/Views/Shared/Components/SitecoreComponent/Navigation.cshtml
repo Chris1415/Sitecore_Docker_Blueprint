@@ -2,7 +2,7 @@
 
 <div class="navigation">
     <ul>
-        @foreach (var navigationItem in Model.NavigationItems)
+        @foreach (var navigationItem in Model.NavigationItems ?? new List<NavigationItem>())
         {
             <li>
                 <a isActive="@navigationItem.IsActive" href="@navigationItem.Url">@navigationItem.Title</a>

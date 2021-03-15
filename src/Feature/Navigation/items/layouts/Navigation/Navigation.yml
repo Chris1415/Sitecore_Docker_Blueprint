@@ -7,12 +7,18 @@ SharedFields:
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: Navigation
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: applications/32x32/text_tree.png
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: /sitecore/templates/Feature/Navigation/Navigation
+- ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
+  Hint: Rendering Contents Resolver
+  Value: "{65AA3A3E-510B-4705-A77F-59C4CD342189}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Data|$site/shared content/navigation
+  Value: ./Data|$site/shared content/navigations
 Languages:
 - Language: en
   Versions:
@@ -23,11 +29,11 @@ Languages:
       Value: 20210312T104856Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "57164d0b-295d-4f9e-9579-1fe8f19c5243"
+      Value: "967efca0-aeff-4dc2-b667-fb6fc83edbda"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210312T104925Z
+      Value: 20210315T121628Z

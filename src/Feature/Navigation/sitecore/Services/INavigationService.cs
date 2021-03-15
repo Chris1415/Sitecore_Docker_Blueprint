@@ -1,4 +1,4 @@
-﻿using Blueprint.Feture.Navigation.Models;
+﻿using Blueprint.Feature.Navigation.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Sitecore.Data.Items;
 
-namespace Blueprint.Feture.Navigation.Services
+namespace Blueprint.Feature.Navigation.Services
 {
     public interface INavigationService
     {

@@ -23,8 +23,16 @@ Languages:
           <d
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
-              uid="{3ACC1D3E-86D2-4FD7-AC11-DA7C8F849E19}"
+              uid="{34D2BC5E-061B-4E5E-8F15-02960C3B0D0C}"
               p:before="*"
+              s:ds="{9B404B32-8333-493F-82F0-EEB2121DA0C8}"
+              s:id="{A57C56DA-EC83-4FD1-9F95-62116AC66440}"
+              s:par=""
+              s:ph="blueprint-header"
+              s:ccb="Clear on publish" />
+            <r
+              uid="{3ACC1D3E-86D2-4FD7-AC11-DA7C8F849E19}"
+              p:after="r[@uid='{34D2BC5E-061B-4E5E-8F15-02960C3B0D0C}']"
               s:ds="{25AA0FCD-6950-4A22-984E-964DE281E6E0}"
               s:id="{61B6BF9F-960E-4F89-9007-93A5D02EC1D3}"
               s:ph="/blueprint-main/container-{733A735B-F095-4A40-B663-286816CA1850}-0/grid-12-{0BDBC50C-4BEB-40D7-BA90-7271FA4767C7}-0" />
@@ -35,11 +43,11 @@ Languages:
       Value: 20200513T045800Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c437fc07-ff41-4225-a69c-0a638d041c2a"
+      Value: "7a5a7a96-d3dd-4e83-b969-1ffbdbe9c530"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210312T083209Z
+      Value: 20210315T125447Z

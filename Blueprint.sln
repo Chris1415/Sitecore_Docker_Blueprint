@@ -217,7 +217,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blueprint.Feature.Navigatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blueprint.Feature.VsTemplate.Rendering", "src\Feature\VSTemplate\rendering\Blueprint.Feature.VsTemplate.Rendering.csproj", "{E79C7C0F-AF22-4F49-B328-00E4301B2B08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Feture.Navigation.Sitecore", "src\Feature\Navigation\sitecore\Blueprint.Feture.Navigation.Sitecore.csproj", "{F4146552-507F-4DFE-9C97-4EC5408EDC83}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Feature.Navigation.Sitecore", "src\Feature\Navigation\sitecore\Blueprint.Feature.Navigation.Sitecore.csproj", "{F4146552-507F-4DFE-9C97-4EC5408EDC83}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Feature.VsTemplate.Sitecore", "src\Feature\VSTemplate\sitecoretemplate\Blueprint.Feature.VsTemplate.Sitecore.csproj", "{3793CDAE-8526-4F03-BCDE-57D92EEDD56D}"
 EndProject
