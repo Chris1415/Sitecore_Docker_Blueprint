@@ -1,0 +1,23 @@
+﻿---
+ID: "bebb5793-d5b8-44fb-9bed-d5b50acdd853"
+Parent: "68360a83-6b3d-4405-84ec-4fa055848617"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Feature/Basic Content/Legal Information/Legal Information Data
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210310T150317Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5bf57d02-d90c-41b9-934e-ebb732f12d39"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210310T165620Z

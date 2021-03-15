@@ -1,0 +1,12 @@
+﻿@model Navigation
+
+<div class="navigation">
+    <ul>
+        @foreach (var navigationItem in Model.NavigationItems)
+        {
+            <li>
+                <a isActive="@navigationItem.IsActive" href="@navigationItem.Url">@navigationItem.Title</a>
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,20 @@
+{
+  "namespace": "Feature.Navigation",
+  "references": [ "Foundation.Serialization" ],
+  "items": {
+    "includes": [
+      {
+        "name": "templates",
+        "path": "/sitecore/templates/Feature/Navigation"
+      },
+      {
+        "name": "layouts",
+        "path": "/sitecore/layout/Renderings/Feature/Navigation"
+      },
+      {
+        "name": "ContentResolver",
+        "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Feature/Navigation"
+      }
+    ]
+  }
+}

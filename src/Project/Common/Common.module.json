@@ -1,0 +1,17 @@
+{
+  "namespace": "Project.Common",
+  "references": [ "Foundation.Serialization" ],
+  "items": {
+    "includes": [
+      {
+        "name": "renderings",
+        "path": "/sitecore/layout/Renderings/Project/Common"
+      },
+      {
+        "name": "Placeholder",
+        "path": "/sitecore/layout/Placeholder Settings/Project/Common"
+      }
+    ]
+  }
+}
+

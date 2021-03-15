@@ -1,11 +1,11 @@
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Localization;										 
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;						   
-using Sitecore.AspNet.RenderingEngine.Extensions;						   
+using Microsoft.Extensions.Hosting;
+using Sitecore.AspNet.RenderingEngine.Extensions;
 using Sitecore.LayoutService.Client.Extensions;
 using Sitecore.LayoutService.Client.Newtonsoft.Extensions;
 using Sitecore.LayoutService.Client.Request;
@@ -16,6 +16,8 @@ using Blueprint.Project.BlueprintSite.Configuration;
 using Sitecore.AspNet.RenderingEngine.Localization;
 using Microsoft.AspNetCore.HttpOverrides;
 using Sitecore.AspNet.Tracking;
+using Blueprint.Feature.BasicContent.Extensions;
+using Blueprint.Project.Common.Extensions;
 
 namespace Blueprint.Project.BlueprintSite.Rendering
 {
@@ -62,6 +64,8 @@ namespace Blueprint.Project.BlueprintSite.Rendering
             {
                 //Register your components here
                 options
+                    .AddProjectCommon()
+                    .AddFeatureBasicContent()
                     .AddDefaultPartialView("_ComponentNotFound");
             })
                 // Includes forwarding of Scheme as X-Forwarded-Proto to the Layout Service, so that

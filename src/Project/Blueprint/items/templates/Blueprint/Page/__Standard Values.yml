@@ -1,14 +1,9 @@
 ﻿---
-ID: "9c05e623-3031-4a61-b75f-34e5edb92da0"
-Parent: "a054184c-3b20-4c2b-ab04-c8a03acd5522"
-Template: "a054184c-3b20-4c2b-ab04-c8a03acd5522"
+ID: "1aae5358-ebef-4b5e-b254-e3704abcfcea"
+Parent: "8d2befb1-8277-4118-a4f2-62ee2cfbbd10"
+Template: "8d2befb1-8277-4118-a4f2-62ee2cfbbd10"
 Path: /sitecore/templates/Project/Blueprint/Page/__Standard Values
 SharedFields:
-- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
-  Hint: __Masters
-  Value: |
-    {6AEC120A-7222-42C6-A8E8-53F9354AEF53}
-    {EF8DD6F4-1BB8-4831-A1A6-DEFA3594051A}
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
@@ -17,19 +12,12 @@ SharedFields:
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{1AE49D12-8DA1-4FBD-92FF-887B01C02BB5}">
         <r
-          ds="{C4DADD5E-1521-4C6D-AFCE-39D237751541}"
-          id="{A4F28B31-5D18-4158-92AB-F4D2ECA6D2BE}"
+          ds="{D3476E31-EDD4-4F6D-A058-8AB3CD579826}"
+          id="{E97566F3-6FD4-4D9D-B537-4F466D537761}"
           par=""
-          ph="header"
-          uid="{19CCAD6A-4C17-48CC-B78A-5CE8415E279F}" />
-        <r
-          id="{C9593FF9-14AC-4C8E-B217-D85C05ADEAD7}"
-          ph="header"
-          uid="{D842E8EB-450E-4348-A54A-E60CF16E9E52}" />
-        <r
-          id="{437CCC09-AB5D-47B3-96D7-2B05BDFF5324}"
-          ph="footer"
-          uid="{64CD74AD-6939-48FB-ABB9-33F2403ED031}" />
+          ph="blueprint-footer"
+          uid="{C69A10E4-0105-47F7-A111-3839CBD321DE}"
+          ccb="Clear on publish" />
       </d>
     </r>
 Languages:
@@ -39,7 +27,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20200604T041834Z
+      Value: 20210310T161147Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -50,11 +38,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f8032c68-2d98-41ac-afbd-a85f5dc197dc"
+      Value: "0d9ed64e-6ea5-490d-bcac-96302922ffb8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20200728T082144Z
+      Value: 20210310T164446Z

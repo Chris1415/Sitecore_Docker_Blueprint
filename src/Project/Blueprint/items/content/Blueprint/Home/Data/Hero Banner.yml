@@ -1,0 +1,36 @@
+﻿---
+ID: "25aa0fcd-6950-4a22-984e-964de281e6e0"
+Parent: "2f8ddfc8-844c-4755-8483-218cae320d13"
+Template: "7c5500e0-f9ee-4bdf-bddf-8cb0d2c4c80f"
+Path: /sitecore/content/Blueprint/Home/Data/Hero Banner
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210310T134305Z
+    - ID: "3852d92f-2c2c-44a8-a8eb-2a2b25fd77f4"
+      Hint: Title
+      Value: Hero Banner
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "47d130ba-7a86-4935-b52a-2647d122aa65"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "c927d4ae-a03b-411f-bf83-9a57de51c836"
+      Hint: Image
+      Value: |
+        <image mediaid="{094AED03-02E7-4868-80CB-19926661FB77}" ></image>
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210310T164700Z
+    - ID: "fa793de8-bb0c-4a66-98e7-9620e728b455"
+      Hint: SubTitle
+      Value: Subtitle of Banner

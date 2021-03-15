@@ -1,0 +1,36 @@
+﻿---
+ID: "4c0f86b0-27fa-4c63-9ab8-f6b23eabd170"
+Parent: "f0ded0cc-637e-41ff-a8e3-49faf53fdbed"
+Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
+Path: /sitecore/layout/Placeholder Settings/Project/Blueprint/main
+SharedFields:
+- ID: "14d0728a-82f9-4b01-ab16-1fe1577cede2"
+  Hint: Editable
+  Value: 1
+- ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
+  Hint: Placeholder Key
+  Value: "blueprint-main"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+- ID: "e391b526-d0c5-439d-803e-17512eae6222"
+  Hint: Allowed Controls
+  Value: "{93525DF2-E79C-41F5-90E6-F53F27C0F7FF}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210310T105005Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ad4b1309-f629-43ec-9166-2a47736df6ca"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210311T124232Z

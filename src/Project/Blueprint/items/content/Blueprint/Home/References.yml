@@ -1,0 +1,23 @@
+﻿---
+ID: "0e2789f6-fd4e-4b59-83b1-ec4c5001665f"
+Parent: "94de9ac3-a9f7-40ab-ae90-acda364b9c40"
+Template: "8d2befb1-8277-4118-a4f2-62ee2cfbbd10"
+Path: /sitecore/content/Blueprint/Home/References
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210312T083357Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "410f487c-37b7-4c30-b7f4-bf0849fe9b04"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210312T083357Z

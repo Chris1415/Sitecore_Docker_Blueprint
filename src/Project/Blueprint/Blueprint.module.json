@@ -1,10 +1,15 @@
 {
   "namespace": "Project.Blueprint",
+  "references": [ "Foundation.Serialization", "Project.Common" ],
   "items": {
     "includes": [
-	   {
+      {
         "name": "layouts",
         "path": "/sitecore/layout/Layouts/Project/Blueprint"
+      },
+      {
+        "name": "Placeholder",
+        "path": "/sitecore/layout/Placeholder Settings/Project/Blueprint"
       },
       {
         "name": "forms",

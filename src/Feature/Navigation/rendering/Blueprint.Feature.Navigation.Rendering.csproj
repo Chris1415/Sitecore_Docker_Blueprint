@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <AssemblyName>Blueprint.Feature.Navigation</AssemblyName>
+    <RootNamespace>Blueprint.Feature.Navigation</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sitecore.AspNet.RenderingEngine"/>
+    <PackageReference Include="Sitecore.LayoutService.Client" />
+  </ItemGroup>
+
+
+</Project>

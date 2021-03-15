@@ -1,0 +1,17 @@
+{
+  "namespace": "Foundation.Serialization",
+  "items": {
+    "includes": [
+      {
+        "name": "Media Library",
+        "path": "/sitecore/media library/Foundation",
+        "scope": "SingleItem"
+      },
+      {
+        "name": "Content Resolver",
+        "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Feature",
+        "scope": "SingleItem"
+      }
+    ]
+  }
+}

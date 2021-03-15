@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <AssemblyName>Blueprint.Feature.VsTemplate.Rendering</AssemblyName>
+    <RootNamespace>Blueprint.Feature.VsTemplate.Rendering</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Views\Shared\Components\SitecoreComponent\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sitecore.AspNet.RenderingEngine" />
+    <PackageReference Include="Sitecore.LayoutService.Client" />
+  </ItemGroup>
+
+
+</Project>

@@ -1,0 +1,23 @@
+﻿---
+ID: "28f688c6-f49b-4274-8c46-ec86c7bac2d9"
+Parent: "d2f6ff70-28f6-416e-9882-182f96e4fa0c"
+Template: "3432f674-4de3-42ae-a078-2a935c5c0586"
+Path: /sitecore/content/Blueprint/Shared Content/Hero banners
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210310T150649Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e93e08ee-dea4-46d0-a420-495d18a12223"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210310T150649Z

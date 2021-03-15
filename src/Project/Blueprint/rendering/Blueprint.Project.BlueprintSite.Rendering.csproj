@@ -16,13 +16,26 @@
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
 		<PackageReference Include="Sitecore.AspNet.Tracking" />
 		<PackageReference Include="Sitecore.AspNet.Tracking.VisitorIdentification" />
-		<PackageReference Include="Sitecore.LayoutService.Client"/>
+		<PackageReference Include="Sitecore.LayoutService.Client" />
 		<PackageReference Include="Sitecore.AspNet.RenderingEngine" />
 		<PackageReference Include="Sitecore.AspNet.ExperienceEditor" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\Feature\BasicContent\rendering\Blueprint.Feature.BasicContent.Rendering.csproj" />
+	  <ProjectReference Include="..\..\Common\rendering\Blueprint.Project.Common.Rendering.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Extensions\" />
+	  <Folder Include="wwwroot\fonts\" />
+	  <Folder Include="wwwroot\images\" />
+	  <Folder Include="wwwroot\js\" />
+	  <Folder Include="wwwroot\sass\fonts\" />
+	  <Folder Include="wwwroot\style\components\" />
+	  <Folder Include="wwwroot\style\fonts\" />
+	  <Folder Include="wwwroot\style\maps\components\" />
+	  <Folder Include="wwwroot\style\maps\fonts\" />
 	</ItemGroup>
 
 </Project>
