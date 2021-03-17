@@ -1,21 +1,24 @@
 ﻿---
-ID: "61b6bf9f-960e-4f89-9007-93a5d02ec1d3"
-Parent: "504743c0-34c1-4f62-a5e0-34237e8acd36"
+ID: "acae8a6a-4534-4d2b-8a98-58bb926bfb18"
+Parent: "72f2283c-4da1-47e1-92f8-aaeb7310a114"
 Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
-Path: /sitecore/layout/Renderings/Feature/Basic Content/Hero Banner
+Path: /sitecore/layout/Renderings/Feature/Navigation/Breadcrumb
 SharedFields:
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
-  Value: Hero Banner
+  Value: Breadcrumb
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: apps/32x32/badge.png
+  Value: Business/32x32/sort_ascending.png
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: /sitecore/templates/Feature/Basic Content/Hero Banner
+  Value: 
+- ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
+  Hint: Rendering Contents Resolver
+  Value: "{1229A160-2337-4FF0-B505-F6F2609945D7}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Data|$site/shared content/Hero Banners
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -23,14 +26,14 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210310T105033Z
+      Value: 20210312T104856Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "acfb6ed8-4577-4847-8c97-0720528acbf9"
+      Value: "658cd0db-ffe1-43e7-b439-6b0621ce5938"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210317T110215Z
+      Value: 20210317T092514Z

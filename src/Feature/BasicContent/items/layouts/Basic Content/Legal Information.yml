@@ -15,7 +15,7 @@ SharedFields:
   Value: /sitecore/templates/Feature/Basic Content/Legal Information
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./data|$site/shared content/Legal Information
+  Value: ./Data|$site/shared content/Legal Information
 Languages:
 - Language: en
   Versions:
@@ -26,11 +26,11 @@ Languages:
       Value: 20210310T150749Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5513411f-321e-45fd-af17-600ee078f1f0"
+      Value: "dc69193f-f9b6-4a9a-8da8-a8afd3f20587"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210310T161716Z
+      Value: 20210317T110226Z

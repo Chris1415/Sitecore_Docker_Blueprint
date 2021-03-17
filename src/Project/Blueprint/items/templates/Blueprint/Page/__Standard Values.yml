@@ -12,11 +12,36 @@ SharedFields:
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{1AE49D12-8DA1-4FBD-92FF-887B01C02BB5}">
         <r
+          ds="{9B404B32-8333-493F-82F0-EEB2121DA0C8}"
+          id="{A57C56DA-EC83-4FD1-9F95-62116AC66440}"
+          par=""
+          ph="blueprint-header"
+          uid="{527D33DB-AD9D-4271-ABDD-51A682374489}"
+          ccb="Clear on publish" />
+        <r
+          id="{93525DF2-E79C-41F5-90E6-F53F27C0F7FF}"
+          ph="blueprint-main-intro"
+          uid="{04FED601-9714-4357-BF8E-683BB462F22B}" />
+        <r
+          ds=""
+          id="{64B921E4-F701-4C60-BCE2-4FA39741C0D4}"
+          par=""
+          ph="/blueprint-main-intro/container-{04FED601-9714-4357-BF8E-683BB462F22B}-0"
+          uid="{816C081B-E256-43AB-B566-5F87381AF9F8}"
+          ccb="Clear on publish" />
+        <r
+          ds=""
+          id="{ACAE8A6A-4534-4D2B-8A98-58BB926BFB18}"
+          par=""
+          ph="/blueprint-main-intro/container-{04FED601-9714-4357-BF8E-683BB462F22B}-0/grid-12-{816C081B-E256-43AB-B566-5F87381AF9F8}-0"
+          uid="{D237F396-9136-4044-911A-326007DA9710}"
+          ccb="Clear on publish" />
+        <r
           ds="{D3476E31-EDD4-4F6D-A058-8AB3CD579826}"
           id="{E97566F3-6FD4-4D9D-B537-4F466D537761}"
           par=""
           ph="blueprint-footer"
-          uid="{C69A10E4-0105-47F7-A111-3839CBD321DE}"
+          uid="{DB324524-A066-4C06-A9AC-066C33583EDD}"
           ccb="Clear on publish" />
       </d>
     </r>
@@ -38,11 +63,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0d9ed64e-6ea5-490d-bcac-96302922ffb8"
+      Value: "d64f883e-7fc5-4a4d-93c8-3627af44868d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210310T164446Z
+      Value: 20210317T101413Z

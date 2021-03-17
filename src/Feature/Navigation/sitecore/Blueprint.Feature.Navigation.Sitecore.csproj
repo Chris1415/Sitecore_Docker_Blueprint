@@ -122,6 +122,7 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LayoutService\BreadcrumbContentResolver.cs" />
     <Compile Include="LayoutService\NavigationContentResolver.cs" />
     <Compile Include="Models\Elements\NavigationItem.cs" />
     <Compile Include="Models\NavigationModel.cs" />

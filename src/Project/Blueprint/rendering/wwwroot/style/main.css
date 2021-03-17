@@ -1,21 +1,110 @@
-﻿#header {
+﻿/* Header */
+#header {
     background-color: lightgray;
     color: black;
     margin-bottom: 1rem;
 }
 
-#main{
-
+/* Content */
+#main {
 }
 
-.container{
+/*BREADCRUMB */
+.inactiveLink {
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Style the list */
+.breadcrumb ul {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #eee;
+}
+
+    /* Display list items side by side */
+    .breadcrumb ul li {
+        display: inline;
+        font-size: 18px;
+    }
+
+        /* Add a slash symbol (/) before/behind each list item */
+        .breadcrumb ul li + li:before {
+            padding: 8px;
+            color: black;
+            content: "<";
+        }
+
+        /* Add a color to all links inside the list */
+        .breadcrumb ul li a {
+            color: #0275d8;
+            text-decoration: none;
+        }
+
+            /* Add a color on mouse-over */
+            .breadcrumb ul li a:hover {
+                color: #01447e;
+                text-decoration: underline;
+            }
+
+/* Navigation */
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+    .navigation ul li {
+        float: left;
+        border-right: 1px solid #bbb;
+    }
+
+        .navigation ul li:last-child {
+            border-right: none;
+        }
+
+        .navigation ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+            .navigation ul li a.active {
+                background-color: darkblue;
+            }
+
+            /* Change the link color to #111 (black) on hover */
+            .navigation ul li a:hover {
+                background-color: #111;
+            }
+
+
+
+/* Container */
+.container {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
-.herobanner{
-    border:solid black;
-    background-color:lightblue;
+/* Hero Banner */
+.herobanner {
+    border: solid black;
+    background-color: lightblue;
+}
+
+.herobanner__overlay {
+    position: absolute;
+    right: 5%;
+    background-color: lightgray;
+    opacity: 0.9;
+    border-radius: 5%;
+    height: 100%;
+    width: 35%;
+    padding: 20px;
 }
 
 .herobanner__title {
@@ -27,11 +116,9 @@
 }
 
 .herobanner__image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
 }
+
+/* Footer */
 
 #footer {
     background-color: darkgray;
@@ -39,12 +126,14 @@
     margin-top: 1rem;
 }
 
+/* Legal Information */
+
 .legalInformation {
     text-align: right;
 }
 
-.legalInformation__text{
-    font-weight:bold;
+.legalInformation__text {
+    font-weight: bold;
 }
 
 .legalInformation div p {

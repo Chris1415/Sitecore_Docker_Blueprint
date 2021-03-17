@@ -1,4 +1,5 @@
 ﻿using Sitecore.Data;
+using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Data.Managers;
 using Sitecore.Web;
@@ -42,6 +43,11 @@ namespace Blueprint.Foundation.SitecoreExtensions.Extensions
             }
 
             return null;
+        }
+
+        public static bool GetCheckboxFieldValue(this Item item, string fieldName, bool defaultValue = false)
+        {
+            return ((CheckboxField)item?.Fields[fieldName])?.Checked ?? defaultValue;
         }
     }
 }

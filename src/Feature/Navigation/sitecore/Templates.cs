@@ -24,7 +24,8 @@ namespace Blueprint.Feature.Navigation
             public static class Fields
             {
                 public static readonly ID NavigationTitle = new ID("{41AFF118-A0A7-43A5-84F2-EBF4C9B2643E}");
-               
+                public static readonly ID ShowBreadcrumb = new ID("{A4B45E88-4E24-4683-855A-C1D871ABB69D}");
+
             }
 
         }  

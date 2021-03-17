@@ -17,9 +17,13 @@ Languages:
     - ID: "3852d92f-2c2c-44a8-a8eb-2a2b25fd77f4"
       Hint: Title
       Value: Hero Banner
+    - ID: "8b29fce0-3498-4772-9093-f4edb78b4b0c"
+      Hint: Text
+      Value: |
+        <span style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at vehicula sapien. Fusce placerat, lacus ullamcorper commodo vestibulum, diam libero facilisis tellus, id consectetur ipsum ante sit amet massa. Nullam sed velit sem. Aenean ligula massa, aliquam in mauris nec, eleifend sollicitudin velit. Aliquam sit amet posuere tortor. Donec ac sodales odio. Mauris sollicitudin dictum tellus, at condimentum quam semper id. Donec tincidunt lectus scelerisque, eleifend mauris in, interdum dui. Fusce facilisis justo id justo ornare finibus. Nullam aliquam condimentum risus sed congue. Nullam sit amet sem eu orci consectetur imperdiet. Curabitur sed nisl a lacus efficitur interdum pretium id sem. Donec in nibh mattis justo mollis posuere. Vestibulum scelerisque tempus dui, non cursus sapien efficitur eu. Morbi rhoncus finibus orci. Curabitur scelerisque fringilla luctus.</span>
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "47d130ba-7a86-4935-b52a-2647d122aa65"
+      Value: "fec77bd4-8cad-4294-8c77-4ad0a0a966b8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -27,10 +31,14 @@ Languages:
     - ID: "c927d4ae-a03b-411f-bf83-9a57de51c836"
       Hint: Image
       Value: |
-        <image mediaid="{094AED03-02E7-4868-80CB-19926661FB77}" ></image>
+        <image mediaid="{F36DCCCF-CB54-4E79-B0EC-4E8753D4FCF1}" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210310T164700Z
+      Value: 20210317T113857Z
+    - ID: "e0ef6d64-3c09-4bba-9df0-344e246c538b"
+      Hint: Link
+      Value: |
+        <link text="Blogs" anchor="" linktype="internal" class="" title=""  querystring="" id="{59D8A827-F4FC-4884-976C-58098CC4510C}" />
     - ID: "fa793de8-bb0c-4a66-98e7-9620e728b455"
       Hint: SubTitle
       Value: Subtitle of Banner

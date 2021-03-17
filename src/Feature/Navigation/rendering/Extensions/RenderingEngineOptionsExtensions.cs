@@ -8,7 +8,8 @@ namespace Blueprint.Feature.Navigation.Extensions
         public static RenderingEngineOptions AddFeatureNavigation(this RenderingEngineOptions options)
         {
             options
-                .AddModelBoundView<Models.Navigation>("Navigation");
+                .AddModelBoundView<Models.Navigation>("Navigation")
+                .AddModelBoundView<Models.Navigation>("Breadcrumb");
             return options;
         }
     }

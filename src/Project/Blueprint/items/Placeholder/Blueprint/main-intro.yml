@@ -1,17 +1,21 @@
 ﻿---
-ID: "af399e37-2c3e-4e2f-a9e7-79cf07f7dc1c"
-Parent: "14b712e1-51df-4e63-a093-30abe84e92ef"
+ID: "a7e567a3-bcbc-49df-b760-3d8da06936ba"
+Parent: "f0ded0cc-637e-41ff-a8e3-49faf53fdbed"
 Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
-Path: /sitecore/layout/Placeholder Settings/Project/Common/Grid_12
+Path: "/sitecore/layout/Placeholder Settings/Project/Blueprint/main-intro"
 SharedFields:
+- ID: "14d0728a-82f9-4b01-ab16-1fe1577cede2"
+  Hint: Editable
+  Value: 
 - ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
   Hint: Placeholder Key
-  Value: "grid-12"
+  Value: "blueprint-main-intro"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
 - ID: "e391b526-d0c5-439d-803e-17512eae6222"
   Hint: Allowed Controls
-  Value: |
-    {61B6BF9F-960E-4F89-9007-93A5D02EC1D3}
-    {ACAE8A6A-4534-4D2B-8A98-58BB926BFB18}
+  Value: "{93525DF2-E79C-41F5-90E6-F53F27C0F7FF}"
 Languages:
 - Language: en
   Versions:
@@ -19,14 +23,14 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210310T191908Z
+      Value: 20210310T105005Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ac248bab-82ab-4743-a7f8-ed54d14a9bc4"
+      Value: "b2d58be5-4176-45ba-8723-86e243530ccc"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210317T093137Z
+      Value: 20210317T110048Z

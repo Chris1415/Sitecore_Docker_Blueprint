@@ -64,5 +64,34 @@ namespace Blueprint.Feature.Navigation.Services
 
             return navigationItems;
         }
+
+        public NavigationModel GetBreadcrumb(Item root)
+        {
+            var contextItem = Sitecore.Context.Item;
+            var siteContext = Sitecore.Context.Site;
+            var rootItem = Sitecore.Context.Database.GetItem(siteContext.RootPath);
+
+            var navigationModel = new NavigationModel();
+            while (root != null && !root.ID.Equals(rootItem.ID))
+            {
+                string navigationTitle = root[Templates.PageNavigation.Fields.NavigationTitle];
+                bool isActive = contextItem.ID.Equals(root.ID);
+                var navigationItem = new NavigationItem()
+                {
+                    Children = new List<NavigationItem>(),
+                    IsActive = isActive,
+                    Item = root,
+                    Url = !isActive ? LinkManager.GetItemUrl(root) : string.Empty,
+                    Title = !string.IsNullOrEmpty(navigationTitle)
+                       ? navigationTitle
+                       : root.DisplayName
+                };
+                navigationModel.NavigationItems.Add(navigationItem);
+                root = root.Parent;
+            }
+
+            navigationModel.NavigationItems = navigationModel.NavigationItems.Reverse().ToList();
+            return navigationModel;
+        }
     }
 }

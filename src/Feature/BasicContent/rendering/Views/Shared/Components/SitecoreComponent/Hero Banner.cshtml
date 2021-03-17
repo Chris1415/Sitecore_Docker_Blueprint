@@ -1,7 +1,11 @@
 ﻿@model HeroBanner
 
 <div class="herobanner">
-    <h1 class="herobanner__title" asp-for="Title"></h1>
-    <h2 class="herobanner__subtitle" asp-for="Subtitle"></h2>
-    <img class=herobanner__image asp-for="Image" />
+    <div class="herobanner__overlay">
+        <h1 class="herobanner__title" asp-for="Title"></h1>
+        <h2 class="herobanner__subtitle" asp-for="Subtitle"></h2>
+        <div class="herobanner__rte" asp-for="Text"></div>
+        <a class="herobanner__link" asp-for="Link"></a>
+    </div>
+    <img class="herobanner__image img-fluid" asp-for="Image" />
 </div>

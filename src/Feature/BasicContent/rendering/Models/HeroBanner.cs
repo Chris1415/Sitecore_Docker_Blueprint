@@ -10,6 +10,10 @@ namespace Blueprint.Feature.BasicContent.Models
         [SitecoreComponentField]
         public TextField Subtitle { get; set; }
         [SitecoreComponentField]
+        public RichTextField Text { get; set; }
+        [SitecoreComponentField]
+        public HyperLinkField Link { get; set; }
+        [SitecoreComponentField]
         public ImageField Image { get; set; }
     }
 }
