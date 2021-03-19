@@ -1,0 +1,26 @@
+﻿---
+ID: "07b61ae6-b0bc-4b41-a0d7-50f56da40d40"
+Parent: "0e2789f6-fd4e-4b59-83b1-ec4c5001665f"
+Template: "8d2befb1-8277-4118-a4f2-62ee2cfbbd10"
+Path: /sitecore/content/Blueprint/Home/References/Customer A
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210319T112034Z
+    - ID: "41aff118-a0a7-43a5-84f2-ebf4c9b2643e"
+      Hint: Navigation Title
+      Value: Customer A
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "20dabfe7-35e5-4875-a3ed-a844afa2b804"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210319T112034Z

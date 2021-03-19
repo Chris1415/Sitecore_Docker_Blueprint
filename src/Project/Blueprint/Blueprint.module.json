@@ -30,6 +30,10 @@
       {
         "name": "apikey",
         "path": "/sitecore/system/Settings/Services/API Keys/Blueprint"
+      },
+      {
+        "name": "images",
+        "path": "/sitecore/media library/Images"
       }
     ]
   }

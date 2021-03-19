@@ -1,12 +1,13 @@
 ﻿/* Header */
 #header {
-    background-color: lightgray;
+    background-color: #d3d3d3;
     color: black;
     margin-bottom: 1rem;
 }
 
 /* Content */
 #main {
+    background-color: #E5E5E5;
 }
 
 /*BREADCRUMB */
@@ -74,7 +75,7 @@
         }
 
             .navigation ul li a.active {
-                background-color: darkblue;
+                background-color: #00008b;
             }
 
             /* Change the link color to #111 (black) on hover */
@@ -92,34 +93,119 @@
 
 /* Hero Banner */
 .herobanner {
-    border: solid black;
-    background-color: lightblue;
+    background-color: white;
 }
 
 .herobanner__overlay {
-    position: absolute;
-    right: 5%;
-    background-color: lightgray;
-    opacity: 0.9;
-    border-radius: 5%;
-    height: 100%;
-    width: 35%;
     padding: 20px;
 }
 
 .herobanner__title {
     text-align: center;
+    color: #00008b;
 }
 
 .herobanner__subtitle {
     text-align: center;
+    color: #00008b;
 }
 
 .herobanner__image {
+    text-align: center;
+}
+
+.herobanner__linkcontainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.25rem;
+}
+
+.herobanner__link {
+    color: #00008b;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    background-color: #d3d3d3;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    letter-spacing: 0.15rem;
+    border-radius: 4px;
+    box-shadow: 5px 5px 8px #e8e8e8;
+}
+
+    .herobanner__link:active {
+        text-decoration: none;
+        background-color: #bbbbbb;
+        color: #0a0ae4;
+        box-shadow: 5px 5px 8px #d7d7d7;
+    }
+
+    .herobanner__link:hover {
+        text-decoration: none;
+        background-color: #bbbbbb;
+        color: #0a0ae4;
+        box-shadow: 5px 5px 8px #d7d7d7;
+    }
+
+@media screen and (max-width: 1200px) {
+    .herobanner__title {
+        font-size: 2rem;
+    }
+    .herobanner__subtitle {
+        font-size: 1.5rem;
+    }
+    .herobanner__linkcontainer {
+        margin-top: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .herobanner__title {
+        font-size: 1.25rem;
+    }
+    .herobanner__subtitle {
+        font-size: 1rem;
+    }
+    .herobanner__overlay {
+        padding: 10px;
+    }
+    .herobanner__rte{
+        font-size: 0.785rem;
+    }
+    .herobanner__link{
+        font-size: 0.785rem;
+    }
+}
+
+@media screen and (max-width: 768px ) {
+    .herobanner__title {
+        font-size: 2rem;
+    }
+    .herobanner__subtitle {
+        font-size: 1.5rem;
+    }
+    .herobanner__linkcontainer {
+        margin-top: 1rem;
+    }
+    .herobanner__rte {
+        font-size: 1rem;
+    }
+    .herobanner__link {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+}
+
+/* Image */
+.image figcaption {
+    font-weight: bold;
+    color: #00008b;
 }
 
 /* Footer */
-
 #footer {
     background-color: darkgray;
     color: white;

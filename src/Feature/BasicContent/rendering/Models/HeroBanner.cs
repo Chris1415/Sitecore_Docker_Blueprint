@@ -12,7 +12,7 @@ namespace Blueprint.Feature.BasicContent.Models
         [SitecoreComponentField]
         public RichTextField Text { get; set; }
         [SitecoreComponentField]
-        public HyperLinkField Link { get; set; }
+        public HyperLinkField TargetLink { get; set; }
         [SitecoreComponentField]
         public ImageField Image { get; set; }
     }

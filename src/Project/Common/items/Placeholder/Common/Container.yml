@@ -11,9 +11,9 @@ SharedFields:
   Hint: Allowed Controls
   Value: |
     {64B921E4-F701-4C60-BCE2-4FA39741C0D4}
-    {79156E36-2B08-4488-ACDC-F8480533FFC3}
-    {E28E1FDC-0778-458B-8ED9-683F651F57EC}
     {4F419A96-7C0B-4360-929D-704C29455518}
+    {E28E1FDC-0778-458B-8ED9-683F651F57EC}
+    {79156E36-2B08-4488-ACDC-F8480533FFC3}
 Languages:
 - Language: en
   Versions:
@@ -24,11 +24,11 @@ Languages:
       Value: 20210310T191908Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9f8a7a5d-6e52-440c-adc9-55160c2e9287"
+      Value: "64b78f5c-76d4-46d8-a90a-502d44dea2e7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210311T124015Z
+      Value: 20210319T112615Z

@@ -1,0 +1,30 @@
+﻿---
+ID: "4a5f88d4-2e69-442e-910c-bffd0122efe4"
+Parent: "2f8ddfc8-844c-4755-8483-218cae320d13"
+Template: "469a5d5f-c02f-4942-be1a-6ec722ac1a47"
+Path: /sitecore/content/Blueprint/Home/Data/First Image
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210319T112845Z
+    - ID: "7941b542-18fc-4e29-8c3f-fed3c394b288"
+      Hint: ImageField
+      Value: |
+        <image mediaid="{DB99C2C7-B1D6-4493-A455-0AA53B0326EF}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ef55bb02-06bc-4ce4-927a-00dfc094762a"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "bd5f0440-4c7c-413d-9937-f8cc05c74d1a"
+      Hint: Caption
+      Value: 1) Sitecore 10.1 Dashboard
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210319T114305Z

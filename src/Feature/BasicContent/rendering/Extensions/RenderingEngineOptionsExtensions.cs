@@ -9,6 +9,7 @@ namespace Blueprint.Feature.BasicContent.Extensions
         public static RenderingEngineOptions AddFeatureBasicContent(this RenderingEngineOptions options)
         {
             options
+                .AddModelBoundView<Image>("Image")
                 .AddModelBoundView<LegalInformation>("Legal Information")
                 .AddModelBoundView<HeroBanner>("Hero Banner");
             return options;

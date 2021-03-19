@@ -4,6 +4,9 @@ Parent: "8d2befb1-8277-4118-a4f2-62ee2cfbbd10"
 Template: "8d2befb1-8277-4118-a4f2-62ee2cfbbd10"
 Path: /sitecore/templates/Project/Blueprint/Page/__Standard Values
 SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: "{8D2BEFB1-8277-4118-A4F2-62EE2CFBBD10}"
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
@@ -63,11 +66,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d64f883e-7fc5-4a4d-93c8-3627af44868d"
+      Value: "feb2eecc-5dfa-45d6-a2f2-b240c30ffcb7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210317T101413Z
+      Value: 20210319T112022Z
