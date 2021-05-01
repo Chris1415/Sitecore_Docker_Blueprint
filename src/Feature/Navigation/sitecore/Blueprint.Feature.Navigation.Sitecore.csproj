@@ -124,6 +124,8 @@
   <ItemGroup>
     <Compile Include="LayoutService\BreadcrumbContentResolver.cs" />
     <Compile Include="LayoutService\NavigationContentResolver.cs" />
+    <Compile Include="Models\Elements\Base\BaseNavigationItem.cs" />
+    <Compile Include="Models\Elements\NavigationSubItem.cs" />
     <Compile Include="Models\Elements\NavigationItem.cs" />
     <Compile Include="Models\NavigationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

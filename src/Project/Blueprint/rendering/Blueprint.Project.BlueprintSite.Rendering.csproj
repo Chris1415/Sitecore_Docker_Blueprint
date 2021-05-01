@@ -35,7 +35,7 @@
 	  <Folder Include="Extensions\" />
 	  <Folder Include="wwwroot\fonts\" />
 	  <Folder Include="wwwroot\images\" />
-	  <Folder Include="wwwroot\js\" />
+	  <Folder Include="wwwroot\script\" />
 	  <Folder Include="wwwroot\sass\fonts\" />
 	  <Folder Include="wwwroot\style\components\" />
 	  <Folder Include="wwwroot\style\fonts\" />

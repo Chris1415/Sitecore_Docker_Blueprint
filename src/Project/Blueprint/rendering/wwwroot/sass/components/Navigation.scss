@@ -1,5 +1,9 @@
 ﻿@import 'Colors.scss';
 
+.navigation {
+    overflow: hidden;
+}
+
 .navigation ul {
     list-style-type: none;
     margin: 0;
@@ -31,5 +35,43 @@
 
 /* Change the link color to #111 (black) on hover */
 .navigation ul li a:hover {
+    background-color: $linkBackgroundHoverColor;
+}
+
+.navigation__subnav {
+    float: left;
+    overflow: hidden;
+}
+
+.navigation__subnav__subnavbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+/* Style the subnav content - positioned absolute */
+.navigation__subnav__content {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: $headerBackgroundColor;
+}
+
+/* Style the subnav links */
+.navigation__subnav__content a {
+    float: left;
+    color: white;
+    text-decoration: none;
+}
+
+/* Add a grey background color on hover */
+.navigation__subnav__content a:hover {
     background-color: $linkBackgroundHoverColor;
 }

@@ -1,11 +1,32 @@
-﻿@model Navigation
+﻿@namespace System.Linq
+@model Navigation
 
 <div class="navigation">
     <ul>
         @foreach (var navigationItem in Model.NavigationItems ?? new List<NavigationItem>())
         {
             <li>
-                <a class="@(navigationItem.IsActive ? "active": string.Empty)" isActive="@navigationItem.IsActive" href="@navigationItem.Url">@navigationItem.Title</a>
+                @if (navigationItem.Children.Any())
+                {
+                    <div class="navigation__subnav">
+                        <button class="navigation__subnav__subnavbtn">
+                            @navigationItem.Title
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                            </svg>
+                        </button>
+                        <div class="navigation__subnav__content">
+                            @foreach (var child in navigationItem.Children)
+                            {
+                                <a class="@(child.IsActive ? "active": string.Empty)" href="@child.Url">@child.Title</a>
+                            }
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <a class="@(navigationItem.IsActive ? "active": string.Empty)" isActive="@navigationItem.IsActive" href="@navigationItem.Url">@navigationItem.Title</a>
+                }
             </li>
         }
     </ul>

@@ -1,4 +1,5 @@
 ﻿using Blueprint.Feature.Navigation;
+using Blueprint.Feature.Navigation.Models.Elements;
 using Blueprint.Feature.Navigation.Services;
 using Sitecore.Data.Fields;
 using Sitecore.LayoutService.Configuration;
@@ -37,7 +38,13 @@ namespace Blueprint.Feature.Navigation.LayoutService
                 {
                     url = x.Url,
                     isActive = x.IsActive,
-                    title = x.Title
+                    title = x.Title,
+                    children = x.Children.Select(element => new NavigationSubItem()
+                    {
+                        IsActive = element.IsActive,
+                        Title = element.Title,
+                        Url = element.Url
+                    })
                 })
             };
             return contents;
