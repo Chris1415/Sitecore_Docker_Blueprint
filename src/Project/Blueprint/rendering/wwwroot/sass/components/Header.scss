@@ -1,0 +1,10 @@
+﻿@import 'Colors.scss';
+
+#header {
+    background-color: $headerBackgroundColor;
+    margin-bottom: 1rem;
+}
+
+#header img {
+    height: 48px;
+}

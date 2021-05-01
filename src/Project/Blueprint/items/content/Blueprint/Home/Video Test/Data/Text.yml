@@ -1,0 +1,30 @@
+﻿---
+ID: "70b27aee-ff06-4563-987e-69bf4459f3aa"
+Parent: "7d5ff7fb-221d-40f6-8fb2-d892cfe5ff63"
+Template: "fd4f1481-62ba-4a57-9805-0eda83c12960"
+Path: /sitecore/content/Blueprint/Home/Video Test/Data/Text
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210412T095221Z
+    - ID: "34148288-057b-4371-8d8a-28c8435b266f"
+      Hint: RichText
+      Value: |
+        <span style="background-color: #ffffff; text-align: justify; color: #000000;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat risus lobortis, blandit est quis, imperdiet magna. Proin dictum orci quis nulla mollis aliquam. Pellentesque imperdiet convallis quam. Aenean in venenatis lorem. Proin ut pulvinar ipsum. Nunc fringilla sodales erat vitae ultricies. Duis ultrices posuere felis eu semper. Aliquam aliquet rhoncus tellus nec volutpat.</span>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d09eb93e-88e3-4cba-b3a5-545460b08f67"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210412T095246Z

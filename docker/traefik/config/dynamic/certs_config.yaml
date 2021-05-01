@@ -2,3 +2,5 @@ tls:
   certificates:
     - certFile: C:\etc\traefik\certs\_wildcard.blueprint.de.pem
       keyFile: C:\etc\traefik\certs\_wildcard.blueprint.de-key.pem
+    - certFile: C:\etc\traefik\certs\hahn-solo.training_ssl_certificate.cer
+      keyFile: C:\etc\traefik\certs\_.hahn-solo.training_private_key.key

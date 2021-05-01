@@ -1,0 +1,38 @@
+﻿@import 'Colors.scss';
+
+.inactiveLink {
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Style the list */
+.breadcrumb ul {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: $breadcrumbBackgroundColor;
+}
+
+/* Display list items side by side */
+.breadcrumb ul li {
+    display: inline;
+    font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+.breadcrumb ul li + li:before {
+    padding: 8px;
+    color: $textColorOnBrightBackground;
+    content: "<";
+}
+
+/* Add a color to all links inside the list */
+.breadcrumb ul li a {
+    color: $linkColor;
+    text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+.breadcrumb ul li a:hover {
+    color: $linkHoverColor;
+    text-decoration: underline;
+}

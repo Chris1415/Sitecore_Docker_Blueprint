@@ -11,7 +11,10 @@ namespace Blueprint.Feature.BasicContent.Extensions
             options
                 .AddModelBoundView<Image>("Image")
                 .AddModelBoundView<LegalInformation>("Legal Information")
-                .AddModelBoundView<HeroBanner>("Hero Banner");
+                .AddModelBoundView<HeroBanner>("Hero Banner")
+                .AddModelBoundView<ExternalVideo>("ExternalVideo")
+                .AddModelBoundView<Text>("Text")
+                .AddModelBoundView<ImageList>("ImageList");
             return options;
         }
     }

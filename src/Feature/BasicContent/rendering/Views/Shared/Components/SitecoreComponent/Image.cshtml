@@ -1,6 +1,38 @@
-﻿@model Image
+﻿@using Blueprint.Feature.BasicContent
+@using Blueprint.Foundation.SitecoreExtensions.Extensions
+@model Image
 
-<div class="image">
-    <img class="img-fluid" asp-for="ImageField" />
-    <figcaption class="image__caption" asp-for="Caption"></figcaption>
-</div>
+@{
+    var component = this.SitecoreComponent();
+    var context = this.SitecoreContext();
+}
+
+@{
+    string renderingVariant = component.Parameters.GetRenderingParameterValue<string>(Constants.Image.RenderingVariants.Identifier, Constants.Image.RenderingVariants.Variants.Image);
+}
+
+@if (renderingVariant == Constants.Image.RenderingVariants.Variants.Logo)
+{
+    <div class="logo">
+        <a asp-for="Link">
+            <img class="" asp-for="ImageField" />
+        </a>
+    </div>
+}
+else
+{
+    if (context.IsEditing)
+    {
+        <div class="image">
+            <a asp-for="Link"></a>
+            <img class="img-fluid" asp-for="ImageField" />
+            <figcaption class="image__caption" asp-for="Caption"></figcaption>
+        </div>
+    }
+    <div class="image">
+        <a asp-for="Link">
+            <img class="img-fluid" asp-for="ImageField" />
+        </a>
+        <figcaption class="image__caption" asp-for="Caption"></figcaption>
+    </div>
+}

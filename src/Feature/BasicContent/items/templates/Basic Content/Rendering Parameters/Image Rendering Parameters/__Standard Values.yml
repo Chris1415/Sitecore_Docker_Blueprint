@@ -1,0 +1,31 @@
+﻿---
+ID: "42f9f815-6822-4db9-a3f8-c56685bb95b2"
+Parent: "bdc618f7-cd9c-4404-ac63-12ba0aed7c73"
+Template: "bdc618f7-cd9c-4404-ac63-12ba0aed7c73"
+Path: /sitecore/templates/Feature/Basic Content/Rendering Parameters/Image Rendering Parameters/__Standard Values
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210323T092228Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        extranet\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        extranet\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7b9c75d6-313f-47b4-94c3-c387fecda94e"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        extranet\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210323T092228Z

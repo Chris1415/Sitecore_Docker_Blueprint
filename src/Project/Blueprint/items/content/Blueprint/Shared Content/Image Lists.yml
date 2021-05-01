@@ -1,0 +1,23 @@
+﻿---
+ID: "23ff48b1-90ed-43e8-b5ba-dc8f42aa0d66"
+Parent: "d2f6ff70-28f6-416e-9882-182f96e4fa0c"
+Template: "08277ad7-78e0-429b-938a-4ce26d5c5334"
+Path: /sitecore/content/Blueprint/Shared Content/Image Lists
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210412T112329Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "69cb123b-f74b-4b12-8f3d-6cdb57e711e6"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210412T112329Z

@@ -1,11 +1,15 @@
 ﻿@model Route
 
 @{
-    ViewData["Title"] = "PAGE-TITLE";
+    ViewData["Title"] = Model.ReadField<TextField>("Page Title")?.Value ?? string.Empty; 
 }
 
 <div id="header">
-    <sc-placeholder name="blueprint-header"></sc-placeholder>
+    <div class="container">
+        <div class="row">
+            <sc-placeholder name="blueprint-header"></sc-placeholder>
+        </div>
+    </div>
 </div>
 <div id="main">
     <div id="main__intro">

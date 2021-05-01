@@ -16,14 +16,14 @@ Languages:
       Value: 20210310T134305Z
     - ID: "3852d92f-2c2c-44a8-a8eb-2a2b25fd77f4"
       Hint: Title
-      Value: Hero Banner
+      Value: Sitecore Rendering Host Training Page
     - ID: "8b29fce0-3498-4772-9093-f4edb78b4b0c"
       Hint: Text
       Value: |
-        <span style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at vehicula sapien. Fusce placerat, lacus ullamcorper commodo vestibulum, diam libero facilisis tellus, id consectetur ipsum ante sit amet massa. Nullam sed velit sem. Aenean ligula massa, aliquam in mauris nec, eleifend sollicitudin velit.</span>
+        <p>This site is a playground to experiment with<a href="https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/101/Sitecore_Experience_Platform_101.aspx"> Sitecore 10.1</a> + <a href="https://doc.sitecore.com/developers/100/developer-tools/en/sitecore-headless-development-conceptual-overview.html">.NET Core Rendering Host</a></p>
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "92edc9a3-e3c9-4cb8-9c12-548b07454162"
+      Value: "4861d73e-c318-4228-b482-ddd9c5a254af"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -34,11 +34,11 @@ Languages:
         <image mediaid="{F36DCCCF-CB54-4E79-B0EC-4E8753D4FCF1}" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210319T103207Z
+      Value: 20210323T072150Z
     - ID: "e0ef6d64-3c09-4bba-9df0-344e246c538b"
       Hint: TargetLink
       Value: |
-        <link text="Blogs" anchor="" linktype="internal" class="" title=""  querystring="" id="{59D8A827-F4FC-4884-976C-58098CC4510C}" />
+        <link text="Read More" anchor="" linktype="internal" class="" title=""  querystring="" id="{080EA0DB-8843-470B-B96D-4A983EF4DDDC}" />
     - ID: "fa793de8-bb0c-4a66-98e7-9620e728b455"
       Hint: SubTitle
-      Value: Subtitle of Banner
+      Value: By Christian Hahn

@@ -1,0 +1,15 @@
+﻿@model ImageList
+
+<div class="imageList">
+    <h1 asp-for="Headline"></h1>
+    <div class="row">
+        @foreach (var image in Model.Images)
+        {
+            <div class="col-md-3">
+                <div class="imageList__image">
+                    @Html.Partial("/Views/Shared/Components/SitecoreComponent/Image.cshtml", image.Target)
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -13,6 +13,9 @@ SharedFields:
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: /sitecore/templates/Feature/Basic Content/Image
+- ID: "a77e8568-1ab3-44f1-a664-b7c37ec7810d"
+  Hint: Parameters Template
+  Value: "{BDC618F7-CD9C-4404-AC63-12BA0AED7C73}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
   Value: ./Data|$site/shared content/Images
@@ -26,11 +29,11 @@ Languages:
       Value: 20210310T105033Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "01b6cc53-0c54-4964-a732-f8ff82c3395d"
+      Value: "f40b2191-4bca-4e88-a79b-eb2812752bee"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210319T112508Z
+      Value: 20210323T091834Z

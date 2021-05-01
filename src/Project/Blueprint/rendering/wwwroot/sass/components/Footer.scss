@@ -1,3 +1,7 @@
-﻿#footer{
-    background-color: black;
+﻿@import 'Colors.scss';
+
+#footer {
+    background-color: $footerBackgroundColor;
+    color: $textColorOnBlackDarkBackground;
+    margin-top: 1rem;
 }

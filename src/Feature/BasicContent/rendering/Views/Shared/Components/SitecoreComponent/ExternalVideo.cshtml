@@ -1,0 +1,32 @@
+﻿@using Blueprint.Feature.BasicContent
+@using Blueprint.Foundation.SitecoreExtensions.Extensions
+@model ExternalVideo
+
+@{
+    var context = this.SitecoreContext();
+    var component = this.SitecoreComponent();
+}
+
+@{
+    bool allowFullScreen = component.Parameters.GetRenderingParameterValue<bool>(Constants.Video.AllowFullscreen, false);
+    var autoplay = component.Parameters.GetRenderingParameterValue<bool>(Constants.Video.Autoplay, false);
+    var muted = component.Parameters.GetRenderingParameterValue<bool>(Constants.Video.Muted, false);
+    var heigth = component.Parameters.GetRenderingParameterValue<string>(Constants.Video.Height, "200");
+
+}
+
+<div class="externalVideo">
+    @if (context.IsEditing)
+    {
+        @Model.VideoLink.Value
+    }
+    else
+    {
+        <iframe style="height: @(heigth)px; width: 100%;"
+                src="@string.Format("{0}?autoplay={1}&mute={2}", Model.VideoLink.Value, autoplay, muted)"
+                title="YouTube video player"
+                frameborder="0"
+                @(allowFullScreen ? "allowfullscreen" : string.Empty)>
+        </iframe>
+    }
+</div>

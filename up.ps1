@@ -36,7 +36,7 @@ if (-not $status.status -eq "enabled") {
     Write-Error "Timeout waiting for Sitecore CM to become available via Traefik proxy. Check CM container logs."
 }
 
-dotnet sitecore login --cm https://cm.blueprint.de/ --auth https://id.blueprint.de/ --allow-write true
+dotnet sitecore login --cm https://cm.hahn-solo.training/ --auth https://id.blueprint.de/ --allow-write true
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Unable to log into Sitecore, did the Sitecore environment start correctly? See logs above."
 }
@@ -44,7 +44,7 @@ if ($LASTEXITCODE -ne 0) {
 # Populate Solr managed schemas to avoid errors during item push
 Write-Host "Populating Solr managed schema..." -ForegroundColor Green
 $token = (Get-Content .\.sitecore\user.json | ConvertFrom-Json).endpoints.default.accessToken
-Invoke-RestMethod "https://cm.blueprint.de/sitecore/admin/PopulateManagedSchema.aspx?indexes=all" -Headers @{Authorization = "Bearer $token"} -UseBasicParsing | Out-Null
+Invoke-RestMethod "https://cm.hahn-solo.training/sitecore/admin/PopulateManagedSchema.aspx?indexes=all" -Headers @{Authorization = "Bearer $token"} -UseBasicParsing | Out-Null
 Write-Host "Pushing latest items to Sitecore..." -ForegroundColor Green
 
 dotnet sitecore ser push --publish
@@ -54,8 +54,8 @@ if ($LASTEXITCODE -ne 0) {
 
 Write-Host "Opening site..." -ForegroundColor Green
 
-Start-Process https://cm.blueprint.de/sitecore/
-Start-Process https://www.blueprint.de/
+Start-Process https://cm.hahn-solo.training/sitecore/
+Start-Process https://www.hahn-solo.training/
 
 Write-Host ""
 Write-Host "Use the following command to monitor your Rendering Host:" -ForegroundColor Green

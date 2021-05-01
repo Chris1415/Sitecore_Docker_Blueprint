@@ -1,6 +1,15 @@
-﻿
+﻿@import '../sass/components/Blueprint.scss';
 
-body {
-}
-
+@import '../sass/components/Header.scss';
+@import '../sass/components/Main.scss';
 @import '../sass/components/Footer.scss';
+
+@import '../sass/components/Navigation.scss';
+@import '../sass/components/Footer.scss';
+@import '../sass/components/Breadcrumb.scss';
+
+@import '../sass/components/HeroBanner.scss';
+@import '../sass/components/Image.scss';
+@import '../sass/components/LegalInformation.scss';
+@import '../sass/components/Text.scss';
+

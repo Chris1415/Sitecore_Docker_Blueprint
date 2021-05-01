@@ -15,11 +15,26 @@ SharedFields:
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{1AE49D12-8DA1-4FBD-92FF-887B01C02BB5}">
         <r
+          id="{79156E36-2B08-4488-ACDC-F8480533FFC3}"
+          ph="blueprint-header"
+          uid="{B683D2B0-3614-4BC6-99A7-A17FE97FA65D}" />
+        <r
+          ds="{E900A47D-7480-448B-BFC2-6C33EE5F7FAA}"
+          id="{8046497C-658D-443F-8487-DC3D95E0E738}"
+          par="RenderingVariant=%7B03929629-B9E8-42E2-852B-A9DC21648A64%7D"
+          ph="/blueprint-header/grid-3-{B683D2B0-3614-4BC6-99A7-A17FE97FA65D}-0"
+          uid="{109D67CA-1735-4B57-8597-18351DB135B0}"
+          ccb="Clear on publish" />
+        <r
+          id="{E28E1FDC-0778-458B-8ED9-683F651F57EC}"
+          ph="blueprint-header"
+          uid="{923560BE-C9EF-412F-8BD8-6DAFC57141FE}" />
+        <r
           ds="{9B404B32-8333-493F-82F0-EEB2121DA0C8}"
           id="{A57C56DA-EC83-4FD1-9F95-62116AC66440}"
           par=""
-          ph="blueprint-header"
-          uid="{527D33DB-AD9D-4271-ABDD-51A682374489}"
+          ph="/blueprint-header/grid-6-{923560BE-C9EF-412F-8BD8-6DAFC57141FE}-0"
+          uid="{0D909C05-F377-403A-A0CD-FC8C649DFCDE}"
           ccb="Clear on publish" />
         <r
           id="{93525DF2-E79C-41F5-90E6-F53F27C0F7FF}"
@@ -64,13 +79,19 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
+    - ID: "879df41a-c3c6-45ef-8c53-13a31f778694"
+      Hint: Page Title
+      Value: $name
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "feb2eecc-5dfa-45d6-a2f2-b240c30ffcb7"
+      Value: "a21e5c4d-24af-4235-979c-51daac4d839c"
+    - ID: "a4b45e88-4e24-4683-855a-c1d871abb69d"
+      Hint: Show Breadcrumb
+      Value: 1
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210319T112022Z
+      Value: 20210412T113543Z

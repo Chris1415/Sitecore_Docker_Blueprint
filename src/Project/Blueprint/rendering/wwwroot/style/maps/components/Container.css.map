@@ -1,0 +1,1 @@
+{"version":3,"file":"../../components/Container.css","sources":["components/Container.scss"],"sourcesContent":[".container {\r\n    margin-top: 0.5rem;\r\n    margin-bottom: 0.5rem;\r\n}\r\n"],"names":[],"mappings":"AAAA,AAAA,UAAU,CAAC;EACP,UAAU,EAAE,MAAM;EAClB,aAAa,EAAE,MAAM,GACxB"}

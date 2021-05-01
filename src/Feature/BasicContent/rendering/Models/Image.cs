@@ -7,7 +7,9 @@ namespace Blueprint.Feature.BasicContent.Models
     {
         [SitecoreComponentField]
         public ImageField ImageField { get; set; }
-        [SitecoreComponentField]
+        [SitecoreComponentField]                                            
         public TextField Caption { get; set; }
+        [SitecoreComponentField]
+        public HyperLinkField Link { get; set; }
     }
 }

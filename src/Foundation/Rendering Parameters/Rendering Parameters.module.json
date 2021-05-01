@@ -1,0 +1,11 @@
+{
+    "namespace": "Foundation.RenderingParameters",
+    "items": {
+        "includes": [
+            {
+                "name": "templates",
+                "path": "/sitecore/templates/Foundation/Rendering Parameters"
+            }
+        ]
+    }
+}

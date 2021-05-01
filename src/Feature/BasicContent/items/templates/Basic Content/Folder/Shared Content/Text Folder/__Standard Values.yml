@@ -1,0 +1,35 @@
+﻿---
+ID: "c5ae9af6-c702-45f5-bac1-45bcf8d8cd9a"
+Parent: "1c03a984-6936-49dc-8ec9-6f089d4896a6"
+Template: "1c03a984-6936-49dc-8ec9-6f089d4896a6"
+Path: /sitecore/templates/Feature/Basic Content/Folder/Shared Content/Text Folder/__Standard Values
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: "{FD4F1481-62BA-4A57-9805-0EDA83C12960}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210412T062236Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "577668c6-93f4-4f4e-b062-621ed1e866e2"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210412T094425Z

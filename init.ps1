@@ -97,7 +97,8 @@ Add-HostsEntry "cm.blueprint.de"
 Add-HostsEntry "cd.blueprint.de"
 Add-HostsEntry "id.blueprint.de"
 Add-HostsEntry "www.blueprint.de"
-
+Add-HostsEntry "www.hahn-solo.training"
+Add-HostsEntry "cm.hahn-solo.training"
 
 ###############################
 # Populate the environment file
@@ -111,13 +112,19 @@ if ($InitEnv) {
     Set-EnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath -Path $envPath
 
     # CM_HOST
-    Set-EnvFileVariable "CM_HOST" -Value "cm.blueprint.de" -Path $envPath
+    Set-EnvFileVariable "CM_HOST" -Value "cm.hahn-solo.training" -Path $envPath
+
+        # CM_HOST
+    Set-EnvFileVariable "CM_HOST_ALTERNATIVE" -Value "cm.blueprint.de" -Path $envPath
 
     # ID_HOST
     Set-EnvFileVariable "ID_HOST" -Value "id.blueprint.de" -Path $envPath
 
     # RENDERING_HOST
-    Set-EnvFileVariable "RENDERING_HOST" -Value "www.blueprint.de" -Path $envPath
+    Set-EnvFileVariable "RENDERING_HOST" -Value "www.hahn-solo.training" -Path $envPath
+
+     # RENDERING_HOST_ALTERNATIVE
+    Set-EnvFileVariable "RENDERING_HOST_ALTERNATIVE" -Value "www.blueprint.de" -Path $envPath
 
     # REPORTING_API_KEY = random 64-128 chars
     Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial) -Path $envPath

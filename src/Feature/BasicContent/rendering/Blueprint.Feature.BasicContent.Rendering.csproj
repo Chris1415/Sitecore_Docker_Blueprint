@@ -12,4 +12,8 @@
     <PackageReference Include="Sitecore.AspNet.RenderingEngine" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\SitecoreExtensions\rendering\Blueprint.Foundation.SitecoreExtensions.Rendering.csproj" />
+  </ItemGroup>
+
 </Project>

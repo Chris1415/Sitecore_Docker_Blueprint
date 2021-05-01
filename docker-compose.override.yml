@@ -62,6 +62,9 @@ services:
       - "traefik.http.routers.rendering-secure.entrypoints=websecure"
       - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST}`)"
       - "traefik.http.routers.rendering-secure.tls=true"
+      - "traefik.http.routers.rendering-secure-alternative.entrypoints=websecure"
+      - "traefik.http.routers.rendering-secure-alternative.rule=Host(`${RENDERING_HOST_ALTERNATIVE}`)"
+      - "traefik.http.routers.rendering-secure-alternative.tls=true"
 
   # Mount the Traefik configuration and certs.
   traefik:
@@ -147,6 +150,11 @@ services:
       SITECORE_DEVELOPMENT_PATCHES: DevEnvOn,CustomErrorsOff,DebugOn,DiagnosticsOff,InitMessagesOff,RobotDetectionOff
       Sitecore_AppSettings_exmEnabled:define: "no" # remove to turn on EXM                                                      
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
+    labels:
+      - "traefik.http.routers.cm-secure-external.entrypoints=websecure"
+      - "traefik.http.routers.cm-secure-external.rule=Host(`${CM_HOST_ALTERNATIVE}`)"
+      - "traefik.http.routers.cm-secure-external.tls=true"
+      - "traefik.http.routers.cm-secure-external.middlewares=force-STS-Header"
 
   # Use our retagged XConnect image.
   # Configure for a mounted license folder instead of using SITECORE_LICENSE.

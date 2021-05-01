@@ -11,7 +11,7 @@
                 <h2 class="herobanner__subtitle" asp-for="Subtitle"></h2>
                 <div class="herobanner__rte" asp-for="Text"></div>
                 <p class="herobanner__linkcontainer">
-                    <a class="herobanner__link" asp-for="TargetLink">Zum Ziel</a>
+                    <a class="herobanner__link" asp-for="TargetLink">@Model.TargetLink.Value.Text</a>
                 </p>
             </div>
         </div>

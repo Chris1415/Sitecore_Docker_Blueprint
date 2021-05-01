@@ -95,9 +95,12 @@ Languages:
     - ID: "41aff118-a0a7-43a5-84f2-ebf4c9b2643e"
       Hint: Navigation Title
       Value: HOME
+    - ID: "879df41a-c3c6-45ef-8c53-13a31f778694"
+      Hint: Page Title
+      Value: HOME
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cbe356b7-776f-4fa8-920d-5d91304866c1"
+      Value: "0483c3a3-1bf7-48e7-81dd-de3eaa060a53"
     - ID: "a4b45e88-4e24-4683-855a-c1d871abb69d"
       Hint: Show Breadcrumb
       Value: 
@@ -107,4 +110,4 @@ Languages:
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210319T121002Z
+      Value: 20210323T102551Z

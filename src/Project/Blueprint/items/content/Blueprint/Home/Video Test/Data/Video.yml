@@ -1,0 +1,29 @@
+﻿---
+ID: "7999ceec-575e-4204-b35d-2e35264f0ff0"
+Parent: "7d5ff7fb-221d-40f6-8fb2-d892cfe5ff63"
+Template: "c3f91324-862b-4169-ac03-543c15b1c189"
+Path: /sitecore/content/Blueprint/Home/Video Test/Data/Video
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "1fec7c82-a617-4d11-afd0-667c39d516bd"
+      Hint: VideoLink
+      Value: "https://www.youtube.com/embed/FYyYpmODiBY"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210412T064811Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e2a38a36-20d8-44ce-a7a3-e88d42182008"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210412T080738Z

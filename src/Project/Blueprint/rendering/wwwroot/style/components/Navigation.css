@@ -1,0 +1,29 @@
+.navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
+
+.navigation ul li {
+  float: left;
+  border-right: 1px solid #bbb;
+  font-weight: bold; }
+
+.navigation ul li:last-child {
+  border-right: none; }
+
+.navigation ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none; }
+
+.navigation ul li a.active {
+  background-color: #00008b; }
+
+/* Change the link color to #111 (black) on hover */
+.navigation ul li a:hover {
+  background-color: #111; }
+
+/*# sourceMappingURL=../maps/components/Navigation.css.map */

@@ -3,10 +3,6 @@ ID: "95455a8f-a73b-449e-bc5b-a853e8f20341"
 Parent: "884a6df8-bb4a-42d2-882a-97d05a82041d"
 Template: "884a6df8-bb4a-42d2-882a-97d05a82041d"
 Path: /sitecore/templates/Feature/Navigation/Navigation/__Standard Values
-SharedFields:
-- ID: "f7035e32-7e40-4077-9421-e6ae9f02f532"
-  Hint: Depth
-  Value: 2
 Languages:
 - Language: en
   Versions:

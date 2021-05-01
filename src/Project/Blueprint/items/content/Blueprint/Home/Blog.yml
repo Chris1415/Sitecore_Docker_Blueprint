@@ -14,13 +14,16 @@ Languages:
     - ID: "41aff118-a0a7-43a5-84f2-ebf4c9b2643e"
       Hint: Navigation Title
       Value: Blog
+    - ID: "879df41a-c3c6-45ef-8c53-13a31f778694"
+      Hint: Page Title
+      Value: BLOG
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "561451cf-c497-4918-881a-3b5a00d5ea17"
+      Value: "b2f93292-0a76-4335-8206-609c7346dc02"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210317T103905Z
+      Value: 20210323T102609Z

@@ -1,0 +1,11 @@
+.legalInformation {
+  text-align: right; }
+
+.legalInformation__text {
+  font-weight: bold; }
+
+.legalInformation div p {
+  display: inline-block;
+  margin: 0.5rem; }
+
+/*# sourceMappingURL=../maps/components/LegalInformation.css.map */

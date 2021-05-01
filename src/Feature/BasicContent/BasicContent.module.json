@@ -1,6 +1,6 @@
 {
   "namespace": "Feature.BasicContent",
-  "references": [ "Foundation.Serialization" ],
+  "references": [ "Foundation.Serialization", "Foundation.RenderingParameters" ],
   "items": {
     "includes": [
       {
