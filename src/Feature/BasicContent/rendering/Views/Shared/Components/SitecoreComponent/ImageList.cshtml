@@ -1,15 +1,50 @@
-﻿@model ImageList
+﻿@using Blueprint.Foundation.SitecoreExtensions.Extensions
+@using Blueprint.Feature.BasicContent
+@model ImageList
 
-<div class="imageList">
-    <h1 asp-for="Headline"></h1>
-    <div class="row">
-        @foreach (var image in Model.Images)
-        {
-            <div class="col-md-3">
-                <div class="imageList__image">
+@{
+    var component = this.SitecoreComponent();
+    var context = this.SitecoreContext();
+    string renderingVariant = component.Parameters.GetRenderingParameterValue<string>(Constants.ImageList.RenderingVariants.Identifier, Constants.ImageList.RenderingVariants.Variants.List);
+}
+
+@if (context.IsEditing)
+{
+    @Html.Raw(string.Format("Rendering Variant: {0}",
+    renderingVariant == Constants.ImageList.RenderingVariants.Variants.List
+     ? "List"
+     : renderingVariant == Constants.ImageList.RenderingVariants.Variants.Slider
+       ? "Slider"
+       : "not set"))
+}
+
+@if (renderingVariant == Constants.ImageList.RenderingVariants.Variants.List || context.IsEditing)
+{
+    <div class="imageList">
+        <h1 asp-for="Headline"></h1>
+        <div class="row">
+            @foreach (var image in Model.Images)
+            {
+                <div class="col-md-3">
+                    <div class="imageList__image">
+                        @Html.Partial("/Views/Shared/Components/SitecoreComponent/Image.cshtml", image.Target)
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="imageSlider">
+        <h1 asp-for="Headline"></h1>
+        <div class="imageSlider__container">
+            @foreach (var image in Model.Images)
+            {
+                <div class="imageSlider_slide">
                     @Html.Partial("/Views/Shared/Components/SitecoreComponent/Image.cshtml", image.Target)
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
-</div>
+}

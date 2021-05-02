@@ -1,0 +1,23 @@
+﻿---
+ID: "75b2e53a-c08c-4e3e-8e18-6193e2a73535"
+Parent: "db46f5c3-6adf-4971-9085-5fb986a4580f"
+Template: "fd4f1481-62ba-4a57-9805-0eda83c12960"
+Path: /sitecore/content/Blueprint/Home/Test Pages/Image List Test/Data/Headline Slider
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210502T153631Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6551af0c-2898-430f-ad3a-0760a53f3d7c"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210502T153631Z

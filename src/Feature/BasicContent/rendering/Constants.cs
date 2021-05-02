@@ -14,7 +14,19 @@
                 }
             }
         }
-       
+
+        public struct ImageList
+        {
+            public struct RenderingVariants
+            {
+                public static string Identifier = "RenderingVariant";
+                public struct Variants
+                {
+                    public static string List = "{31DAD7F7-1DFE-42DF-B17F-255030F7EF88}";
+                    public static string Slider = "{2CB68D7A-9EDE-4FFA-BBEB-EBEED36353EE}";
+                }
+            }
+        }
 
         public struct Video
         {

@@ -1,0 +1,31 @@
+﻿---
+ID: "ceef141d-2c94-4f59-ba65-1d5aa0c0c89a"
+Parent: "db46f5c3-6adf-4971-9085-5fb986a4580f"
+Template: "fd4f1481-62ba-4a57-9805-0eda83c12960"
+Path: /sitecore/content/Blueprint/Home/Test Pages/Image List Test/Data/Text
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210501T153855Z
+    - ID: "34148288-057b-4371-8d8a-28c8435b266f"
+      Hint: RichText
+      Value: |
+        <h1>Text</h1>
+        <p><span style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl leo, malesuada eu elementum et, cursus at lorem. </span></p>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c84ac274-9da0-4075-a4ca-085c656e9889"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210501T154206Z

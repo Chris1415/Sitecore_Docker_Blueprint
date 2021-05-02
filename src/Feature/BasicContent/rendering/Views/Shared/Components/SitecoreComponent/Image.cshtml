@@ -5,10 +5,7 @@
 @{
     var component = this.SitecoreComponent();
     var context = this.SitecoreContext();
-}
-
-@{
-    string renderingVariant = component.Parameters.GetRenderingParameterValue<string>(Constants.Image.RenderingVariants.Identifier, Constants.Image.RenderingVariants.Variants.Image);
+string renderingVariant = component.Parameters.GetRenderingParameterValue<string>(Constants.Image.RenderingVariants.Identifier, Constants.Image.RenderingVariants.Variants.Image);
 }
 
 @if (renderingVariant == Constants.Image.RenderingVariants.Variants.Logo)

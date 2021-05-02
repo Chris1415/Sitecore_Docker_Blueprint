@@ -2,6 +2,7 @@
 
 .navigation {
     overflow: hidden;
+    margin-left: 10px;
 }
 
 .navigation ul {
@@ -43,6 +44,10 @@
     overflow: hidden;
 }
 
+.navigation__subnav:hover {
+    background-color: $linkBackgroundHoverColor;
+}
+
 .navigation__subnav__subnavbtn {
     font-size: 16px;
     border: none;
@@ -62,6 +67,7 @@
     width: 100%;
     z-index: 1;
     background-color: $headerBackgroundColor;
+    margin-left: 10px;
 }
 
 /* Style the subnav links */

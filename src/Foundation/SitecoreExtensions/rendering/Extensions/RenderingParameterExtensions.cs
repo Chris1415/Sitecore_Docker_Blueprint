@@ -14,6 +14,11 @@ namespace Blueprint.Foundation.SitecoreExtensions.Extensions
                 rawValue = string.Empty;
             }
 
+            if (string.IsNullOrEmpty(rawValue))
+            {
+                return (T)(object)defaultValue;
+            }
+
             switch (Type.GetTypeCode(typeof(T)))
             {
                 case TypeCode.Boolean:

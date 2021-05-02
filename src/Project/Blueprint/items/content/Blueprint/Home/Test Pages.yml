@@ -1,0 +1,26 @@
+﻿---
+ID: "55a82abd-b703-4d47-adb0-1a71fc4392fd"
+Parent: "94de9ac3-a9f7-40ab-ae90-acda364b9c40"
+Template: "8d2befb1-8277-4118-a4f2-62ee2cfbbd10"
+Path: /sitecore/content/Blueprint/Home/Test Pages
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210501T151657Z
+    - ID: "879df41a-c3c6-45ef-8c53-13a31f778694"
+      Hint: Page Title
+      Value: Test Pages
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9b5f246b-5097-4e7c-8992-32b40e5e1524"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210501T151657Z

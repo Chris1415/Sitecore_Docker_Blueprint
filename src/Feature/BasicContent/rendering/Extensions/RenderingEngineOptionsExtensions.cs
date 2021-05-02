@@ -14,7 +14,8 @@ namespace Blueprint.Feature.BasicContent.Extensions
                 .AddModelBoundView<HeroBanner>("Hero Banner")
                 .AddModelBoundView<ExternalVideo>("ExternalVideo")
                 .AddModelBoundView<Text>("Text")
-                .AddModelBoundView<ImageList>("ImageList");
+                .AddModelBoundView<ImageList>("ImageList")
+                .AddPartialView("Divider", "Divider");
             return options;
         }
     }

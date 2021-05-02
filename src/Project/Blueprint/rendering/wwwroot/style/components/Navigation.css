@@ -1,5 +1,6 @@
 .navigation {
-  overflow: hidden; }
+  overflow: hidden;
+  margin-left: 10px; }
 
 .navigation ul {
   list-style-type: none;
@@ -33,6 +34,9 @@
   float: left;
   overflow: hidden; }
 
+.navigation__subnav:hover {
+  background-color: #111; }
+
 .navigation__subnav__subnavbtn {
   font-size: 16px;
   border: none;
@@ -50,7 +54,8 @@
   left: 0;
   width: 100%;
   z-index: 1;
-  background-color: lightgray; }
+  background-color: lightgray;
+  margin-left: 10px; }
 
 /* Style the subnav links */
 .navigation__subnav__content a {
