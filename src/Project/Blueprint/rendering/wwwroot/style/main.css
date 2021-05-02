@@ -254,7 +254,13 @@ h1, h2 {
 .text__rte span {
   background-color: inherit !important; }
 
+.divider {
+  width: 100%; }
+
 hr {
+  width: 90%;
+  border-style: solid;
+  border-color: black;
   display: block;
   unicode-bidi: isolate;
   margin-block-start: 0.5em;
@@ -262,7 +268,6 @@ hr {
   margin-inline-start: auto;
   margin-inline-end: auto;
   overflow: hidden;
-  border-style: inset;
   border-width: 1px; }
 
 /*# sourceMappingURL=maps/main.css.map */
