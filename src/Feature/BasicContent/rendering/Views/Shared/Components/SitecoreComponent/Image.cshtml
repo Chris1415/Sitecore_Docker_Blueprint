@@ -5,7 +5,7 @@
 @{
     var component = this.SitecoreComponent();
     var context = this.SitecoreContext();
-string renderingVariant = component.Parameters.GetRenderingParameterValue<string>(Constants.Image.RenderingVariants.Identifier, Constants.Image.RenderingVariants.Variants.Image);
+    string renderingVariant = component.Parameters.GetRenderingParameterValue<string>(Constants.Image.RenderingVariants.Identifier, Constants.Image.RenderingVariants.Variants.Image);
 }
 
 @if (renderingVariant == Constants.Image.RenderingVariants.Variants.Logo)
@@ -22,13 +22,13 @@ else
     {
         <div class="image">
             <a asp-for="Link"></a>
-            <img class="img-fluid" asp-for="ImageField" />
+            <img class="img-fluid" asp-for="ImageField" image-params="new { mw = 255}" />
             <figcaption class="image__caption" asp-for="Caption"></figcaption>
         </div>
     }
     <div class="image">
         <a asp-for="Link">
-            <img class="img-fluid" asp-for="ImageField" />
+            <img class="img-fluid" asp-for="ImageField" image-params="new { mw = 255}" />
         </a>
         <figcaption class="image__caption" asp-for="Caption"></figcaption>
     </div>

@@ -111,6 +111,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Config\Include\Feature.BasicContent.config" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -126,7 +127,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Config\Include\" />
     <Folder Include="Controllers\" />
     <Folder Include="LayoutService\" />
     <Folder Include="Models\" />

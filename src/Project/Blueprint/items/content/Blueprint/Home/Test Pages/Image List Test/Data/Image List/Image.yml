@@ -17,10 +17,10 @@ Languages:
     - ID: "7941b542-18fc-4e29-8c3f-fed3c394b288"
       Hint: ImageField
       Value: |
-        <image mediaid="{21B30CD0-1A52-4D72-ABE1-3516CC48407B}" ></image>
+        <image mediaid="{2CFF92A5-F068-46E4-A584-7E0CC35A7DD4}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5888095a-e1b3-433b-9857-9ae213fe2fdf"
+      Value: "1fef1db1-32a0-410f-9684-b1fe29d4a325"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -30,7 +30,7 @@ Languages:
       Value: Blog
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210502T152419Z
+      Value: 20210831T100453Z
     - ID: "e6215fc7-7b65-4926-864b-b0d974d320d5"
       Hint: Link
       Value: |

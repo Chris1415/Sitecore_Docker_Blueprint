@@ -14,6 +14,9 @@ Languages:
     - ID: "41aff118-a0a7-43a5-84f2-ebf4c9b2643e"
       Hint: Navigation Title
       Value: Customer C
+    - ID: "879df41a-c3c6-45ef-8c53-13a31f778694"
+      Hint: Page Title
+      Value: Customer C
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "a051105e-6ce6-4b5f-b535-3d99d1f5263d"

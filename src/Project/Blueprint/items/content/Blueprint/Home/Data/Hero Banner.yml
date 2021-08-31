@@ -23,7 +23,7 @@ Languages:
         <p>This site is a playground to experiment with<a href="https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/101/Sitecore_Experience_Platform_101.aspx"> Sitecore 10.1</a> + <a href="https://doc.sitecore.com/developers/100/developer-tools/en/sitecore-headless-development-conceptual-overview.html">.NET Core Rendering Host</a></p>
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4861d73e-c318-4228-b482-ddd9c5a254af"
+      Value: "fa1c45eb-4202-4dda-a43f-4c017e96a03c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -31,10 +31,10 @@ Languages:
     - ID: "c927d4ae-a03b-411f-bf83-9a57de51c836"
       Hint: Image
       Value: |
-        <image mediaid="{F36DCCCF-CB54-4E79-B0EC-4E8753D4FCF1}" />
+        <image mediaid="{C9F219BC-E28E-4214-BA73-4FD227126DB5}" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210323T072150Z
+      Value: 20210831T100610Z
     - ID: "e0ef6d64-3c09-4bba-9df0-344e246c538b"
       Hint: TargetLink
       Value: |
